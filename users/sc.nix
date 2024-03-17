@@ -3,26 +3,24 @@
   pkgs,
   ...
 }: {
-  # imports = [
-  #   ../home.nix
-  # ];
-
-  imports = [
-    ../patches/discord-krisp.nix
-  ];
+  imports = [];
 
   home.username = "sc";
   home.homeDirectory = "/home/sc";
 
-  programs.discord = {
-    enable = true;
-    wrapDiscord = true;
-  };
+  # programs.discord = {
+  #   enable = true;
+  #   wrapDiscord = true;
+  # };
 
   home.packages = with pkgs; [
     spotify
     chatterino2
     streamlink
+    # (pkgs.discord.override {
+    #   withOpenASAR = true;
+    #   withVencord = true;
+    # })
   ];
 
   home.file = {
