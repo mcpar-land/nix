@@ -12,4 +12,4 @@ gc:
 	nix-env --delete-generations +10
 	nix-store --gc
 update:
-	nix flake update
+	# nix flake update
