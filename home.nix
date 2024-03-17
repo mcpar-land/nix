@@ -54,6 +54,7 @@
     obsidian
     vlc
     pinta
+    flameshot
     gnome.nautilus
     gnome.sushi
 
