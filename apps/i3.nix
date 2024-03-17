@@ -84,6 +84,8 @@ in {
       # apps
       "${mod}+t" = "exec alacritty";
       "${mod}+b" = "exec google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
+      # hmm https://github.com/flameshot-org/flameshot/issues/784
+      "Print" = "exec flameshot gui";
     };
     # bars = (import ./i3bars.nix) {
     #   pkgs = pkgs;
