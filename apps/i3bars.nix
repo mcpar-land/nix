@@ -10,11 +10,6 @@
   }: {
     position = "top";
     command = "i3bar";
-    fonts = {
-      names = ["Fira Sans" "FiraCode Nerd Font Mono"];
-      style = "Regular";
-      size = 11.0;
-    };
     statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${
       (pkgs.formats.toml {}).generate "i3status-rust.toml" {
         theme.overrides = {
@@ -34,7 +29,7 @@
           separator_bg = "auto";
           separator_fg = "auto";
         };
-        icons.icons = "awesome6";
+        icons.icons = "material-nf";
         block = blocks;
       }
     }";
@@ -42,6 +37,7 @@
       # helper function for workspace colors
       ws = bg: fg: "${bg.hex} ${bg.hex} ${fg.hex}";
     in ''
+      font pango:FiraCode Nerd Font Mono 14, Fira Sans 11
       padding 0px 0px 0px ${toString theme.gap}px
       output ${output}
       tray_output ${trayOutput}
