@@ -57,36 +57,45 @@ in {
       }
     ];
 
-    keybindings = lib.mkOptionDefault {
-      # "Super_L --release" = "exec ${pkgs.dmenu}/bin/dmenu_run";
-      "${mod}+space" = "exec pkill rofi || rofi -show drun -show-icons";
-      "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons";
+    keybindings =
+      lib.mkOptionDefault {
+        # "Super_L --release" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+        "${mod}+space" = "exec pkill rofi || rofi -show drun -show-icons";
+        "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons";
 
-      # window control
-      "${mod}+q" = "kill";
+        # window control
+        "${mod}+q" = "kill";
 
-      # focus
-      "${mod}+j" = "focus down";
-      "${mod}+k" = "focus up";
-      "${mod}+h" = "focus left";
-      "${mod}+l" = "focus right";
+        # focus
+        "${mod}+j" = "focus down";
+        "${mod}+k" = "focus up";
+        "${mod}+h" = "focus left";
+        "${mod}+l" = "focus right";
 
-      # move
-      "${mod}+Shift+j" = "move down";
-      "${mod}+Shift+k" = "move up";
-      "${mod}+Shift+h" = "move left";
-      "${mod}+Shift+l" = "move right";
+        # move
+        "${mod}+Shift+j" = "move down";
+        "${mod}+Shift+k" = "move up";
+        "${mod}+Shift+h" = "move left";
+        "${mod}+Shift+l" = "move right";
 
-      # move workspace
-      "${mod}+Shift+comma" = "move workspace to output left";
-      "${mod}+Shift+period" = "move workspace to output right";
+        # move workspace
+        "${mod}+Shift+comma" = "move workspace to output left";
+        "${mod}+Shift+period" = "move workspace to output right";
 
-      # apps
-      "${mod}+t" = "exec alacritty";
-      "${mod}+b" = "exec google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
-      # hmm https://github.com/flameshot-org/flameshot/issues/784
-      "Print" = "exec flameshot gui";
-    };
+        # apps
+        "${mod}+t" = "exec alacritty";
+        "${mod}+b" = "exec google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
+        # hmm https://github.com/flameshot-org/flameshot/issues/784
+        "Print" = "exec flameshot gui";
+
+        # turn of workspace 10
+        "${mod}+0" = "nop";
+        "${mod}+Shift+0" = "nop";
+      }
+      // (builtins.listToAttrs (map (v: {
+        name = "${mod}+${toString v}";
+        value = "workspace ${toString v}";
+      }) [1 2 3 4 5 6 7 8 9]));
     # bars = (import ./i3bars.nix) {
     #   pkgs = pkgs;
     #   gap = gap;

@@ -52,6 +52,22 @@
         indent.tab-width = 2;
         indent.unit = " ";
       }
+      {
+        name = "rust";
+        auto-format = true;
+        indent = {
+          tab-width = 2;
+          unit = "\t";
+        };
+      }
+      {
+        name = "go";
+        auto-format = true;
+        indent = {
+          tab-width = 2;
+          unit = "\t";
+        };
+      }
     ];
   };
   home.file."./.config/helix/themes/monokai_pro_custom.toml".source = (pkgs.formats.toml {}).generate "monokai_pro_custom" {
