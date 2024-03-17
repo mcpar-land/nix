@@ -105,6 +105,19 @@
     };
   };
 
+  # enable network applet in tray
+  systemd.user.services.nmapplet = {
+    Unit = {
+      Description = "Custom service for enabling the network applet";
+    };
+    Install = {
+      WantedBy = ["default.target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+    };
+  };
+
   home.file = {
     # "./.background-image" = {
     #   source = ./wallpapers/martinaise2.png;

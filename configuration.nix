@@ -6,7 +6,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    pkgs.vesktop
+    vesktop
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
