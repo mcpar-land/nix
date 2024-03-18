@@ -23,7 +23,7 @@
     "bar/primary" = {
       "inherit" = "bar/base";
       monitor = "";
-      modules-right = "tray";
+      modules-right = "battery tray";
     };
 
     "bar/secondary1" = {
@@ -42,6 +42,14 @@
       date = "%a %b %d";
       time = "%I:%M %p";
       label = "%time%  %date%";
+    };
+
+    "module/battery" = {
+      type = "internal/battery";
+      battery = "BAT0";
+      adapter = "AC";
+      low-at = 20;
+      full-at = 99;
     };
 
     "module/tray" = {
