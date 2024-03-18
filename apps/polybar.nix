@@ -4,6 +4,9 @@
   lib,
   ...
 }: {
+  systemd.user.services.polybar.Install.WantedBy = lib.mkForce ["graphical-session.target"];
+  systemd.user.services.polybar.Unit.After = lib.mkForce ["graphical-session.target" "tray.target"];
+  # systemd.user.services.polybar.Service.Type = lib.mkForce "simple";
   services.polybar.enable = true;
   services.polybar.package = pkgs.polybarFull;
   services.polybar.config = {

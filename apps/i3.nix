@@ -50,13 +50,9 @@ in {
 
     startup = [
       {
-        command = "feh --bg-scale ${../wallpapers/martinaise2.png}";
-      }
-      {
-        command = "steam -nofriendsui -silent";
-      }
-      {
-        command = "systemd --user restart polybar.service";
+        command = "sleep 1 && systemd --user restart polybar.service";
+        always = true;
+        notification = false;
       }
     ];
 

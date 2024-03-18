@@ -65,7 +65,6 @@
 
     font-awesome
     dconf
-    feh
   ];
 
   home.pointerCursor = {
@@ -106,17 +105,27 @@
     };
   };
 
+  systemd.user = {
+    startServices = "sd-switch";
+  };
+
   # enable network applet in tray
   systemd.user.services.nmapplet = {
     Unit = {
       Description = "Custom service for enabling the network applet";
     };
     Install = {
-      WantedBy = ["default.target"];
+      WantedBy = ["graphical-session.target"];
     };
     Service = {
       ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
     };
+  };
+  # wallpaper
+  systemd.user.services.wallpaper = {
+    Unit.Description = "Just uses feh to display the wallpaper";
+    Install.WantedBy = ["graphical-session.target"];
+    Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
   };
 
   home.file = {
