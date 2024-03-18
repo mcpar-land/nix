@@ -72,6 +72,11 @@
 
       label-focused-background = theme.blue.hex;
       label-focused-foreground = theme.base0.hex;
+
+      label-focused = "%name%";
+      label-unfocused = "%name%";
+      label-visible = "%name%";
+      label-urgent = "%name%";
     };
   };
   # for m in $(polybar --list-monitors | grep -v "primary" | cut -d":" -f1); do
