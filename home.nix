@@ -62,10 +62,19 @@
     # fonts
     fira
     fira-code-nerdfont
-
     font-awesome
+
     dconf
+    (betterlockscreen.override {withDunst = false;})
   ];
+
+  services.screen-locker = {
+    enable = true;
+    xautolock = {
+      enable = true;
+    };
+    lockCmd = "betterlockscreen -w ${./wallpapers/martinaise.png}";
+  };
 
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;
