@@ -2,9 +2,15 @@
   pkgs,
   lib,
   theme,
+  config,
   ...
 }: let
   mod = "Mod4";
+  sessionStart = pkgs.writeShellScript "i3-session" ''
+    set -eu
+    systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
+    systemctl --user start graphical-session-i3.target
+  '';
 in {
   home.packages = with pkgs; [
   ];
@@ -38,6 +44,14 @@ in {
     backend = "glx";
   };
 
+  systemd.user.targets.graphical-session-i3 = {
+    Unit = {
+      Description = "i3 X session";
+      BindsTo = ["graphical-session.target"];
+      Requisite = ["graphical-session.target"];
+    };
+  };
+
   xsession.windowManager.i3.enable = true;
   xsession.windowManager.i3.config = {
     modifier = mod;
@@ -50,10 +64,14 @@ in {
 
     startup = [
       {
-        command = "sleep 1 && systemd --user restart polybar.service";
-        always = true;
+        command = "${sessionStart}";
         notification = false;
       }
+      # {
+      #   command = "systemd --user restart polybar.service";
+      #   always = true;
+      #   notification = false;
+      # }
     ];
 
     keybindings =
