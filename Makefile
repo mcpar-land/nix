@@ -5,9 +5,10 @@ all: update
 	# delete old entries
 	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
 	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace
-	i3-msg reload
+	# i3-msg reload
 	i3-msg restart
 	systemctl --user restart picom.service
+	systemctl --user restart polybar.service
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

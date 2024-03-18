@@ -55,6 +55,9 @@ in {
       {
         command = "steam -nofriendsui -silent";
       }
+      {
+        command = "systemd --user restart polybar.service";
+      }
     ];
 
     keybindings =
@@ -100,5 +103,6 @@ in {
     #   pkgs = pkgs;
     #   gap = gap;
     # };
+    bars = [];
   };
 }
