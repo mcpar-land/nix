@@ -65,6 +65,7 @@
     font-awesome
 
     dconf
+    feh
     (betterlockscreen.override {withDunst = false;})
   ];
 
@@ -73,7 +74,7 @@
     xautolock = {
       enable = true;
     };
-    lockCmd = "betterlockscreen -w ${./wallpapers/martinaise.png}";
+    lockCmd = "betterlockscreen --lock";
   };
 
   home.pointerCursor = {
