@@ -53,6 +53,9 @@ in {
   };
 
   xsession.windowManager.i3.enable = true;
+  xsession.windowManager.i3.extraConfig = ''
+    exec --no-startup-id ${sessionStart}
+  '';
   xsession.windowManager.i3.config = {
     modifier = mod;
     terminal = "alacritty";
@@ -61,18 +64,6 @@ in {
     window.titlebar = false;
     window.border = 0;
     focus.followMouse = false;
-
-    startup = [
-      {
-        command = "${sessionStart}";
-        notification = false;
-      }
-      # {
-      #   command = "systemd --user restart polybar.service";
-      #   always = true;
-      #   notification = false;
-      # }
-    ];
 
     keybindings =
       lib.mkOptionDefault {
@@ -100,10 +91,10 @@ in {
         "${mod}+Shift+period" = "move workspace to output right";
 
         # apps
-        "${mod}+t" = "exec alacritty";
-        "${mod}+b" = "exec google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
+        "${mod}+t" = "exec --no-startup-id alacritty";
+        "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
-        "Print" = "exec flameshot gui";
+        "Print" = "exec --no-startup-id flameshot gui";
 
         # turn of workspace 10
         "${mod}+0" = "nop";

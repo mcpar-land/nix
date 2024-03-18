@@ -120,20 +120,16 @@
 
   # enable network applet in tray
   systemd.user.services.nmapplet = {
-    Unit = {
-      Description = "Custom service for enabling the network applet";
-    };
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-    Service = {
-      ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-    };
+    Unit.Description = "Custom service for enabling the network applet";
+    Unit.After = ["graphical-session-i3.target"];
+    Install.WantedBy = ["graphical-session-i3.target"];
+    Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
   };
   # wallpaper
   systemd.user.services.wallpaper = {
     Unit.Description = "Just uses feh to display the wallpaper";
-    Install.WantedBy = ["graphical-session.target"];
+    Unit.After = ["graphical-session-i3.target"];
+    Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
   };
 
