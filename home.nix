@@ -58,6 +58,8 @@
     flameshot
     gnome.nautilus
     gnome.sushi
+    dbeaver
+    bruno
 
     # fonts
     fira
@@ -68,6 +70,15 @@
     feh
     (betterlockscreen.override {withDunst = false;})
   ];
+
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   services.screen-locker = {
     enable = true;
@@ -94,18 +105,18 @@
       name = "Fira Sans";
       size = 11;
     };
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
-    };
-    theme = {
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["peach"];
-        size = "standard";
-        variant = "mocha";
-      };
-      name = "Catppuccin-Mocha-Standard-Peach-Dark";
-    };
+    # iconTheme = {
+    #   package = pkgs.papirus-icon-theme;
+    #   name = "Papirus-Dark";
+    # };
+    # theme = {
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = ["peach"];
+    #     size = "standard";
+    #     variant = "mocha";
+    #   };
+    #   name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    # };
   };
 
   dconf.enable = true;
