@@ -22,16 +22,19 @@
     zip
     xz
     unzip
-    ripgrep
+    ripgrep # https://github.com/BurntSushi/ripgrep
     gh
     git
     lshw
-    lazygit
+    lazygit # https://github.com/jesseduffield/lazygit
     gnumake
     tree
     imagemagick
     pkg-config
-    yt-dlp
+    yt-dlp # https://github.com/yt-dlp/yt-dlp
+    jq # https://jqlang.github.io/jq/
+    dasel # https://daseldocs.tomwright.me/
+    xsv # https://github.com/BurntSushi/xsv
 
     # languages
     rustup
