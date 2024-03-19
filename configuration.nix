@@ -7,6 +7,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     vesktop
+    ntfs3g
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
