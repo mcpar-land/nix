@@ -37,6 +37,7 @@
     rustup
     go
     nodejs_18
+    nodePackages."yarn"
     bun
     nil # nix lsp?
     alejandra # nix formatter
