@@ -60,6 +60,7 @@
     gnome.sushi
     dbeaver
     bruno
+    pavucontrol
 
     # fonts
     fira
