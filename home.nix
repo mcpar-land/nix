@@ -37,7 +37,6 @@
     rustup
     go
     nodejs_18
-    nodePackages."yarn"
     bun
     nil # nix lsp?
     alejandra # nix formatter
@@ -75,6 +74,7 @@
 
   home.sessionPath = [
     "$HOME/.cargo/bin"
+    "$HOME/.npm-packages/bin"
   ];
 
   programs.direnv = {
@@ -158,9 +158,12 @@
   };
 
   home.file = {
-    # "./.background-image" = {
-    #   source = ./wallpapers/martinaise2.png;
-    # };
+    "./.background-image" = {
+      source = ./wallpapers/martinaise2.png;
+    };
+    "./.npmrc".text = ''
+      prefix=~/.npm-packages
+    '';
   };
 
   home.sessionVariables = {
