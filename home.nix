@@ -39,6 +39,7 @@
     # languages
     rustup
     go
+    gopls # go language server
     nodejs_18
     bun
     nil # nix lsp?
