@@ -172,6 +172,7 @@
 
   home.sessionVariables = {
     EDITOR = "hx";
+    VISUAL = "hx";
     BROWSER = "google-chrome-stable";
     TERMINAL = "alacritty";
   };
