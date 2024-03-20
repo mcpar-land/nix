@@ -11,6 +11,10 @@
     systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
     systemctl --user start graphical-session-i3.target
   '';
+  openRofi = pkgs.writeShellScript "open-rofi" ''
+    pkill rofi
+    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi
+  '';
 in {
   home.packages = with pkgs; [
   ];
@@ -68,7 +72,7 @@ in {
     keybindings =
       lib.mkOptionDefault {
         # "Super_L --release" = "exec ${pkgs.dmenu}/bin/dmenu_run";
-        "${mod}+space" = "exec pkill rofi || rofi -show drun -show-icons";
+        "${mod}+space" = "exec sh ${openRofi}";
         "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons";
 
         # window control
