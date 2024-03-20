@@ -16,6 +16,7 @@
       radius = 0;
       background = theme.base0.hex;
       font-0 = "Fira Sans:size=11;2";
+      font-1 = "FiraCode Nerd Font Mono:size=11;2";
       modules-center = "date";
       modules-left = "i3";
     };
@@ -23,7 +24,7 @@
     "bar/primary" = {
       "inherit" = "bar/base";
       monitor = "";
-      modules-right = "battery tray";
+      modules-right = "battery volume tray";
     };
 
     "bar/secondary1" = {
@@ -50,6 +51,15 @@
       adapter = "AC";
       low-at = 20;
       full-at = 99;
+    };
+
+    "module/volume" = {
+      type = "custom/text";
+      label = "%{A1:pavucontrol:} 󱄠 %{A}";
+      label-foreground = theme.base8.hex;
+      label-font = 2;
+      label-padding = 1;
+      click-left = "pavucontrol";
     };
 
     "module/tray" = {
