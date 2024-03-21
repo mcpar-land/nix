@@ -21,6 +21,16 @@
     naturalScrolling = true;
   };
 
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   # ===== everything past this line was copied verbatim from /etc/nixos/configuration.nixos
 
   boot.loader.systemd-boot.enable = true;
