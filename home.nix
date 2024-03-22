@@ -35,6 +35,7 @@
     jq # https://jqlang.github.io/jq/
     dasel # https://daseldocs.tomwright.me/
     xsv # https://github.com/BurntSushi/xsv
+    jless # https://jless.io/
 
     # languages
     rustup
