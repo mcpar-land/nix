@@ -21,7 +21,7 @@
       };
       editor.lsp = {
         display-messages = true;
-        display-inlay-hints = true;
+        # display-inlay-hints = true;
       };
       editor.statusline = {
         left = [
