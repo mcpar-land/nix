@@ -7,6 +7,7 @@
         line-number = "relative";
         cursorline = true;
         bufferline = "always";
+        color-modes = true;
         cursor-shape.insert = "bar";
         cursor-shape.normal = "block";
         cursor-shape.select = "underline";
@@ -14,7 +15,31 @@
         indent-guides.character = "┊";
         indent-guides.skip-levels = 1;
         file-picker.hidden = false;
-        lsp.display-messages = true;
+        shell = ["zsh" "-c"];
+        scroll-lines = 6;
+        completion-trigger-len = 2;
+      };
+      editor.lsp = {
+        display-messages = true;
+        # display-inlay-hints = true;
+      };
+      editor.statusline = {
+        left = [
+          "mode"
+          "spinner"
+          "file-name"
+          "read-only-indicator"
+          "file-modification-indicator"
+        ];
+        right = [
+          "version-control"
+          "workspace-diagnostics"
+          "selections"
+          "register"
+          "position"
+          "file-encoding"
+          "file-line-ending"
+        ];
       };
       keys.normal = {
         # do vscode's ctrl + d behavior

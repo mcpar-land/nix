@@ -17,6 +17,7 @@
     shellAliases = {
       l = "ls -l";
       g = "lazygit";
+      n = "nnn -e";
     };
     history.size = 10000;
     plugins = [
