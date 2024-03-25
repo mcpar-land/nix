@@ -18,6 +18,7 @@
         shell = ["zsh" "-c"];
         scroll-lines = 6;
         completion-trigger-len = 2;
+        text-width = 80;
       };
       editor.lsp = {
         display-messages = true;
@@ -104,6 +105,12 @@
           tab-width = 2;
           unit = "\t";
         };
+      }
+      {
+        name = "markdown";
+        auto-format = true;
+        soft-wrap.enable = true;
+        soft-wrap.wrap-at-text-width = true;
       }
     ];
   };
