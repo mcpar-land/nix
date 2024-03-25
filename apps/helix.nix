@@ -70,6 +70,12 @@
           "paste_after"
         ];
       };
+      keys.normal.g = {
+        # go back and forward in history from the goto menu
+        # (default keybinds overlap with zellij)
+        "[" = "jump_backward";
+        "]" = "jump_forward";
+      };
       keys.select = {
         "C-d" = ["search_selection" "extend_search_next"];
       };
