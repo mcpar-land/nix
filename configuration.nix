@@ -31,12 +31,12 @@
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video"];
   };
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video"];
   };
 
   nixpkgs.config.allowUnfree = true;

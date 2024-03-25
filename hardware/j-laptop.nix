@@ -31,6 +31,25 @@
     pulse.enable = true;
   };
 
+  # brightness and volume controls on keyboard
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      # Fn
+      {
+        keys = [232];
+        events = ["key"];
+        command = "/run/current-system/sw/bin/light -A 30";
+      }
+      {
+        keys = [233];
+        events = ["key"];
+        command = "/run/current-system/sw/bin/light -U 30";
+      }
+    ];
+  };
+
   # ===== everything past this line was copied verbatim from /etc/nixos/configuration.nixos
 
   boot.loader.systemd-boot.enable = true;
