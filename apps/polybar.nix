@@ -19,10 +19,10 @@
       font-1 = "FiraCode Nerd Font Mono:size=11;2";
       modules-center = "date";
       modules-left = "i3";
-      border-color = "#00000000";
-      border-top-size = theme.gap;
-      border-left-size = theme.gap;
-      border-right-size = theme.gap;
+      # border-color = "#00000000";
+      # border-top-size = theme.gap;
+      # border-left-size = theme.gap;
+      # border-right-size = theme.gap;
     };
 
     "bar/primary" = {
