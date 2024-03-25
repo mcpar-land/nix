@@ -42,6 +42,12 @@
         ];
       };
       keys.normal = {
+        # i don't like the yank on delete behavior
+        "d" = ["delete_selection_noyank"];
+        # i also don't like yank on change
+        "c" = ["change_selection_noyank"];
+        # capital y is a cutting yank
+        "Y" = ["delete_selection"];
         # do vscode's ctrl + d behavior
         "C-d" = [
           "keep_primary_selection"
