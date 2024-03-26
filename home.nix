@@ -75,6 +75,7 @@
     dconf
     feh
     (betterlockscreen.override {withDunst = false;})
+    eww
   ];
 
   home.sessionPath = [
