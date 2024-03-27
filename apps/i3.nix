@@ -101,18 +101,19 @@ in {
         # hmm https://github.com/flameshot-org/flameshot/issues/784
         "Print" = "exec --no-startup-id flameshot gui";
 
-        # turn of workspace 10
+        # turn off workspace 10
         "${mod}+0" = "nop";
         "${mod}+Shift+0" = "nop";
+
+        #next and previous
+        "${mod}+bracketleft" = "workspace prev";
+        "${mod}+bracketright" = "workspace next";
+        "${mod}+Tab" = "workspace back_and_forth";
       }
       // (builtins.listToAttrs (map (v: {
         name = "${mod}+${toString v}";
         value = "workspace ${toString v}";
       }) [1 2 3 4 5 6 7 8 9]));
-    # bars = (import ./i3bars.nix) {
-    #   pkgs = pkgs;
-    #   gap = gap;
-    # };
     bars = [];
   };
 }
