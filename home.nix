@@ -36,6 +36,7 @@
     dasel # https://daseldocs.tomwright.me/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
+    duckdb
 
     # languages
     rustup
