@@ -32,8 +32,8 @@
     imagemagick
     pkg-config
     yt-dlp # https://github.com/yt-dlp/yt-dlp
+    visidata # https://www.visidata.org/man/
     jq # https://jqlang.github.io/jq/
-    dasel # https://daseldocs.tomwright.me/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
     duckdb
