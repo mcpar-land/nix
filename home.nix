@@ -33,6 +33,7 @@
     pkg-config
     yt-dlp # https://github.com/yt-dlp/yt-dlp
     visidata # https://www.visidata.org/man/
+    youplot # https://github.com/red-data-tools/YouPlot
     jq # https://jqlang.github.io/jq/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
