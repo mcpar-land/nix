@@ -12,7 +12,19 @@
 
   environment.systemPackages = with pkgs; [
     headsetcontrol # for steelseries headset
+    gparted
   ];
+
+  fileSystems."/mnt/attic" = {
+    device = "/dev/disk/by-uuid/DE6ABA5E6ABA335F";
+    options = ["nofail" "x-systemd.automount"];
+    # options = ["nofail" "x-systemd.automount"];
+  };
+
+  fileSystems."/mnt/win" = {
+    device = "/dev/disk/by-uuid/5EF8D425F8D3F96B";
+    options = ["nofail" "x-systemd.automount"];
+  };
 
   boot.kernelParams = [
     "amdgpu.gpu_recovery=1"
