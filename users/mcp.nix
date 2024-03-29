@@ -13,6 +13,7 @@
     # terminal apps
     sops
     awscli
+    mysql80
 
     # gui apps
     slack
