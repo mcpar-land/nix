@@ -113,6 +113,16 @@
         soft-wrap.wrap-at-text-width = true;
       }
     ];
+    languages.grammar = [
+      # https://github.com/gleam-lang/tree-sitter-gleam/issues/79
+      {
+        name = "gleam";
+        source = {
+          git = "https://github.com/gleam-lang/tree-sitter-gleam";
+          rev = "bcf9c45b56cbe46e9dac5eee0aee75df270000ac";
+        };
+      }
+    ];
   };
   home.file."./.config/helix/themes/monokai_pro_custom.toml".source = (pkgs.formats.toml {}).generate "monokai_pro_custom" {
     inherits = "monokai_pro";

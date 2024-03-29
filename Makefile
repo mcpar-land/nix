@@ -18,3 +18,6 @@ wallpaper:
 	betterlockscreen -u ./wallpapers/martinaise.png
 update:
 	# nix flake update
+grammar:
+	- hx --grammar fetch
+	hx --grammar build
