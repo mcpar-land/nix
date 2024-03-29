@@ -19,7 +19,6 @@
 
   home.packages = with pkgs; [
     # terminal apps
-    nnn
     zip
     xz
     unzip
@@ -79,6 +78,11 @@
     feh
     (betterlockscreen.override {withDunst = false;})
   ];
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   home.sessionPath = [
     "$HOME/.cargo/bin"
