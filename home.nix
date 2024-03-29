@@ -69,6 +69,7 @@
     dbeaver
     bruno
     pavucontrol
+    qdirstat
 
     # fonts
     fira
