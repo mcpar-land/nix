@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./apps/alacritty.nix
+    ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
     # ./apps/i3bars.nix
@@ -23,10 +24,7 @@
     xz
     unzip
     ripgrep # https://github.com/BurntSushi/ripgrep
-    gh
-    git
     lshw
-    lazygit # https://github.com/jesseduffield/lazygit
     gnumake
     tree
     imagemagick
