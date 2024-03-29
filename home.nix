@@ -52,6 +52,7 @@
     gleam
     erlang
     rebar3
+    marksman # markdown lsp
 
     # gui apps
     firefox
