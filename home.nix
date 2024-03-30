@@ -35,6 +35,7 @@
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
     duckdb
+    pandoc
 
     # languages
     rustup
