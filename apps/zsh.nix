@@ -17,7 +17,7 @@
     shellAliases = {
       l = "ls -l";
       g = "lazygit";
-      n = "nnn -e";
+      y = "yazi";
     };
     history.size = 10000;
     plugins = [
@@ -32,5 +32,15 @@
         file = "p10k.zsh";
       }
     ];
+    initExtra = ''
+      function yy() {
+      	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+      	yazi "$@" --cwd-file="$tmp"
+      	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      		cd $cwd
+      	fi
+      	rm -f -- "$tmp"
+      }
+    '';
   };
 }

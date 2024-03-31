@@ -1,6 +1,6 @@
 HOST=$(shell hostname)
 
-all: update
+all:
 	@echo slammin it now!!! $(HOST)
 	# delete old entries
 	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
@@ -9,6 +9,7 @@ all: update
 	i3-msg restart
 	systemctl --user restart picom.service
 	systemctl --user restart polybar.service
+	systemctl --user restart udiskie.service
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc
@@ -17,4 +18,7 @@ wallpaper:
 	# to take a path like it should.
 	betterlockscreen -u ./wallpapers/martinaise.png
 update:
-	# nix flake update
+	nix flake update
+grammar:
+	- hx --grammar fetch
+	hx --grammar build

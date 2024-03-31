@@ -7,6 +7,8 @@
 }: {
   imports = [
     ./apps/alacritty.nix
+    ./apps/dunst.nix
+    ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
     # ./apps/i3bars.nix
@@ -18,24 +20,23 @@
 
   home.packages = with pkgs; [
     # terminal apps
-    nnn
     zip
     xz
     unzip
     ripgrep # https://github.com/BurntSushi/ripgrep
-    gh
-    git
     lshw
-    lazygit # https://github.com/jesseduffield/lazygit
     gnumake
     tree
     imagemagick
     pkg-config
     yt-dlp # https://github.com/yt-dlp/yt-dlp
+    visidata # https://www.visidata.org/man/
+    youplot # https://github.com/red-data-tools/YouPlot
     jq # https://jqlang.github.io/jq/
-    dasel # https://daseldocs.tomwright.me/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
+    duckdb
+    pandoc
 
     # languages
     rustup
@@ -43,12 +44,14 @@
     gopls # go language server
     nodejs_18
     bun
+    vscode-langservers-extracted
     nil # nix lsp?
     alejandra # nix formatter
     gcc
     gleam
     erlang
     rebar3
+    marksman # markdown lsp
 
     # gui apps
     firefox
@@ -66,6 +69,7 @@
     dbeaver
     bruno
     pavucontrol
+    qdirstat
 
     # fonts
     fira
@@ -77,6 +81,11 @@
     (betterlockscreen.override {withDunst = false;})
     eww
   ];
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   home.sessionPath = [
     "$HOME/.cargo/bin"
@@ -161,6 +170,13 @@
     Unit.After = ["graphical-session-i3.target"];
     Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
+  };
+  # automatically mount disks
+  systemd.user.services.udiskie = {
+    Unit.Description = "Udiskie uses udisks2 to automount inserted media";
+    Install.WantedBy = ["multi-user.target"];
+    Serivce.Type = "simple";
+    Service.ExecStart = "${pkgs.udiskie}/bin/udiskie";
   };
 
   home.file = {

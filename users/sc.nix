@@ -8,20 +8,22 @@
   home.username = "sc";
   home.homeDirectory = "/home/sc";
 
-  # programs.discord = {
-  #   enable = true;
-  #   wrapDiscord = true;
-  # };
-
   home.packages = with pkgs; [
     spotify
     chatterino2
     streamlink
-    # (pkgs.discord.override {
-    #   withOpenASAR = true;
-    #   withVencord = true;
-    # })
+    path-of-building
   ];
+
+  xdg.desktopEntries = {
+    pathofbuilding = {
+      name = "Path of Building";
+      genericName = "Build Planner";
+      exec = "pobfrontend";
+      terminal = false;
+      categories = ["Game" "Utility"];
+    };
+  };
 
   home.file = {
     # automatically launch steam on login

@@ -27,5 +27,9 @@ in rec {
   base7 = color "#c1c0c0";
   base8 = color "#fcfcfa";
 
+  white = color "#ffffff";
+  black = color "#000000";
+
   gap = 8;
+  barHeight = gap * 4;
 }
