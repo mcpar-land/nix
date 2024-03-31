@@ -1,10 +1,99 @@
-(defwindow powermenu
+(defwindow topbar
   :monitor 0
   :stacking "fg"
   :windowtype "dock"
   :wm-ignore true
   :geometry (geometry :width "100%" :height "20px")
-  (powermenu_layout))
+  (topbar))
 
-(defwidget powermenu_layout []
-  (label :text "Hello, World!"))
+(defwidget topbar []
+  (centerbox :orientation "h"
+    (workspaces
+      :active-workspace active-workspace
+      :urgent-workspace urgent-workspace
+      :focused-workspace focused-workspace)
+    (label :text "Hello, world!")
+    (label :text "I'm ovah heah!")
+  ))
+
+(deflisten active-workspace `$HOME/.config/ewwscripts/getactivews`)
+(deflisten urgent-workspace `$HOME/.config/ewwscripts/geturgentws`)
+(deflisten focused-workspace :initial "1" `$HOME/.config/ewwscripts/getfocusedws`)
+
+(defwidget workspaces [active-workspace focused-workspace urgent-workspace]
+  (box
+    :class "workspaces"
+    :orientation "h"
+    :space-evenly true
+    :halign "start"
+    
+    (button :class {
+      arraylength(search(focused-workspace, "1")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "1")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "1")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 1" 1)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "2")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "2")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "2")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 2" 2)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "3")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "3")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "3")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 3" 3)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "4")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "4")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "4")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 4" 4)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "5")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "5")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "5")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 5" 5)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "6")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "6")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "6")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 6" 6)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "7")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "7")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "7")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 7" 7)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "8")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "8")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "8")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 8" 8)
+    
+    (button :class {
+      arraylength(search(focused-workspace, "9")) > 0 ? "focused-workspace" :
+      arraylength(search(urgent-workspace, "9")) > 0 ? "urgent-workspace" :
+      arraylength(search(active-workspace, "9")) > 0 ? "active-workspace" :
+      "regular"
+    } :onclick "i3-msg workspace 9" 9)
+    
+  )
+)
+
+(defpoll time
+  :interval "5s"
+  :initial `date +'{"hour":"%H", "min":"%M"}'`
+  `date +'{"hour":"%H", "min":"%M"}'`)

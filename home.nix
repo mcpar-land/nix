@@ -8,6 +8,7 @@
   imports = [
     ./apps/alacritty.nix
     ./apps/dunst.nix
+    ./apps/eww.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
@@ -79,7 +80,6 @@
     dconf
     feh
     (betterlockscreen.override {withDunst = false;})
-    eww
   ];
 
   programs.yazi = {
