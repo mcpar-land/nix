@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./apps/alacritty.nix
+    ./apps/dunst.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
@@ -168,6 +169,13 @@
     Unit.After = ["graphical-session-i3.target"];
     Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
+  };
+  # automatically mount disks
+  systemd.user.services.udiskie = {
+    Unit.Description = "Udiskie uses udisks2 to automount inserted media";
+    Install.WantedBy = ["multi-user.target"];
+    Serivce.Type = "simple";
+    Service.ExecStart = "${pkgs.udiskie}/bin/udiskie";
   };
 
   home.file = {

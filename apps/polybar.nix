@@ -12,7 +12,7 @@
   services.polybar.config = {
     "bar/base" = {
       width = "100%";
-      height = "3%";
+      height = "${toString theme.barHeight}px";
       radius = 0;
       background = theme.base0.hex;
       font-0 = "Fira Sans:size=11;2";

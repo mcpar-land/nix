@@ -9,6 +9,7 @@ all:
 	i3-msg restart
 	systemctl --user restart picom.service
 	systemctl --user restart polybar.service
+	systemctl --user restart udiskie.service
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

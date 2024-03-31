@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     vesktop
     ntfs3g
+    udiskie
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -85,6 +86,15 @@
       greeter.enable = true;
     };
     displayManager.autoLogin.enable = false;
+  };
+
+  services.udisks2.enable = true;
+  services.udev = {
+    enable = true;
+    extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_in.wav}"
+      ACTION=="remove", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_out.wav}"
+    '';
   };
 
   # pipewire and wireplumber are for screen sharing
