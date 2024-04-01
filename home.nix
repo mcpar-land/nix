@@ -52,6 +52,9 @@
     erlang
     rebar3
     marksman # markdown lsp
+    stack # haskell package manager
+    haskell-language-server
+    ormolu # haskell formatter
 
     # gui apps
     firefox
