@@ -78,6 +78,9 @@ in {
         # window control
         "${mod}+q" = "kill";
 
+        # notification control
+        "${mod}+n" = "exec --no-startup-id dunstctl action";
+
         # focus
         "${mod}+j" = "focus down";
         "${mod}+k" = "focus up";
