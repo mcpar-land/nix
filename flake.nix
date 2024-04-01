@@ -5,19 +5,33 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # I like installing rust from the same source as helix
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix";
+    helix.inputs.rust-overlay.follows = "rust-overlay";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    rust-overlay,
     helix,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
     # shared system config across all devices
     sharedSystemConfig = [
+      ({pkgs, ...}: {
+        nixpkgs.overlays = [rust-overlay.overlays.default];
+        environment.systemPackages = [
+          (pkgs.rust-bin.stable.latest.default.override {
+            extensions = ["rust-analyzer" "clippy"];
+          })
+        ];
+      })
       home-manager.nixosModules.home-manager
       ./configuration.nix
       {

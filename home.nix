@@ -39,7 +39,7 @@
     pandoc
 
     # languages
-    rustup
+    # rustup
     go
     gopls # go language server
     nodejs_18
