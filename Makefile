@@ -19,6 +19,8 @@ wallpaper:
 	betterlockscreen -u ./wallpapers/martinaise.png
 update:
 	nix flake update
-grammar:
-	- hx --grammar fetch
-	hx --grammar build
+# i enabled this to maybe fix the incorrect gleam grammar but it didn't work.
+# also this creates a 1.1GB folder in ~/.config/helix/runtime so i don't want to do it
+# grammar:
+# 	- hx --grammar fetch
+# 	hx --grammar build
