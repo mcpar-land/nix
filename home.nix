@@ -21,7 +21,8 @@
   home.packages = with pkgs; [
     # terminal apps
     zip
-    xz
+    # response to the xz 5.6.1 backdoor, im using xz stable instead
+    stable.xz
     unzip
     ripgrep # https://github.com/BurntSushi/ripgrep
     lshw
