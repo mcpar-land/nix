@@ -13,6 +13,7 @@
     # terminal apps
     sops
     awscli
+    aws-vault
     mysql80
 
     # gui apps

@@ -10,6 +10,8 @@
     set -eu
     systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
     systemctl --user start graphical-session-i3.target
+    # needed to activate the keyring
+    dbus-update-activation-environment --all
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi

@@ -190,6 +190,10 @@
     '';
   };
 
+  services.gnome-keyring = {
+    enable = true;
+  };
+
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
