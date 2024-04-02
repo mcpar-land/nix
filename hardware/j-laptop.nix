@@ -50,6 +50,11 @@
     ];
   };
 
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "breeze";
+  boot.kernelParams = ["quiet"];
+
   # ===== everything past this line was copied verbatim from /etc/nixos/configuration.nixos
 
   boot.loader.systemd-boot.enable = true;
