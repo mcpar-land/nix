@@ -32,6 +32,8 @@
   # noisetorch requires special capabilities and must be installed globally
   programs.noisetorch.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
