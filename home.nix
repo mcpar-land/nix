@@ -190,6 +190,7 @@
     '';
   };
 
+  # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
   services.gnome-keyring = {
     enable = true;
   };

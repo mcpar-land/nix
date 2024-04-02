@@ -11,6 +11,7 @@
     systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
     systemctl --user start graphical-session-i3.target
     # needed to activate the keyring
+    # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
