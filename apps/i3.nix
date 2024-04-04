@@ -16,7 +16,7 @@
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
-    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi
+    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi -display-drun "" -display-combi ""
   '';
 in {
   home.packages = with pkgs; [
