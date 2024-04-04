@@ -74,6 +74,7 @@
     bruno
     pavucontrol
     qdirstat
+    diffuse
 
     # fonts
     fira
