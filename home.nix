@@ -39,7 +39,6 @@
     duckdb
     pandoc
     ffmpeg
-    pinentry-rofi
 
     # languages
     # rustup
@@ -89,6 +88,9 @@
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
+    extraConfig = ''
+      pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
+    '';
   };
   programs.firefox = {
     enable = true;
