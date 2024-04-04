@@ -20,7 +20,7 @@
       };
       "window" = {
         location = mkLiteral "center";
-        width = mkLiteral "480";
+        width = mkLiteral "750";
         background-color = mkLiteral (theme.base0.hexTransparent 0.5);
       };
       "mainbox" = {
@@ -54,8 +54,8 @@
       "listview" = {
         background-color = mkLiteral "transparent";
         margin = mkLiteral "12px 0 0";
-        lines = mkLiteral "8";
-        columns = mkLiteral "1";
+        lines = mkLiteral "16";
+        columns = mkLiteral "2";
         fixed-height = mkLiteral "false";
       };
       "element" = {
@@ -65,15 +65,15 @@
       };
       "element normal.active" = {
         text-color = mkLiteral theme.base3.hex;
-        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
+        background-color = mkLiteral theme.blue.hex;
       };
       "element selected.normal" = {
         text-color = mkLiteral theme.base0.hex;
-        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
+        background-color = mkLiteral theme.blue.hex;
       };
       "element selected.active" = {
         text-color = mkLiteral theme.base0.hex;
-        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
+        background-color = mkLiteral theme.blue.hex;
       };
       "element-icon" = {
         size = mkLiteral "1em";
