@@ -38,6 +38,7 @@
     jless # https://jless.io/
     duckdb
     pandoc
+    ffmpeg
 
     # languages
     # rustup
