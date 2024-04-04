@@ -12,7 +12,6 @@
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
-    # ./apps/i3bars.nix
     ./apps/polybar.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
