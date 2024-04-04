@@ -25,6 +25,17 @@
     };
   };
 
+  programs.firefox.profiles."sc" = {
+    name = "SC";
+    id = 0;
+    isDefault = true;
+  };
+
+  programs.firefox.profiles."m" = {
+    name = "M";
+    id = 1;
+  };
+
   home.file = {
     # automatically launch steam on login
     ".config/autostart/steam.desktop".source = ../configs/sc/autostart/steam.desktop;

@@ -58,7 +58,6 @@
     ormolu # haskell formatter
 
     # gui apps
-    firefox
     google-chrome
     vscode
     alacritty
@@ -84,6 +83,10 @@
     feh
     (betterlockscreen.override {withDunst = false;})
   ];
+
+  programs.firefox = {
+    enable = true;
+  };
 
   programs.yazi = {
     enable = true;
