@@ -115,6 +115,8 @@ in {
         "${mod}+bracketleft" = "workspace prev";
         "${mod}+bracketright" = "workspace next";
         "${mod}+Tab" = "workspace back_and_forth";
+
+        "Control+Mod1+Delete" = "exec alacritty -e btop";
       }
       // (builtins.listToAttrs (map (v: {
         name = "${mod}+${toString v}";

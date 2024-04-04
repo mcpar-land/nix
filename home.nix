@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./apps/alacritty.nix
+    ./apps/btop.nix
     ./apps/dunst.nix
     ./apps/git.nix
     ./apps/helix.nix
