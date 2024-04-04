@@ -21,13 +21,13 @@
       "window" = {
         location = mkLiteral "center";
         width = mkLiteral "480";
-        background-color = mkLiteral theme.base0.hex;
+        background-color = mkLiteral (theme.base0.hexTransparent 0.5);
       };
       "mainbox" = {
         padding = mkLiteral "12px";
       };
       "inputbar" = {
-        background-color = mkLiteral theme.base1.hex;
+        background-color = mkLiteral (theme.base1.hexTransparent 0.5);
         border-color = mkLiteral theme.base3.hex;
         border = mkLiteral "1px";
         border-radius = mkLiteral "8px";
@@ -59,19 +59,21 @@
         fixed-height = mkLiteral "false";
       };
       "element" = {
-        padding = mkLiteral "8px 16px";
-        spacing = mkLiteral "8px";
-        border-radius = mkLiteral "16px";
+        padding = mkLiteral "${toString theme.gap}px ${toString (theme.gap * 2)}px";
+        spacing = mkLiteral "${toString theme.gap}px";
+        border-radius = mkLiteral "${toString theme.gap}px";
       };
       "element normal.active" = {
         text-color = mkLiteral theme.base3.hex;
-        background-color = mkLiteral theme.blue.hex;
+        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
       };
-      "selement selected.normal" = {
-        background-color = mkLiteral theme.blue.hex;
+      "element selected.normal" = {
+        text-color = mkLiteral theme.base0.hex;
+        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
       };
-      "selement selected.active" = {
-        background-color = mkLiteral theme.blue.hex;
+      "element selected.active" = {
+        text-color = mkLiteral theme.base0.hex;
+        background-color = mkLiteral (theme.blue.hexTransparent 0.5);
       };
       "element-icon" = {
         size = mkLiteral "1em";
