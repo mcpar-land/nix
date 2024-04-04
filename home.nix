@@ -70,16 +70,12 @@
     flameshot
     gnome.nautilus
     gnome.sushi
+    gnome.gnome-font-viewer
     dbeaver
     bruno
     pavucontrol
     qdirstat
     diffuse
-
-    # fonts
-    fira
-    fira-code-nerdfont
-    font-awesome
 
     dconf
     feh

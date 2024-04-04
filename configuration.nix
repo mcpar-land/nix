@@ -11,6 +11,13 @@
     udiskie
   ];
 
+  fonts.packages = with pkgs; [
+    corefonts
+    fira
+    fira-code-nerdfont
+    font-awesome
+  ];
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # programs.hyprland.enable = true;
