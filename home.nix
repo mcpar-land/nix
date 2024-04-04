@@ -39,6 +39,7 @@
     duckdb
     pandoc
     ffmpeg
+    pinentry-rofi
 
     # languages
     # rustup
@@ -82,6 +83,13 @@
     (betterlockscreen.override {withDunst = false;})
   ];
 
+  programs.gpg = {
+    enable = true;
+  };
+  services.gpg-agent = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.firefox = {
     enable = true;
   };
