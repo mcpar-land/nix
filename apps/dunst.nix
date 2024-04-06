@@ -25,11 +25,16 @@
         separator_height = 1;
         corner_radius = theme.gap;
         icon_corner_radius = theme.gap;
-        background = theme.base0.hexTransparent 0.125;
+        background = theme.base0.hexTransparent 0.75;
         foreground = theme.base8.hexTransparent 0.75;
         frame_color = theme.base6.hexTransparent 0.125;
         separator_color = theme.base6.hexTransparent 0.125;
         ellipsize = "end";
+        fullscreen = "pushback";
+        ignore_newline = true;
+        mouse_left_click = "do_action";
+        mouse_right_click = "close_all";
+        mouse_middle_click = "context";
         dmenu = "${pkgs.rofi}/bin/rofi -dmenu -p dunst";
       };
     };

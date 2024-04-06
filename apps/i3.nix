@@ -82,7 +82,8 @@ in {
         "${mod}+q" = "kill";
 
         # notification control
-        "${mod}+n" = "exec --no-startup-id dunstctl action";
+        "${mod}+n" = "exec --no-startup-id dunstctl context";
+        "${mod}+Shift+n" = "exec --no-startup-id dunstctl history-pop";
 
         # focus
         "${mod}+j" = "focus down";
