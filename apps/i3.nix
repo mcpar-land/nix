@@ -68,6 +68,7 @@ in {
     terminal = "alacritty";
     gaps.inner = theme.gap;
     gaps.outer = 0;
+    gaps.top = theme.barHeight;
     window.titlebar = false;
     window.border = 0;
     focus.followMouse = false;

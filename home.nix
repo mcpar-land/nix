@@ -13,7 +13,6 @@
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
-    ./apps/polybar.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
@@ -208,6 +207,7 @@
     VISUAL = "hx";
     BROWSER = "google-chrome-stable";
     TERMINAL = "alacritty";
+    NIX_THEME = theme.asJson;
   };
 
   home.stateVersion = "23.11";

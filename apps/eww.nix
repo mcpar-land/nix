@@ -7,39 +7,62 @@
   home.packages = with pkgs; [
     jq
     eww
+    wmctrl
   ];
 
   home.file = {
-    "./.config/eww" = {
-      source = ../eww;
-    };
+    "./.config/eww/theme.scss".text = ''
+      $red: ${theme.red.hex};
+      $orange: ${theme.orange.hex};
+      $yellow: ${theme.yellow.hex};
+      $green: ${theme.green.hex};
+      $blue: ${theme.blue.hex};
+      $magenta: ${theme.magenta.hex};
+      $cyan: ${theme.cyan.hex};
+      $base0: ${theme.base0.hex};
+      $base1: ${theme.base1.hex};
+      $base2: ${theme.base2.hex};
+      $base3: ${theme.base3.hex};
+      $base4: ${theme.base4.hex};
+      $base5: ${theme.base5.hex};
+      $base6: ${theme.base6.hex};
+      $base7: ${theme.base7.hex};
+      $base8: ${theme.base8.hex};
+
+      $white: ${theme.white.hex};
+      $black: ${theme.black.hex};
+
+      $gap: ${toString theme.gap};
+      $barHeight: ${toString theme.barHeight};
+    '';
+    "./.config/eww/eww.yuck".source = ../eww/eww.yuck;
+    "./.config/eww/eww.scss".source = ../eww/eww.scss;
+
     # https://github.com/xruifan/i3-eww/tree/master/scripts
-    "./.config/ewwscripts/getactivews".text = ''
-      #!/bin/sh
-      i3-msg -t subscribe -m '{"type":"workspace"}' |
-      while read -r _; do
-        workspaces_info=$(i3-msg -t get_workspaces)
-        active_workspaces=$(echo "$workspaces_info" | ${pkgs.jq}/bin/jq --unbuffered -r '[.[] | .name] | join(" ")')
-        echo "$active_workspaces"
-      done
-    '';
-    "./.config/ewwscripts/getfocusedws".text = ''
-      #!/bin/sh
-      i3-msg -t subscribe -m '{"type":"workspace"}' |
-      while read -r _; do
-        workspaces_info=$(i3-msg -t get_workspaces)
-        focused_workspaces=$(echo "$workspaces_info" | ${pkgs.jq}/bin/jq --unbuffered -r '.[] | select(.focused == true).name')
-        echo "$focused_workspaces"
-      done
-    '';
-    "./.config/ewwscripts/geturgentws".text = ''
-      #!/bin/sh
-      i3-msg -t subscribe -m '{"type":"workspace"}' |
-      while read -r _; do
-        workspaces_info=$(i3-msg -t get_workspaces)
-        urgent_workspace=$(echo "$workspaces_info" | ${pkgs.jq}/bin/jq --unbuffered -r '.[] | select(.urgent == true).name')
-        echo "$urgent_workspace"
-      done
-    '';
+    "./.config/ewwscripts/getworkspaces" = {
+      text = ''
+        #!/bin/sh
+        export SELECTED_DISPLAY=$1
+        i3-msg -t subscribe -m '{"type":"workspace"}' |
+        while read -r _; do
+          i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -Mc --unbuffered '[ .[] | select(.output == env.SELECTED_DISPLAY) ]'
+        done
+      '';
+      executable = true;
+    };
+    # "./.config/ewwscripts/getfocusedws".text = ''
+    #   #!/bin/sh
+    #   i3-msg -t subscribe -m '{"type":"workspace"}' |
+    #   while read -r _; do
+    #     echo i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -r ".[] | select(.output == \"$1\" && .focused == true).name"
+    #   done
+    # '';
+    # "./.config/ewwscripts/geturgentws".text = ''
+    #   #!/bin/sh
+    #   i3-msg -t subscribe -m '{"type":"workspace"}' |
+    #   while read -r _; do
+    #     echo i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -r ".[] | select(.output == \"$1\" && .urgent == true).name"
+    #   done
+    # '';
   };
 }
