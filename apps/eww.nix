@@ -11,30 +11,33 @@
   ];
 
   home.file = {
-    "./.config/eww/theme.scss".text = ''
-      $red: ${theme.red.hex};
-      $orange: ${theme.orange.hex};
-      $yellow: ${theme.yellow.hex};
-      $green: ${theme.green.hex};
-      $blue: ${theme.blue.hex};
-      $magenta: ${theme.magenta.hex};
-      $cyan: ${theme.cyan.hex};
-      $base0: ${theme.base0.hex};
-      $base1: ${theme.base1.hex};
-      $base2: ${theme.base2.hex};
-      $base3: ${theme.base3.hex};
-      $base4: ${theme.base4.hex};
-      $base5: ${theme.base5.hex};
-      $base6: ${theme.base6.hex};
-      $base7: ${theme.base7.hex};
-      $base8: ${theme.base8.hex};
+    "./.config/eww/theme.scss" = {
+      text = ''
+        $red: ${theme.red.hex};
+        $orange: ${theme.orange.hex};
+        $yellow: ${theme.yellow.hex};
+        $green: ${theme.green.hex};
+        $blue: ${theme.blue.hex};
+        $magenta: ${theme.magenta.hex};
+        $cyan: ${theme.cyan.hex};
+        $base0: ${theme.base0.hex};
+        $base1: ${theme.base1.hex};
+        $base2: ${theme.base2.hex};
+        $base3: ${theme.base3.hex};
+        $base4: ${theme.base4.hex};
+        $base5: ${theme.base5.hex};
+        $base6: ${theme.base6.hex};
+        $base7: ${theme.base7.hex};
+        $base8: ${theme.base8.hex};
 
-      $white: ${theme.white.hex};
-      $black: ${theme.black.hex};
+        $white: ${theme.white.hex};
+        $black: ${theme.black.hex};
 
-      $gap: ${toString theme.gap};
-      $barHeight: ${toString theme.barHeight};
-    '';
+        $gap: ${toString theme.gap};
+        $barHeight: ${toString theme.barHeight};
+      '';
+      target = ".config/eww/theme.scss";
+    };
     "./.config/eww/eww.yuck".source = ../eww/eww.yuck;
     "./.config/eww/eww.scss".source = ../eww/eww.scss;
 
