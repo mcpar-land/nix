@@ -15,7 +15,7 @@
     settings = {
       global = {
         width = 400;
-        height = 700;
+        height = 100;
         offset = "${toString (theme.gap * 2)}x${toString (theme.barHeight + theme.gap * 2)}";
         origin = "top-right";
         # we only want the background to be transparent
@@ -29,6 +29,7 @@
         foreground = theme.base8.hexTransparent 0.75;
         frame_color = theme.base6.hexTransparent 0.125;
         separator_color = theme.base6.hexTransparent 0.125;
+        ellipsize = "end";
         dmenu = "${pkgs.rofi}/bin/rofi -dmenu -p dunst";
       };
     };
