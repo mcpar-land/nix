@@ -11,6 +11,13 @@
     udiskie
   ];
 
+  fonts.packages = with pkgs; [
+    corefonts
+    fira
+    fira-code-nerdfont
+    font-awesome
+  ];
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # programs.hyprland.enable = true;
@@ -31,6 +38,8 @@
 
   # noisetorch requires special capabilities and must be installed globally
   programs.noisetorch.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
 
   users.users.sc = {
     isNormalUser = true;

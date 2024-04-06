@@ -1,6 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helix-master,
+  ...
+}: {
   programs.helix = {
     enable = true;
+    package = helix-master.packages.${pkgs.system}.default;
     settings = {
       theme = "monokai_pro_custom";
       editor = {
@@ -111,6 +116,15 @@
         auto-format = true;
         soft-wrap.enable = true;
         soft-wrap.wrap-at-text-width = true;
+      }
+      {
+        name = "haskell";
+        auto-format = true;
+        formatter = {
+          command = "ormolu";
+          args = ["--stdin-input-file" "."];
+        };
+        # language-servers = ["haskell-language-server"];
       }
     ];
     languages.grammar = [

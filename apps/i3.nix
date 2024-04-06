@@ -10,10 +10,13 @@
     set -eu
     systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
     systemctl --user start graphical-session-i3.target
+    # needed to activate the keyring
+    # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
+    dbus-update-activation-environment --all
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
-    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi
+    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi -display-drun "" -display-combi ""
   '';
 in {
   home.packages = with pkgs; [
@@ -78,6 +81,10 @@ in {
         # window control
         "${mod}+q" = "kill";
 
+        # notification control
+        "${mod}+n" = "exec --no-startup-id dunstctl context";
+        "${mod}+Shift+n" = "exec --no-startup-id dunstctl history-pop";
+
         # focus
         "${mod}+j" = "focus down";
         "${mod}+k" = "focus up";
@@ -109,6 +116,8 @@ in {
         "${mod}+bracketleft" = "workspace prev";
         "${mod}+bracketright" = "workspace next";
         "${mod}+Tab" = "workspace back_and_forth";
+
+        "Control+Mod1+Delete" = "exec alacritty -e btop -p 1";
       }
       // (builtins.listToAttrs (map (v: {
         name = "${mod}+${toString v}";
