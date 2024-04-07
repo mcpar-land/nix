@@ -1,5 +1,19 @@
-@import 'theme.scss';
+@import '../ewwscripts/theme.scss';
+
+.topbar {
+  background: $base0;
+}
 
 .workspace {
-  background: $red;
+  padding-left: $gap;
+  padding-right: $gap;
+}
+
+.workspace-focused {
+  background: $cyan;
+  color: $black;
+}
+
+.workspace-visible {
+  background: $base2;
 }

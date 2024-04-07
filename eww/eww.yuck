@@ -3,21 +3,43 @@
   :stacking "fg"
   :windowtype "dock"
   :wm-ignore true
-  :geometry (geometry :width "100%" :height "20px")
-  (topbar))
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary true :ws_list workspaces_str))
 
-(defvar theme "{}")
+(defwindow topbar_secondary_1
+  :monitor 1
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore true
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary false :ws_list workspaces_str_1))
 
-(defwidget topbar []
+(defwindow topbar_secondary_2
+  :monitor 2
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore true
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary false :ws_list workspaces_str_2))
+
+(defwidget topbar [primary ws_list]
   (centerbox :orientation "h" :class "topbar"
-    (workspaces :ws_list workspaces_str)
-    (label :text "Hello, world!")
-    (label :text "I'm stupid!!!!")
+    (workspaces :ws_list ws_list)
+    (label :text "Hello, world!" :visible {primary})
+    (label :text "I'm stupid!!!!" :visible {primary})
   ))
 
 (deflisten workspaces_str
   :initial "[]"
   "$HOME/.config/ewwscripts/getworkspaces DisplayPort-1")
+
+(deflisten workspaces_str_1
+  :initial "[]"
+  "$HOME/.config/ewwscripts/getworkspaces DisplayPort-2")
+
+(deflisten workspaces_str_2
+  :initial "[]"
+  "$HOME/.config/ewwscripts/getworkspaces HDMI-A-0")
 
 (defwidget workspaces [ws_list]
   (box
@@ -32,8 +54,9 @@
         :spacing 10
         :space-evenly false
         :class "workspace ${
+          workspace.focused?:false ? 'workspace-focused' :
           workspace.visible?:false ? 'workspace-visible' :
-          workspace.active?:false ? 'workspace-active' : ''
+          ''
         }"
         (eventbox
           :cursor "pointer"

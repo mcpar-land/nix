@@ -11,6 +11,9 @@ all:
 	systemctl --user restart udiskie.service
 	- pkill .eww-wrapped
 	- eww open topbar
+	- eww open topbar_secondary_1
+	- eww open topbar_secondary_2
+	- eww update theme="$(NIX_THEME)"
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

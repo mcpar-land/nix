@@ -11,7 +11,15 @@
   ];
 
   home.file = {
-    "./.config/eww/theme.scss" = {
+    "./.config/eww/eww.yuck" = {
+      source = ../eww/eww.yuck;
+      recursive = true;
+    };
+    "./.config/eww/eww.scss" = {
+      source = ../eww/eww.scss;
+      recursive = true;
+    };
+    "./.config/ewwscripts/theme.scss" = {
       text = ''
         $red: ${theme.red.hex};
         $orange: ${theme.orange.hex};
@@ -33,39 +41,26 @@
         $white: ${theme.white.hex};
         $black: ${theme.black.hex};
 
-        $gap: ${toString theme.gap};
-        $barHeight: ${toString theme.barHeight};
+        $gap: ${toString theme.gap}px;
+        $barHeight: ${toString theme.barHeight}px;
       '';
-      target = ".config/eww/theme.scss";
     };
-    "./.config/eww/eww.yuck".source = ../eww/eww.yuck;
-    "./.config/eww/eww.scss".source = ../eww/eww.scss;
 
     # https://github.com/xruifan/i3-eww/tree/master/scripts
     "./.config/ewwscripts/getworkspaces" = {
       text = ''
         #!/bin/sh
         export SELECTED_DISPLAY=$1
+        print_workspaces_json() {
+          i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -Mc --unbuffered '[ .[] | select(.output == env.SELECTED_DISPLAY) ]'
+        }
+        print_workspaces_json
         i3-msg -t subscribe -m '{"type":"workspace"}' |
         while read -r _; do
-          i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -Mc --unbuffered '[ .[] | select(.output == env.SELECTED_DISPLAY) ]'
+          print_workspaces_json
         done
       '';
       executable = true;
     };
-    # "./.config/ewwscripts/getfocusedws".text = ''
-    #   #!/bin/sh
-    #   i3-msg -t subscribe -m '{"type":"workspace"}' |
-    #   while read -r _; do
-    #     echo i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -r ".[] | select(.output == \"$1\" && .focused == true).name"
-    #   done
-    # '';
-    # "./.config/ewwscripts/geturgentws".text = ''
-    #   #!/bin/sh
-    #   i3-msg -t subscribe -m '{"type":"workspace"}' |
-    #   while read -r _; do
-    #     echo i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -r ".[] | select(.output == \"$1\" && .urgent == true).name"
-    #   done
-    # '';
   };
 }
