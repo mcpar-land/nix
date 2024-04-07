@@ -9,6 +9,7 @@ lock laptop on clamshell close @laptop
 mouse gestures to switch workspaces @laptop
 noise on usb plug / unplug
 sleep + lock laptop on power button @laptop
+sometimes 2 bars appear on make +eww
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 transparent bar etc with userChrome.css +firefox
