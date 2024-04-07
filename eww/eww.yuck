@@ -1,24 +1,24 @@
 (defwindow topbar
   :monitor 0
-  :stacking "fg"
+  :stacking "bt"
   :windowtype "dock"
-  :wm-ignore true
+  ; :wm-ignore true
   :geometry (geometry :width "100%" :height "${8 * 4}px")
   (topbar :primary true :ws_list workspaces_str))
 
 (defwindow topbar_secondary_1
   :monitor 1
-  :stacking "fg"
+  :stacking "bt"
   :windowtype "dock"
-  :wm-ignore true
+  ; :wm-ignore true
   :geometry (geometry :width "100%" :height "${8 * 4}px")
   (topbar :primary false :ws_list workspaces_str_1))
 
 (defwindow topbar_secondary_2
   :monitor 2
-  :stacking "fg"
+  :stacking "bt"
   :windowtype "dock"
-  :wm-ignore true
+  ; :wm-ignore true
   :geometry (geometry :width "100%" :height "${8 * 4}px")
   (topbar :primary false :ws_list workspaces_str_2))
 
