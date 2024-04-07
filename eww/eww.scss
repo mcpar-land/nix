@@ -2,18 +2,27 @@
 
 .topbar {
   background: $base0;
+  color: $base8;
 }
 
-.workspace {
+.topbar-section-right {}
+
+.workspace {}
+
+.workspace-number {
   padding-left: $gap;
   padding-right: $gap;
 }
 
 .workspace-focused {
   background: $cyan;
-  color: $black;
+  color: $base0;
 }
 
 .workspace-visible {
   background: $base2;
+}
+
+.systray {
+  padding-right: $gap;
 }

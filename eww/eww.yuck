@@ -25,8 +25,16 @@
 (defwidget topbar [primary ws_list]
   (centerbox :orientation "h" :class "topbar"
     (workspaces :ws_list ws_list)
-    (label :text "Hello, world!" :visible {primary})
-    (label :text "I'm stupid!!!!" :visible {primary})
+    (label :text "this is where the timer goes" :hexpand true)
+    (box :class "topbar-section-right" :halign "end"
+      (systray
+        :class "systray"
+        :orientation "horizontal"
+        :space-evenly true
+        :prepend-new true
+        :visible {primary}
+      )
+    )
   ))
 
 (deflisten workspaces_str
@@ -50,20 +58,18 @@
     :height 16
 
     (for workspace in "${ws_list}"
-      (box
-        :spacing 10
-        :space-evenly false
-        :class "workspace ${
-          workspace.focused?:false ? 'workspace-focused' :
-          workspace.visible?:false ? 'workspace-visible' :
-          ''
-        }"
-        (eventbox
-          :cursor "pointer"
-          :onclick "notify-send 'yo' 'clicked on ${workspace.name} output ${workspace.output}'"
+      (eventbox
+        :cursor "pointer"
+        :onclick "i3-msg workspace ${workspace.name}"
+        (box :class "workspace ${
+            workspace.focused?:false ? 'workspace-focused' :
+            workspace.visible?:false ? 'workspace-visible' :
+            ''
+          }"
+          :orientation "vertical"
           (label
-            :class "ws-number"
-            :text "aaaah ${workspace.name}"
+            :class "workspace-number"
+            :text "${workspace.name}"
           )
         )
       )

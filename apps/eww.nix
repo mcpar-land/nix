@@ -2,11 +2,12 @@
   pkgs,
   theme,
   lib,
+  eww-master,
   ...
 }: {
   home.packages = with pkgs; [
     jq
-    eww
+    eww-master.packages.${pkgs.system}.default
     wmctrl
   ];
 

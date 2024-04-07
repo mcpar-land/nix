@@ -6,14 +6,14 @@ all:
 	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
 	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace
 	# i3-msg reload
-	i3-msg restart
-	systemctl --user restart picom.service
-	systemctl --user restart udiskie.service
+	- i3-msg restart
+	- systemctl --user restart picom.service
+	- systemctl --user restart udiskie.service
 	- pkill .eww-wrapped
 	- eww open topbar
 	- eww open topbar_secondary_1
 	- eww open topbar_secondary_2
-	- eww update theme="$(NIX_THEME)"
+	# - eww update theme="$(NIX_THEME)"
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

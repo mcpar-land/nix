@@ -12,6 +12,9 @@
     helix.url = "github:helix-editor/helix";
     helix.inputs.rust-overlay.follows = "rust-overlay";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+    eww.url = "github:elkowar/eww";
+    eww.inputs.rust-overlay.follows = "rust-overlay";
+    eww.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -21,6 +24,7 @@
     home-manager,
     rust-overlay,
     helix,
+    eww,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -52,6 +56,7 @@
         home-manager.extraSpecialArgs = {
           inherit theme;
           helix-master = helix;
+          eww-master = eww;
         };
       }
     ];
