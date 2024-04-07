@@ -12,6 +12,7 @@ sleep + lock laptop on power button @laptop
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 transparent bar etc with userChrome.css +firefox
+uninstall windows @desktop
 use theme colors for delta
 x configure btop to not show all panels by default
 x maximum line height on notification
