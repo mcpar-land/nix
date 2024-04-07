@@ -25,17 +25,31 @@
 (defwidget topbar [primary ws_list]
   (centerbox :orientation "h" :class "topbar"
     (workspaces :ws_list ws_list)
-    (label :text "this is where the timer goes" :hexpand true)
-    (box :class "topbar-section-right" :halign "end"
-      (systray
+    datetime
+    (box :class "topbar-section-right" :halign "end" :spacing 8
+      (volume)
+      ; we need to wrap this in a box just to fix some kind of shitty spacing bug
+      (box (systray
         :class "systray"
         :orientation "horizontal"
         :space-evenly true
         :prepend-new true
         :visible {primary}
-      )
+      ))
     )
   ))
+
+(defwidget volume []
+  (eventbox
+    :cursor "pointer"
+    :onclick "pavucontrol &"
+    (label :text "󱄠")
+  )
+)
+
+(defpoll datetime :interval "10s"
+  "date '+%I:%M %b %d'"
+)
 
 (deflisten workspaces_str
   :initial "[]"
