@@ -9,6 +9,7 @@ all:
 	- i3-msg restart
 	- systemctl --user restart picom.service
 	- systemctl --user restart udiskie.service
+	- eww close-all
 	- pkill .eww-wrapped
 	- eww open topbar
 	- eww open topbar_secondary_1
