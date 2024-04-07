@@ -42,7 +42,7 @@
         nixpkgs.overlays = [rust-overlay.overlays.default stableOverlay];
         environment.systemPackages = [
           (pkgs.rust-bin.stable.latest.default.override {
-            extensions = ["rust-analyzer" "clippy"];
+            extensions = ["rust-analyzer" "clippy" "rust-src"];
           })
         ];
       })
