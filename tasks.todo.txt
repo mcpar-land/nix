@@ -1,13 +1,14 @@
 battery percentage +eww
 brightness slider +eww
 chat / voice fader on desktop
-fxn buttons for brightness on laptop
-fxn buttons for volume on laptop
+fxn buttons for brightness on laptop @laptop
+fxn buttons for volume on laptop @laptop
 investigate Syncthing
-lock laptop on clamshell close
-mouse gestures to switch workspaces on laptop
+lock desktop on hibernate @desktop
+lock laptop on clamshell close @laptop
+mouse gestures to switch workspaces @laptop
 noise on usb plug / unplug
-sleep + lock laptop on powe button
+sleep + lock laptop on power button @laptop
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 transparent bar etc with userChrome.css +firefox
