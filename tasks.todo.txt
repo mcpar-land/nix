@@ -1,5 +1,6 @@
 brightness slider +eww
 chat / voice fader on desktop
+ensure bars ALWAYS spawn +eww
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 investigate Syncthing
