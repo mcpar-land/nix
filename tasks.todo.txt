@@ -10,6 +10,7 @@ noise on usb plug / unplug
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 transparent bar etc with userChrome.css +firefox
+try out 1 statusbar with all workspaces (separated by display) +eww
 uninstall windows @desktop
 use theme colors for delta
 x battery percentage +eww
