@@ -108,13 +108,13 @@
     enableZshIntegration = true;
   };
 
-  services.screen-locker = {
-    enable = true;
-    xautolock = {
-      enable = true;
-    };
-    lockCmd = "light-locker-command -l";
-  };
+  # services.screen-locker = {
+  #   enable = true;
+  #   xautolock = {
+  #     enable = true;
+  #   };
+  #   lockCmd = "light-locker-command -l";
+  # };
 
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;

@@ -9,7 +9,6 @@
     vesktop
     ntfs3g
     udiskie
-    lightlocker
   ];
 
   fonts.packages = with pkgs; [
@@ -77,18 +76,42 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.logind = {
+    extraConfig = "HandlePowerKey=suspend";
+    lidSwitch = "suspend";
+  };
+
   services.xserver = {
     enable = true;
     xkb.layout = "us";
     xkb.variant = "";
     windowManager.i3.enable = true;
-    displayManager.defaultSession = "none+i3";
-    displayManager.lightdm = {
-      enable = true;
-      greeter.enable = true;
-      background = "${./wallpapers/martinaise.png}";
+    desktopManager = {
+      xterm.enable = true;
     };
-    displayManager.autoLogin.enable = false;
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin.enable = false;
+      lightdm = {
+        enable = true;
+        greeter.enable = true;
+        background = "${./wallpapers/martinaise.png}";
+      };
+    };
+    xautolock = {
+      enable = true;
+      enableNotifier = true;
+      locker = "${pkgs.xlockmore}/bin/xlock";
+      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+    };
+  };
+
+  systemd.services.lightLocker = {
+    description = "Light Locker Daemon";
+    partOf = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "forking";
+    };
   };
 
   services.udisks2.enable = true;
