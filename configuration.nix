@@ -9,6 +9,7 @@
     vesktop
     ntfs3g
     udiskie
+    lightlocker
   ];
 
   fonts.packages = with pkgs; [
@@ -76,23 +77,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb.layout = "us";
     xkb.variant = "";
-    # desktopManager.xfce.enable = true;
     windowManager.i3.enable = true;
     displayManager.defaultSession = "none+i3";
     displayManager.lightdm = {
       enable = true;
       greeter.enable = true;
+      background = "${./wallpapers/martinaise.png}";
     };
     displayManager.autoLogin.enable = false;
   };
@@ -105,22 +99,6 @@
       ACTION=="remove", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_out.wav}"
     '';
   };
-
-  # pipewire and wireplumber are for screen sharing
-  # services.pipewire = {
-  #   enable = true;
-  #   wireplumber = {
-  #     enable = true;
-  #   };
-  # };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  #     xdg-desktop-portal-hyprland
-  #   ];
-  #   # gtkUsePortal = true;
-  # };
 
   system.stateVersion = "23.11";
 }

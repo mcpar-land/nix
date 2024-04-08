@@ -77,8 +77,6 @@
     diffuse
 
     dconf
-    feh
-    (betterlockscreen.override {withDunst = false;})
   ];
 
   programs.gpg = {
@@ -115,7 +113,7 @@
     xautolock = {
       enable = true;
     };
-    lockCmd = "betterlockscreen --lock";
+    lockCmd = "light-locker-command -l";
   };
 
   home.pointerCursor = {
@@ -176,13 +174,6 @@
     Unit.After = ["graphical-session-i3.target"];
     Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  };
-  # wallpaper
-  systemd.user.services.wallpaper = {
-    Unit.Description = "Just uses feh to display the wallpaper";
-    Unit.After = ["graphical-session-i3.target"];
-    Install.WantedBy = ["graphical-session-i3.target"];
-    Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
   };
   # automatically mount disks
   systemd.user.services.udiskie = {
