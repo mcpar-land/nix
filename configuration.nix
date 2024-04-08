@@ -76,25 +76,42 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.logind = {
+    extraConfig = "HandlePowerKey=suspend";
+    lidSwitch = "suspend";
+  };
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb.layout = "us";
     xkb.variant = "";
-    # desktopManager.xfce.enable = true;
     windowManager.i3.enable = true;
-    displayManager.defaultSession = "none+i3";
-    displayManager.lightdm = {
-      enable = true;
-      greeter.enable = true;
+    desktopManager = {
+      xterm.enable = true;
     };
-    displayManager.autoLogin.enable = false;
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin.enable = false;
+      lightdm = {
+        enable = true;
+        greeter.enable = true;
+        background = "${./wallpapers/martinaise.png}";
+      };
+    };
+    xautolock = {
+      enable = true;
+      enableNotifier = true;
+      locker = "${pkgs.xlockmore}/bin/xlock";
+      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+    };
+  };
+
+  systemd.services.lightLocker = {
+    description = "Light Locker Daemon";
+    partOf = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "forking";
+    };
   };
 
   services.udisks2.enable = true;
@@ -105,22 +122,6 @@
       ACTION=="remove", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_out.wav}"
     '';
   };
-
-  # pipewire and wireplumber are for screen sharing
-  # services.pipewire = {
-  #   enable = true;
-  #   wireplumber = {
-  #     enable = true;
-  #   };
-  # };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  #     xdg-desktop-portal-hyprland
-  #   ];
-  #   # gtkUsePortal = true;
-  # };
 
   system.stateVersion = "23.11";
 }

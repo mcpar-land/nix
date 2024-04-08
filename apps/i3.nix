@@ -7,12 +7,18 @@
 }: let
   mod = "Mod4";
   sessionStart = pkgs.writeShellScript "i3-session" ''
-    set -eu
     systemctl --user set-environment I3SOCK=$(${config.xsession.windowManager.i3.package}/bin/i3 --get-socketpath)
     systemctl --user start graphical-session-i3.target
     # needed to activate the keyring
     # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
+
+    # launch eww
+    pkill .eww-wrapped
+    eww kill
+    eww open topbar
+    eww open topbar_secondary_1
+    eww open topbar_secondary_2
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
@@ -82,7 +88,8 @@ in {
         "${mod}+q" = "kill";
 
         # notification control
-        "${mod}+n" = "exec --no-startup-id dunstctl action";
+        "${mod}+n" = "exec --no-startup-id dunstctl context";
+        "${mod}+Shift+n" = "exec --no-startup-id dunstctl history-pop";
 
         # focus
         "${mod}+j" = "focus down";

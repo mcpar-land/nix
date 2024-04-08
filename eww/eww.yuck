@@ -1,0 +1,107 @@
+(defwindow topbar
+  :monitor 0
+  :stacking "bt"
+  :windowtype "dock"
+  ; :wm-ignore true
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary true :ws_list workspaces_str))
+
+(defwindow topbar_secondary_1
+  :monitor 1
+  :stacking "bt"
+  :windowtype "dock"
+  ; :wm-ignore true
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary false :ws_list workspaces_str_1))
+
+(defwindow topbar_secondary_2
+  :monitor 2
+  :stacking "bt"
+  :windowtype "dock"
+  ; :wm-ignore true
+  :geometry (geometry :width "100%" :height "${8 * 4}px")
+  (topbar :primary false :ws_list workspaces_str_2))
+
+(defwidget topbar [primary ws_list]
+  (centerbox :orientation "h" :class "topbar"
+    (workspaces :ws_list ws_list)
+    datetime
+    (box :class "topbar-section-right" :halign "end" :spacing 8
+      (battery_circle)
+      (volume)
+      ; we need to wrap this in a box just to fix some kind of shitty spacing bug
+      (box (systray
+        :class "systray"
+        :orientation "horizontal"
+        :space-evenly true
+        :prepend-new true
+        :visible {primary}
+      ))
+    )
+  ))
+
+(defpoll battery :interval "15s" "~/.config/ewwscripts/battery_level")
+
+(defwidget battery_circle []
+  (circular-progress
+    :value battery
+    :class "battery-circle"
+    :thickness 4)
+)
+
+(defwidget volume []
+  (eventbox
+    :cursor "pointer"
+    :onclick "pavucontrol &"
+    (label :text "󱄠")
+  )
+)
+
+(defpoll datetime :interval "10s"
+  "date '+%I:%M %b %d'"
+)
+
+(deflisten workspaces_str
+  :initial "[]"
+  "$HOME/.config/ewwscripts/getworkspaces DisplayPort-1")
+
+(deflisten workspaces_str_1
+  :initial "[]"
+  "$HOME/.config/ewwscripts/getworkspaces DisplayPort-2")
+
+(deflisten workspaces_str_2
+  :initial "[]"
+  "$HOME/.config/ewwscripts/getworkspaces HDMI-A-0")
+
+(defwidget workspaces [ws_list]
+  (box
+    :class "workspaces"
+    :orientation "h"
+    :space-evenly true
+    :halign "start"
+    :height 16
+
+    (for workspace in "${ws_list}"
+      (eventbox
+        :cursor "pointer"
+        :onclick "i3-msg workspace ${workspace.name}"
+        (box :class "workspace ${
+            workspace.focused?:false ? 'workspace-focused' :
+            workspace.visible?:false ? 'workspace-visible' :
+            ''
+          }"
+          :orientation "vertical"
+          (label
+            :class "workspace-number"
+            :text "${workspace.name}"
+          )
+        )
+      )
+    )
+  )
+)
+
+(defpoll time
+  :interval "5s"
+  :initial `date +'{"hour":"%H", "min":"%M"}'`
+  `date +'{"hour":"%H", "min":"%M"}'`)

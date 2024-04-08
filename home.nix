@@ -9,10 +9,10 @@
     ./apps/alacritty.nix
     ./apps/btop.nix
     ./apps/dunst.nix
+    ./apps/eww.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
-    ./apps/polybar.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
@@ -21,8 +21,7 @@
   home.packages = with pkgs; [
     # terminal apps
     zip
-    # response to the xz 5.6.1 backdoor, im using xz stable instead
-    stable.xz
+    xz
     unzip
     ripgrep # https://github.com/BurntSushi/ripgrep
     lshw
@@ -78,8 +77,6 @@
     diffuse
 
     dconf
-    feh
-    (betterlockscreen.override {withDunst = false;})
   ];
 
   programs.gpg = {
@@ -111,13 +108,13 @@
     enableZshIntegration = true;
   };
 
-  services.screen-locker = {
-    enable = true;
-    xautolock = {
-      enable = true;
-    };
-    lockCmd = "betterlockscreen --lock";
-  };
+  # services.screen-locker = {
+  #   enable = true;
+  #   xautolock = {
+  #     enable = true;
+  #   };
+  #   lockCmd = "light-locker-command -l";
+  # };
 
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;
@@ -178,13 +175,6 @@
     Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
   };
-  # wallpaper
-  systemd.user.services.wallpaper = {
-    Unit.Description = "Just uses feh to display the wallpaper";
-    Unit.After = ["graphical-session-i3.target"];
-    Install.WantedBy = ["graphical-session-i3.target"];
-    Service.ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${./wallpapers/martinaise2.png}";
-  };
   # automatically mount disks
   systemd.user.services.udiskie = {
     Unit.Description = "Udiskie uses udisks2 to automount inserted media";
@@ -208,6 +198,7 @@
     BROWSER = "google-chrome-stable";
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
+    NIX_THEME = theme.asJson;
   };
 
   home.stateVersion = "23.11";
