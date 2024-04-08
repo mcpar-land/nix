@@ -3,14 +3,37 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # I like installing rust from the same source as helix
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    helix.url = "github:helix-editor/helix";
-    helix.inputs.rust-overlay.follows = "rust-overlay";
-    helix.inputs.nixpkgs.follows = "nixpkgs";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    eww = {
+      url = "github:elkowar/eww";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -19,6 +42,7 @@
     home-manager,
     rust-overlay,
     helix,
+    eww,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -28,7 +52,7 @@
         nixpkgs.overlays = [rust-overlay.overlays.default];
         environment.systemPackages = [
           (pkgs.rust-bin.stable.latest.default.override {
-            extensions = ["rust-analyzer" "clippy"];
+            extensions = ["rust-analyzer" "clippy" "rust-src"];
           })
         ];
       })
@@ -42,6 +66,7 @@
         home-manager.extraSpecialArgs = {
           inherit theme;
           helix-master = helix;
+          eww-master = eww;
         };
       }
     ];

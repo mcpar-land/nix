@@ -32,4 +32,24 @@ in rec {
 
   gap = 8;
   barHeight = gap * 4;
+  asJson = builtins.toJSON {
+    red = red.hex;
+    orange = orange.hex;
+    yellow = yellow.hex;
+    green = green.hex;
+    blue = blue.hex;
+    magenta = magenta.hex;
+    cyan = cyan.hex;
+    base0 = base0.hex;
+    base1 = base1.hex;
+    base2 = base2.hex;
+    base3 = base3.hex;
+    base4 = base4.hex;
+    base5 = base5.hex;
+    base6 = base6.hex;
+    base7 = base7.hex;
+    base8 = base8.hex;
+    gap = gap;
+    barHeight = barHeight;
+  };
 }

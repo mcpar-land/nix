@@ -4,7 +4,9 @@
   pkgs,
   theme,
   ...
-}: {
+}: let
+  gpg = import ../gpg.nix;
+in {
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
@@ -24,6 +26,10 @@
     enable = true;
     userName = "mcpar-land";
     userEmail = "john@mcpar.land";
+    signing = {
+      key = gpg.gpgKeyFingerprint;
+      signByDefault = true;
+    };
     delta = {
       enable = true;
       options = {

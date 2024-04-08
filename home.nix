@@ -7,12 +7,12 @@
 }: {
   imports = [
     ./apps/alacritty.nix
+    ./apps/btop.nix
     ./apps/dunst.nix
+    ./apps/eww.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
-    # ./apps/i3bars.nix
-    ./apps/polybar.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
@@ -37,6 +37,7 @@
     jless # https://jless.io/
     duckdb
     pandoc
+    ffmpeg
 
     # languages
     # rustup
@@ -57,7 +58,6 @@
     ormolu # haskell formatter
 
     # gui apps
-    firefox
     google-chrome
     vscode
     alacritty
@@ -69,20 +69,31 @@
     flameshot
     gnome.nautilus
     gnome.sushi
+    gnome.gnome-font-viewer
     dbeaver
     bruno
     pavucontrol
     qdirstat
-
-    # fonts
-    fira
-    fira-code-nerdfont
-    font-awesome
+    diffuse
 
     dconf
     feh
     (betterlockscreen.override {withDunst = false;})
   ];
+
+  programs.gpg = {
+    enable = true;
+  };
+  services.gpg-agent = {
+    enable = true;
+    enableZshIntegration = true;
+    extraConfig = ''
+      pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
+    '';
+  };
+  programs.firefox = {
+    enable = true;
+  };
 
   programs.yazi = {
     enable = true;
@@ -195,6 +206,7 @@
     VISUAL = "hx";
     BROWSER = "google-chrome-stable";
     TERMINAL = "alacritty";
+    NIX_THEME = theme.asJson;
   };
 
   home.stateVersion = "23.11";
