@@ -1,4 +1,3 @@
-battery percentage +eww
 brightness slider +eww
 chat / voice fader on desktop
 fxn buttons for brightness on laptop @laptop
@@ -14,6 +13,7 @@ switch to firefox +firefox
 transparent bar etc with userChrome.css +firefox
 uninstall windows @desktop
 use theme colors for delta
+x battery percentage +eww
 x configure btop to not show all panels by default
 x maximum line height on notification
 x revert xz to safe version

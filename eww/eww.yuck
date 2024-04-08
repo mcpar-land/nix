@@ -27,6 +27,7 @@
     (workspaces :ws_list ws_list)
     datetime
     (box :class "topbar-section-right" :halign "end" :spacing 8
+      (battery_circle)
       (volume)
       ; we need to wrap this in a box just to fix some kind of shitty spacing bug
       (box (systray
@@ -38,6 +39,15 @@
       ))
     )
   ))
+
+(defpoll battery :interval "15s" "~/.config/ewwscripts/battery_level")
+
+(defwidget battery_circle []
+  (circular-progress
+    :value battery
+    :class "battery-circle"
+    :thickness 4)
+)
 
 (defwidget volume []
   (eventbox
