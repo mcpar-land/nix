@@ -207,6 +207,7 @@
     VISUAL = "hx";
     BROWSER = "google-chrome-stable";
     TERMINAL = "alacritty";
+    GTK_THEME = "Adwaita-dark";
   };
 
   home.stateVersion = "23.11";
