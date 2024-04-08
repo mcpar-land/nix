@@ -21,11 +21,6 @@
     # options = ["nofail" "x-systemd.automount"];
   };
 
-  fileSystems."/mnt/win" = {
-    device = "/dev/disk/by-uuid/5EF8D425F8D3F96B";
-    options = ["nofail" "x-systemd.automount"];
-  };
-
   boot.kernelParams = [
     "amdgpu.gpu_recovery=1"
   ];
