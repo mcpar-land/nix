@@ -38,6 +38,7 @@
     duckdb
     pandoc
     ffmpeg
+    devenv
 
     # languages
     # rustup
