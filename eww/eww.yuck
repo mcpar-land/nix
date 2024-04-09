@@ -11,16 +11,18 @@
     (box :class "topbar-section-center"
       (music)
     )
-    (box :class "topbar-section-right" :halign "end" :spacing 8
-    (datetime)
+    (box :class "topbar-section-right"
+      :orientation "h"
+      :halign "end"
+      :spacing 8
+      :hexpand false
+      :space-evenly false
+      (weather)
+      (divider)
+      (datetime)
+      (divider)
       (battery_circle)
       (volume)
-    ; we need to wrap this in a box just to fix some kind of shitty spacing bug
-    ; (box :visible {primary == true} (systray
-    ;   :class "systray"
-    ;   :orientation "horizontal"
-    ;   :space-evenly true
-    ;   :prepend-new true
     )
   )
 )
@@ -37,6 +39,7 @@
 
 (defwidget volume []
   (eventbox
+    :class "volume"
     :cursor "pointer"
     :onclick "pavucontrol &"
     (label :text "󱄠")
@@ -87,6 +90,15 @@
   )
 )
 
+(defwidget weather []
+  (label :class "weather" :text weather_poll)
+)
+
+(defpoll weather_poll
+  :interval "15m"
+  :initial ""
+  "~/.config/ewwscripts/weather"
+)
 
 (defwidget datetime []
   (label :class "datetime" :text datetime_poll)

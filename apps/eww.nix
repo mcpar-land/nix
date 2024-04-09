@@ -50,27 +50,15 @@
     };
     "./.config/ewwscripts/launch" = {
       text = ''
-        # eww kill
+        eww kill
         eww open topbar --id topbar0 --screen 0 --arg "primary=true"
         eww open topbar --id topbar1 --screen 1 --arg "primary=false"
         eww open topbar --id topbar2 --screen 2 --arg "primary=false"
       '';
       executable = true;
     };
-    # https://github.com/xruifan/i3-eww/tree/master/scripts
-    "./.config/ewwscripts/getworkspaces" = {
-      text = ''
-        #!/bin/sh
-        export SELECTED_DISPLAY=$1
-        print_workspaces_json() {
-          i3-msg -t get_workspaces | ${pkgs.jq}/bin/jq -Mc --unbuffered '[ .[] | select(.output == env.SELECTED_DISPLAY) ]'
-        }
-        print_workspaces_json
-        i3-msg -t subscribe -m '{"type":"workspace"}' |
-        while read -r _; do
-          print_workspaces_json
-        done
-      '';
+    "./.config/ewwscripts/weather" = {
+      text = ''curl "wttr.in/Cambridge+MA?format=%C%20%t" 2> /dev/null | sed "s/\+//g"'';
       executable = true;
     };
     "./.config/ewwscripts/wslist" = {
