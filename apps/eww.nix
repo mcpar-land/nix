@@ -49,7 +49,7 @@
     };
     "./.config/ewwscripts/launch" = {
       text = ''
-        eww --restart close-all
+        eww kill
         eww open topbar --id topbar0 --screen 0 --arg "primary=true"
         eww open topbar --id topbar1 --screen 1 --arg "primary=false"
         eww open topbar --id topbar2 --screen 2 --arg "primary=false"
@@ -77,7 +77,7 @@
         wslist_json() {
           CURRENT_WORKSPACES=$(i3-msg -t get_workspaces | jq '[group_by(.output)[] | {(.[0].output): [.[]]}] | add')
           OUTPUTS_IN_ORDER='${builtins.toJSON monitor-list}'
-          echo $OUTPUTS_IN_ORDER | jq -Mc --unbuffered --argjson ws "$CURRENT_WORKSPACES" 'map($ws[.])'
+          echo $OUTPUTS_IN_ORDER | jq -Mc --unbuffered --argjson ws "$CURRENT_WORKSPACES" 'map($ws[.]) | map([null, .]) | flatten | .[1:]'
         }
         wslist_json
         i3-msg -t subscribe -m '{"type":"workspace"}' |

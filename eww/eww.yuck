@@ -40,10 +40,6 @@
   )
 )
 
-(defwidget datetime []
-  (label :class "datetime" :text datetime_poll)
-)
-
 (defpoll datetime_poll :interval "10s"
   "date '+%I:%M %b %d'"
 )
@@ -57,38 +53,50 @@
   (box
     :class "workspaces"
     :orientation "h"
-    :spacing 8
+    ; :spacing 8
     :halign "start"
     :height 16
-
-    (for output in "${ws_list}"
-      (box :class "workspace-output-list" :orientation "h"
-        (for workspace in output
-           (eventbox
-            :cursor "pointer"
-            :onclick "i3-msg workspace ${workspace.name}"
-            (box :class "workspace ${
-                workspace.focused?:false ? 'workspace-focused' :
-                workspace.visible?:false ? 'workspace-visible' :
-                'workspace-inactive'
-              }"
-              :width 16
-              :height 16
-              :halign "center"
-              :valign "center"
-              (label
-                :class "workspace-number"
-                :text "${workspace.name}"
-              )
-            )
-          )   
-        )
-      )
+    (for workspace in ws_list
+      (literal :content {((workspace?:"nil") == "nil") ? "(divider)" : "(single_workspace :workspace workspace)"})
     )  
   )
+)
+
+
+(defwidget single_workspace [workspace]
+  (eventbox
+    :cursor "pointer"
+    :onclick "i3-msg workspace ${workspace.name}"
+    (box :class "workspace ${
+        workspace.focused?:false ? 'workspace-focused' :
+        workspace.visible?:false ? 'workspace-visible' :
+        'workspace-inactive'
+      }"
+      :width 16
+      :height 16
+      :halign "center"
+      :valign "center"
+      (label
+        :class "workspace-number"
+        :text "${workspace.name}"
+      )
+    )
+  )
+)
+
+
+(defwidget datetime []
+  (label :class "datetime" :text datetime_poll)
 )
 
 (defpoll time
   :interval "5s"
   :initial `date +'{"hour":"%H", "min":"%M"}'`
-  `date +'{"hour":"%H", "min":"%M"}'`)
+  `date +'{"hour":"%H", "min":"%M"}'`
+)
+
+(defwidget divider []
+  (box :class "divider" :hexpand false :vexpand false
+    (label :class "divider-bar" :text "|")
+  )
+)
