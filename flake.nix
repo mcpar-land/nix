@@ -46,6 +46,9 @@
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
+    monitor-list = monitors: {
+      home-manager.extraSpecialArgs.monitor-list = monitors;
+    };
     # shared system config across all devices
     sharedSystemConfig = [
       ({pkgs, ...}: {
@@ -85,6 +88,7 @@
       modules =
         [
           ./hardware/j-desktop.nix
+          (monitor-list ["HDMI-A-0" "DisplayPort-1" "DisplayPort-2"])
         ]
         ++ sharedSystemConfig;
     };
@@ -93,6 +97,7 @@
       modules =
         [
           ./hardware/j-laptop.nix
+          (monitor-list ["eDP-1"])
         ]
         ++ sharedSystemConfig;
     };

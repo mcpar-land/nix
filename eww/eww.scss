@@ -1,11 +1,16 @@
 @import '../ewwscripts/theme.scss';
 
 .topbar {
-  background: $base0;
+  background: none;
   color: $base8;
+  padding-top: $gap;
+  padding-left: $gap;
+  padding-right: $gap;
 }
 
-.topbar-section-right {}
+.topbar-section-right {
+  padding-right: $gap;
+}
 
 .workspace {}
 
@@ -15,12 +20,17 @@
 }
 
 .workspace-focused {
-  background: $cyan;
-  color: $base0;
+  opacity: 1;
+  border-radius: $gap;
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .workspace-visible {
-  background: $base2;
+  opacity: 1;
+}
+
+.workspace-inactive {
+  opacity: 0.5;
 }
 
 .systray {
