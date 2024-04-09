@@ -8,8 +8,11 @@
 (defwidget topbar [primary ws_list]
   (centerbox :orientation "h" :class "topbar"
     (workspaces :ws_list ws_list)
-    (datetime)
+    (box :class "topbar-section-center"
+      (music)
+    )
     (box :class "topbar-section-right" :halign "end" :spacing 8
+    (datetime)
       (battery_circle)
       (volume)
     ; we need to wrap this in a box just to fix some kind of shitty spacing bug
@@ -100,3 +103,10 @@
     (label :class "divider-bar" :text "|")
   )
 )
+
+(defwidget music []
+  (box :class "music" {music_listen})
+)
+
+(deflisten music_listen :initial ""
+  "playerctl --follow metadata --format '{{artist}} - {{title}}'")

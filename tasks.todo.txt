@@ -1,6 +1,5 @@
 brightness slider +eww
 chat / voice fader on desktop
-consider abstracting workspaces into all monitors +eww
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 investigate Syncthing
@@ -14,6 +13,7 @@ try out 1 statusbar with all workspaces (separated by display) +eww
 use theme colors for delta
 x battery percentage +eww
 x configure btop to not show all panels by default
+x consider abstracting workspaces into all monitors +eww
 x ensure bars ALWAYS spawn +eww
 x maximum line height on notification
 x revert xz to safe version
