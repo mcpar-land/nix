@@ -97,7 +97,7 @@
       modules =
         [
           ./hardware/j-laptop.nix
-          (monitor-list ["EF0"]) # TODO get the right names here
+          (monitor-list ["eDP-1"])
         ]
         ++ sharedSystemConfig;
     };
