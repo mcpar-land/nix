@@ -3,6 +3,7 @@
   theme,
   lib,
   eww-master,
+  monitor-list,
   ...
 }: {
   home.packages = with pkgs; [
@@ -63,10 +64,29 @@
       '';
       executable = true;
     };
+    "./.config/ewwscripts/wslist" = {
+      text = ''
+        wslist_json() {
+          CURRENT_WORKSPACES=$(i3-msg -t get_workspaces | jq '[group_by(.output)[] | {(.[0].output): [.[]]}] | add')
+          OUTPUTS_IN_ORDER='${builtins.toJSON monitor-list}'
+          echo $OUTPUTS_IN_ORDER | jq -Mc --unbuffered --argjson ws "$CURRENT_WORKSPACES" 'map($ws[.])'
+        }
+        wslist_json
+        i3-msg -t subscribe -m '{"type":"workspace"}' |
+        while read -r _; do
+          wslist_json
+        done
+      '';
+      executable = true;
+    };
     "./.config/ewwscripts/battery_level" = {
       text = ''
         BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
-        cat /sys/class/power_supply/$BAT/capacity
+        if [ ! -z "$BAT" ]; then
+          cat /sys/class/power_supply/$BAT/capacity
+        else
+          echo "-1"
+        fi
       '';
       executable = true;
     };

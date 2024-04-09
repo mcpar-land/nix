@@ -12,8 +12,6 @@ all:
 	- eww close-all
 	- pkill .eww-wrapped
 	- eww open topbar
-	- eww open topbar_secondary_1
-	- eww open topbar_secondary_2
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

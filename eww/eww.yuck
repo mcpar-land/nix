@@ -4,23 +4,7 @@
   :windowtype "dock"
   ; :wm-ignore true
   :geometry (geometry :width "100%" :height "${8 * 4}px")
-  (topbar :primary true :ws_list workspaces_str))
-
-(defwindow topbar_secondary_1
-  :monitor 1
-  :stacking "bt"
-  :windowtype "dock"
-  ; :wm-ignore true
-  :geometry (geometry :width "100%" :height "${8 * 4}px")
-  (topbar :primary false :ws_list workspaces_str_1))
-
-(defwindow topbar_secondary_2
-  :monitor 2
-  :stacking "bt"
-  :windowtype "dock"
-  ; :wm-ignore true
-  :geometry (geometry :width "100%" :height "${8 * 4}px")
-  (topbar :primary false :ws_list workspaces_str_2))
+  (topbar :primary true :ws_list workspaces_ls))
 
 (defwidget topbar [primary ws_list]
   (centerbox :orientation "h" :class "topbar"
@@ -44,7 +28,8 @@
 
 (defwidget battery_circle []
   (circular-progress
-    :value battery
+    :value {battery ?: "-1"}
+    :visible {battery != "-1" && battery != ""}
     :class "battery-circle"
     :thickness 4)
 )
@@ -61,43 +46,40 @@
   "date '+%I:%M %b %d'"
 )
 
-(deflisten workspaces_str
+(deflisten workspaces_ls
   :initial "[]"
-  "$HOME/.config/ewwscripts/getworkspaces DisplayPort-1")
-
-(deflisten workspaces_str_1
-  :initial "[]"
-  "$HOME/.config/ewwscripts/getworkspaces DisplayPort-2")
-
-(deflisten workspaces_str_2
-  :initial "[]"
-  "$HOME/.config/ewwscripts/getworkspaces HDMI-A-0")
+  "$HOME/.config/ewwscripts/wslist"
+)
 
 (defwidget workspaces [ws_list]
   (box
     :class "workspaces"
     :orientation "h"
-    :space-evenly true
+    :spacing 8
     :halign "start"
     :height 16
 
-    (for workspace in "${ws_list}"
-      (eventbox
-        :cursor "pointer"
-        :onclick "i3-msg workspace ${workspace.name}"
-        (box :class "workspace ${
-            workspace.focused?:false ? 'workspace-focused' :
-            workspace.visible?:false ? 'workspace-visible' :
-            ''
-          }"
-          :orientation "vertical"
-          (label
-            :class "workspace-number"
-            :text "${workspace.name}"
-          )
+    (for output in "${ws_list}"
+      (box :class "workspace-output-list" :orientation "h"
+        (for workspace in output
+           (eventbox
+            :cursor "pointer"
+            :onclick "i3-msg workspace ${workspace.name}"
+            (box :class "workspace ${
+                workspace.focused?:false ? 'workspace-focused' :
+                workspace.visible?:false ? 'workspace-visible' :
+                ''
+              }"
+              :orientation "vertical"
+              (label
+                :class "workspace-number"
+                :text "${workspace.name}"
+              )
+            )
+          )   
         )
       )
-    )
+    )  
   )
 )
 

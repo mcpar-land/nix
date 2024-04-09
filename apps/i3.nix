@@ -17,8 +17,6 @@
     pkill .eww-wrapped
     eww kill
     eww open topbar
-    eww open topbar_secondary_1
-    eww open topbar_secondary_2
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
