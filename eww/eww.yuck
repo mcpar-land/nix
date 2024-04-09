@@ -1,5 +1,4 @@
 (defwindow topbar [primary]
-  :monitor 0
   :stacking "bt"
   :windowtype "dock"
   ; :wm-ignore true
@@ -10,19 +9,18 @@
   (centerbox :orientation "h" :class "topbar"
     (workspaces :ws_list ws_list)
     (datetime)
-    (label :text "ooohhh")
-    ; (box :class "topbar-section-right" :spacing 8
-    ;   (battery_circle)
-    ;   (volume)
-      ; we need to wrap this in a box just to fix some kind of shitty spacing bug
-      ; (box :visible {primary == true} (systray
-      ;   :class "systray"
-      ;   :orientation "horizontal"
-      ;   :space-evenly true
-      ;   :prepend-new true
-      ; ))
-    ; )
-  ))
+    (box :class "topbar-section-right" :halign "end" :spacing 8
+      (battery_circle)
+      (volume)
+    ; we need to wrap this in a box just to fix some kind of shitty spacing bug
+    ; (box :visible {primary == true} (systray
+    ;   :class "systray"
+    ;   :orientation "horizontal"
+    ;   :space-evenly true
+    ;   :prepend-new true
+    )
+  )
+)
 
 (defpoll battery :interval "15s" "~/.config/ewwscripts/battery_level")
 
@@ -42,7 +40,7 @@
   )
 )
 
-(defwidget datetime
+(defwidget datetime []
   (label :class "datetime" :text datetime_poll)
 )
 
