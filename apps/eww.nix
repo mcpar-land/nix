@@ -47,7 +47,15 @@
         $barHeight: ${toString theme.barHeight}px;
       '';
     };
-
+    "./.config/ewwscripts/launch" = {
+      text = ''
+        eww --restart close-all
+        eww open topbar --id topbar0 --screen 0 --arg "primary=true"
+        eww open topbar --id topbar1 --screen 1 --arg "primary=false"
+        eww open topbar --id topbar2 --screen 2 --arg "primary=false"
+      '';
+      executable = true;
+    };
     # https://github.com/xruifan/i3-eww/tree/master/scripts
     "./.config/ewwscripts/getworkspaces" = {
       text = ''

@@ -14,9 +14,7 @@
     dbus-update-activation-environment --all
 
     # launch eww
-    pkill .eww-wrapped
-    eww kill
-    eww open topbar
+    ~/.config/ewwscripts/launch
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi

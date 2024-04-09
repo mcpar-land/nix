@@ -9,9 +9,7 @@ all:
 	- i3-msg restart
 	- systemctl --user restart picom.service
 	- systemctl --user restart udiskie.service
-	- eww close-all
-	- pkill .eww-wrapped
-	- eww open topbar
+	- ~/.config/ewwscripts/launch
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc
