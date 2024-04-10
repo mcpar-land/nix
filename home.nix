@@ -39,6 +39,7 @@
     pandoc
     ffmpeg
     devenv
+    lazydocker
 
     # languages
     # rustup

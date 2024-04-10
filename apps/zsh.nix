@@ -17,6 +17,7 @@
     shellAliases = {
       l = "ls -l";
       g = "lazygit";
+      d = "lazydocker";
       y = "yazi";
       weather = "curl v2.wttr.in";
     };
