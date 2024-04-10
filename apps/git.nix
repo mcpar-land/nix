@@ -17,7 +17,7 @@ in {
       git = {
         paging = {
           colorArg = "never";
-          pager = "delta --dark --paging=never";
+          pager = "delta --tabs 2 --dark --paging=never";
         };
       };
     };
