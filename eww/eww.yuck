@@ -59,7 +59,7 @@
     :orientation "h"
     :spacing 4
     :halign "start"
-    :height 16
+    :valign "center"
     :space-evenly false
     (for workspace in ws_list
       (literal :content {((workspace?:"nil") == "nil") ? "(divider)" : "(single_workspace :workspace workspace)"})
@@ -78,7 +78,6 @@
         'workspace-inactive'
       }"
       :width 16
-      :height 16
       :halign "center"
       :valign "center"
       (label
