@@ -18,6 +18,7 @@
       l = "ls -l";
       g = "lazygit";
       y = "yazi";
+      weather = "curl v2.wttr.in";
     };
     history.size = 10000;
     plugins = [
