@@ -126,4 +126,4 @@
 )
 
 (deflisten music_listen :initial ""
-  "playerctl --follow metadata --format '{{artist}} - {{title}}' | sed 's/^\s*\-\s*$//g'")
+  "playerctl --follow metadata --format '{{artist}} - {{title}}' | sed -u 's/^\s*\-\s*$//g'")
