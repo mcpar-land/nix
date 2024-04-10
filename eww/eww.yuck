@@ -19,7 +19,9 @@
       :space-evenly false
       (weather)
       (divider)
-      (datetime)
+      (date)
+      (divider)
+      (time)
       (divider)
       (battery_circle)
       (volume)
@@ -46,10 +48,6 @@
   )
 )
 
-(defpoll datetime_poll :interval "10s"
-  "date '+%I:%M %b %d'"
-)
-
 (deflisten workspaces_ls
   :initial "[]"
   "$HOME/.config/ewwscripts/wslist"
@@ -59,9 +57,10 @@
   (box
     :class "workspaces"
     :orientation "h"
-    ; :spacing 8
+    :spacing 4
     :halign "start"
     :height 16
+    :space-evenly false
     (for workspace in ws_list
       (literal :content {((workspace?:"nil") == "nil") ? "(divider)" : "(single_workspace :workspace workspace)"})
     )  
@@ -100,14 +99,20 @@
   "~/.config/ewwscripts/weather"
 )
 
-(defwidget datetime []
-  (label :class "datetime" :text datetime_poll)
+(defwidget date []
+  (label :class "date" :text date_poll)
 )
 
-(defpoll time
-  :interval "5s"
-  :initial `date +'{"hour":"%H", "min":"%M"}'`
-  `date +'{"hour":"%H", "min":"%M"}'`
+(defwidget time []
+  (label :class "time" :text time_poll)
+)
+
+(defpoll time_poll :interval "1s"
+  "date '+%-I:%M'"
+)
+
+(defpoll date_poll :interval "1m"
+  "date '+%a, %b %-d'"
 )
 
 (defwidget divider []
@@ -121,4 +126,4 @@
 )
 
 (deflisten music_listen :initial ""
-  "playerctl --follow metadata --format '{{artist}} - {{title}}'")
+  "playerctl --follow metadata --format '{{artist}} - {{title}}' | sed 's/^\s*\-\s*$//g'")
