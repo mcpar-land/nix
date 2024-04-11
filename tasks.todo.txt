@@ -1,4 +1,5 @@
 brightness slider +eww
+buttons for moving through workspaces in list order, not number order +eww
 chat / voice fader on desktop
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
@@ -21,3 +22,4 @@ x sometimes 2 bars appear on make +eww
 x suspend laptop on clamshell close @laptop
 x suspend laptop on power button @laptop
 x uninstall windows @desktop
+x weather in topbar +eww
