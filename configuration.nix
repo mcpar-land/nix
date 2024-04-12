@@ -1,5 +1,6 @@
 # Common configuration file shared between ALL users.
 {
+  lib,
   config,
   pkgs,
   self,
@@ -38,6 +39,18 @@
 
   # noisetorch requires special capabilities and must be installed globally
   programs.noisetorch.enable = true;
+
+  services.tailscale = {
+    enable = true;
+  };
+  # systemd.services.tailscale-autoconnect = {
+  #   wantedBy = ["default.target"];
+  #   after = ["tailscaled.service"];
+  #   wants = ["tailscaled.service"];
+  #   serviceConfig = {
+  #     User = "mcp";
+  #   };
+  # };
 
   services.gnome.gnome-keyring.enable = true;
 

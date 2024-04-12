@@ -10,6 +10,7 @@ all:
 	- systemctl --user restart picom.service
 	- systemctl --user restart udiskie.service
 	- ~/.config/ewwscripts/launch
+	- sudo tailscale set --operator mcp
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc
