@@ -6,6 +6,7 @@ fxn buttons for volume on laptop @laptop
 investigate Syncthing
 lock desktop on hibernate @desktop
 look at udiskie systemd service (run as root, not user)
+make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
 noise on usb plug / unplug
 suspend / logout buttons +eww +rofi
