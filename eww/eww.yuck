@@ -23,6 +23,7 @@
       (divider)
       (time)
       (divider)
+      (brightness)
       (battery_circle)
       (volume)
     )
@@ -126,3 +127,27 @@
 
 (deflisten music_listen :initial ""
   "playerctl --follow metadata --format '{{artist}} - {{title}}' | sed -u 's/^\s*\-\s*$//g'")
+
+
+(defvar br_reveal false)
+
+(defwidget brightness []
+  (eventbox :onhover "eww update br_reveal=true" :onhoverlost "eww update br_reveal=false"
+    (box :class "brightness"
+      (label :text "b" :class "brightness-icon" :tooltip "brightness")
+      (revealer :transition "slideleft"
+        :reveal br_reveal
+        :duration "350ms"
+        (scale :class "brightness-bar"
+          :value brightness_percent
+          :orientation "h"
+          :min 0
+          :max 100
+          :onchange "light -S {}"
+        )
+      )
+    )
+  )
+)
+
+(defpoll brightness_percent :interval "5s" "light")
