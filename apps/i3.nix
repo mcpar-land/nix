@@ -105,7 +105,7 @@ in {
 
         # apps
         "${mod}+t" = "exec --no-startup-id alacritty";
-        "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
+        # "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
         "${mod}+o" = "exec --no-startup-id obsidian";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
         "Print" = "exec --no-startup-id flameshot gui";
