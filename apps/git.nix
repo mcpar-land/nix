@@ -39,6 +39,8 @@ in {
         features = "decorations";
         side-by-side = true;
         line-numbers = false;
+        hyperlinks = true;
+        true-color = "never";
       };
     };
   };
