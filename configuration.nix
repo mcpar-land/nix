@@ -58,11 +58,17 @@
     isNormalUser = true;
     description = "sc";
     extraGroups = ["networkmanager" "wheel" "docker" "video"];
+    openssh.authorizedKeys.keyFiles = [
+      ./configs/ssh/id_rsa.pub
+    ];
   };
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
     extraGroups = ["networkmanager" "wheel" "docker" "video"];
+    openssh.authorizedKeys.keyFiles = [
+      ./configs/ssh/id_rsa.pub
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -124,6 +130,18 @@
     partOf = ["graphical-session.target"];
     serviceConfig = {
       Type = "forking";
+    };
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [5346];
+    openFirewall = true;
+    allowSFTP = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = ["sc" "mcp"];
     };
   };
 
