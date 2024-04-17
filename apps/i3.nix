@@ -20,6 +20,9 @@
     pkill rofi
     rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi -display-drun "" -display-combi ""
   '';
+  openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
+    rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
+  '';
 in {
   home.packages = with pkgs; [
   ];
@@ -83,7 +86,7 @@ in {
       lib.mkOptionDefault {
         # "Super_L --release" = "exec ${pkgs.dmenu}/bin/dmenu_run";
         "${mod}+space" = "exec sh ${openRofi}";
-        "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons";
+        "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons -window-thumbnail";
 
         # window control
         "${mod}+q" = "kill";
@@ -112,7 +115,7 @@ in {
         "${mod}+t" = "exec --no-startup-id alacritty";
         # "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
         "${mod}+o" = "exec --no-startup-id obsidian";
-        "${mod}+period" = "exec --no-startup-id rofi -modi emoji -show emoji";
+        "${mod}+period" = "exec --no-startup-id sh ${openRofiEmoji}";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
         "Print" = "exec --no-startup-id flameshot gui";
 
