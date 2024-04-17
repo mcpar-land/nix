@@ -77,7 +77,6 @@ in {
 
     floating.criteria = [
       {class = "Pavucontrol";}
-      {class = "smile";}
     ];
 
     keybindings =
@@ -113,7 +112,7 @@ in {
         "${mod}+t" = "exec --no-startup-id alacritty";
         # "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
         "${mod}+o" = "exec --no-startup-id obsidian";
-        "${mod}+period" = "exec --no-startup-id ${pkgs.smile}/bin/smile";
+        "${mod}+period" = "exec --no-startup-id rofi -modi emoji -show emoji";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
         "Print" = "exec --no-startup-id flameshot gui";
 

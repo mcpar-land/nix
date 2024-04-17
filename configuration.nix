@@ -10,6 +10,8 @@
     vesktop
     ntfs3g
     udiskie
+    xdotool
+    xsel
   ];
 
   fonts.packages = with pkgs; [
