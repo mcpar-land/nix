@@ -73,6 +73,12 @@ in {
     window.titlebar = false;
     window.border = 0;
     focus.followMouse = false;
+    focus.mouseWarping = true;
+
+    floating.criteria = [
+      {class = "Pavucontrol";}
+      {class = "smile";}
+    ];
 
     keybindings =
       lib.mkOptionDefault {
@@ -107,6 +113,7 @@ in {
         "${mod}+t" = "exec --no-startup-id alacritty";
         # "${mod}+b" = "exec --no-startup-id google-chrome-stable chrome://newtab --profile-directory=\"Default\"";
         "${mod}+o" = "exec --no-startup-id obsidian";
+        "${mod}+period" = "exec --no-startup-id ${pkgs.smile}/bin/smile";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
         "Print" = "exec --no-startup-id flameshot gui";
 
