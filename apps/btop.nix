@@ -10,7 +10,8 @@
     settings = {
       color_theme = "TTY";
       theme_background = false;
-      proc_tree = true;
+      proc_tree = false;
+      vim_keys = true;
     };
   };
 }

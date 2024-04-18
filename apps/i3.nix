@@ -18,7 +18,7 @@
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
-    rofi -show combi -combi-modes "drun,ssh" -show-icons -modes combi -display-drun "" -display-combi ""
+    rofi -show combi -combi-modes "window,drun,ssh" -show-icons -modes combi -display-drun "" -display-combi "" -display-window "" -window-thumbnail
   '';
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
     rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
@@ -80,13 +80,14 @@ in {
 
     floating.criteria = [
       {class = "Pavucontrol";}
+      {class = "alacritty_btop";}
     ];
 
     keybindings =
       lib.mkOptionDefault {
         # "Super_L --release" = "exec ${pkgs.dmenu}/bin/dmenu_run";
         "${mod}+space" = "exec sh ${openRofi}";
-        "Mod1+Tab" = "exec pkill rofi || rofi -show window -show-icons -window-thumbnail";
+        "Mod1+Tab" = "workspace back_and_forth";
 
         # window control
         "${mod}+q" = "kill";
@@ -124,16 +125,22 @@ in {
         "${mod}+Shift+0" = "nop";
 
         #next and previous
-        "${mod}+bracketleft" = "workspace prev";
-        "${mod}+bracketright" = "workspace next";
+        "${mod}+bracketleft" = "workspace prev_on_output";
+        "${mod}+bracketright" = "workspace next_on_output";
         "${mod}+Tab" = "workspace back_and_forth";
 
-        "Control+Mod1+Delete" = "exec alacritty -e btop -p 1";
+        "Control+Mod1+Delete" = "exec alacritty -t btop --class alacritty_btop -e btop -p 1";
       }
-      // (builtins.listToAttrs (map (v: {
-        name = "${mod}+${toString v}";
-        value = "workspace ${toString v}";
-      }) [1 2 3 4 5 6 7 8 9]));
+      // (builtins.listToAttrs (builtins.concatMap (v: [
+        {
+          name = "${mod}+${toString v}";
+          value = "workspace ${toString v}";
+        }
+        {
+          name = "${mod}+Shift+${toString v}";
+          value = "exec --no-startup-id i3-msg \"move container to workspace ${toString v}; workspace ${toString v}\"";
+        }
+      ]) [1 2 3 4 5 6 7 8 9]));
     bars = [];
   };
 }
