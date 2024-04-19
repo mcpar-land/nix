@@ -3,6 +3,7 @@
   lib,
   theme,
   config,
+  monitor-list,
   ...
 }: let
   mod = "Mod4";
@@ -23,6 +24,7 @@
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
     rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
   '';
+  i3SwitchCmd = offset: "exec \"j-ctl i3 switch --displays \\\\\"${builtins.concatStringsSep "," monitor-list}\\\\\" --offset ${toString offset}\"";
 in {
   home.packages = with pkgs; [
   ];
@@ -125,8 +127,8 @@ in {
         "${mod}+Shift+0" = "nop";
 
         #next and previous
-        "${mod}+bracketleft" = "workspace prev_on_output";
-        "${mod}+bracketright" = "workspace next_on_output";
+        "${mod}+bracketleft" = i3SwitchCmd (-1);
+        "${mod}+bracketright" = i3SwitchCmd 1;
         "${mod}+Tab" = "workspace back_and_forth";
 
         "Control+Mod1+Delete" = "exec alacritty -t btop --class alacritty_btop -e btop -p 1";
