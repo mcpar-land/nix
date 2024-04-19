@@ -12,6 +12,7 @@
     udiskie
     xdotool
     xsel
+    j-ctl
   ];
 
   fonts.packages = with pkgs; [
