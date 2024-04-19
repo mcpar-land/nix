@@ -1,6 +1,5 @@
-brightness slider +eww
-buttons for moving through workspaces in list order, not number order +eww
-chat / voice fader on desktop
+brightness slider +eww @laptop
+chat / voice fader @desktop
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 investigate Syncthing
@@ -9,20 +8,21 @@ look at udiskie systemd service (run as root, not user)
 make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
 noise on usb plug / unplug
+suspend laptop on clamshell close @laptop
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
-try out 1 statusbar with all workspaces (separated by display) +eww
-use theme colors for delta
 x battery percentage +eww
+x buttons for moving through workspaces in list order, not number order +eww
 x configure btop to not show all panels by default
 x consider abstracting workspaces into all monitors +eww
 x ensure bars ALWAYS spawn +eww
 x maximum line height on notification
 x revert xz to safe version
 x sometimes 2 bars appear on make +eww
-x suspend laptop on clamshell close @laptop
 x suspend laptop on power button @laptop
+x try out 1 statusbar with all workspaces (separated by display) +eww
 x uninstall windows @desktop
+x use theme colors for delta
 x weather in topbar +eww
