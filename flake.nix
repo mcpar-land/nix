@@ -52,7 +52,12 @@
     # shared system config across all devices
     sharedSystemConfig = [
       ({pkgs, ...}: {
-        nixpkgs.overlays = [rust-overlay.overlays.default];
+        nixpkgs.overlays = [
+          rust-overlay.overlays.default
+          (final: prev: {
+            j-ctl = import ./j-ctl {pkgs = final;};
+          })
+        ];
         environment.systemPackages = [
           (pkgs.rust-bin.stable.latest.default.override {
             extensions = ["rust-analyzer" "clippy" "rust-src"];

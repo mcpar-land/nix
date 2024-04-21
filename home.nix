@@ -192,6 +192,7 @@
     "./.npmrc".text = ''
       prefix=~/.npm-packages
     '';
+    "./.ssh/config".source = ./configs/ssh/config;
   };
 
   home.sessionVariables = {

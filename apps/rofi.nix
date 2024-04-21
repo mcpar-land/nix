@@ -8,6 +8,9 @@
     enable = true;
     font = "Fira Sans 14";
     terminal = "alacritty";
+    plugins = [
+      pkgs.rofi-emoji
+    ];
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
     in {

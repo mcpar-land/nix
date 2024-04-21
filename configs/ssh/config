@@ -1,0 +1,35 @@
+Host civera-bastion
+  HostName 44.206.0.227
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa
+Host db1-staging
+  HostName civera-staging-db1
+  User jmcparland
+Host db2-staging
+  HostName civera-staging-db2
+  User jmcparland
+Host db1-production
+  HostName civera-db1
+  User jmcparland
+Host db2-production
+  User jmcparland
+Host j-desktop-mcp
+  HostName j-desktop
+  Port 5346
+  User mcp
+  IdentityFile ~/.ssh/id_rsa
+Host j-desktop-sc
+  HostName j-desktop
+  Port 5346
+  User sc
+  IdentityFile ~/.ssh/id_rsa
+Host j-laptop-mcp
+  HostName j-laptop
+  Port 5346
+  User mcp
+  IdentityFile ~/.ssh/id_rsa
+Host j-laptop-sc
+  HostName j-laptop
+  Port 5346
+  User sc
+  IdentityFile ~/.ssh/id_rsa
