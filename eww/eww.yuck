@@ -76,6 +76,7 @@
     :cursor "pointer"
     :onclick "i3-msg workspace ${workspace.name}"
     (box :class "workspace ${
+        workspace.urgent?:false ? 'workspace-urgent' :
         workspace.focused?:false ? 'workspace-focused' :
         workspace.visible?:false ? 'workspace-visible' :
         'workspace-inactive'
