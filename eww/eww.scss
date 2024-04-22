@@ -27,6 +27,12 @@
   padding-right: $gap;
 }
 
+.workspace-urgent {
+  opacity: 1;
+  border-radius: $gap;
+  background: $red;
+}
+
 .workspace-focused {
   opacity: 1;
   border-radius: $gap;
