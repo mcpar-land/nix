@@ -13,6 +13,8 @@
     xdotool
     xsel
     j-ctl
+    via # for keyboard
+    qmk
   ];
 
   fonts.packages = with pkgs; [
@@ -148,8 +150,11 @@
     };
   };
 
+  hardware.keyboard.qmk.enable = true;
+
   services.udisks2.enable = true;
   services.udev = {
+    packages = [pkgs.via];
     enable = true;
     extraRules = ''
       ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_in.wav}"
