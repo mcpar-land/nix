@@ -40,6 +40,7 @@
     ffmpeg
     devenv
     lazydocker
+    watchexec
 
     # languages
     # rustup
