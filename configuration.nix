@@ -105,6 +105,15 @@
     lidSwitch = "suspend";
   };
 
+  services.displayManager = {
+    enable = true;
+    defaultSession = "none+i3";
+    autoLogin.enable = false;
+    sddm = {
+      enable = true;
+    };
+  };
+
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -113,15 +122,15 @@
     desktopManager = {
       xterm.enable = true;
     };
-    displayManager = {
-      defaultSession = "none+i3";
-      autoLogin.enable = false;
-      lightdm = {
-        enable = true;
-        greeter.enable = true;
-        background = "${./wallpapers/martinaise.png}";
-      };
-    };
+    # displayManager = {
+    #   defaultSession = "none+i3";
+    #   autoLogin.enable = false;
+    #   lightdm = {
+    #     enable = true;
+    #     greeter.enable = true;
+    #     background = "${./wallpapers/martinaise.png}";
+    #   };
+    # };
     xautolock = {
       enable = true;
       enableNotifier = true;
