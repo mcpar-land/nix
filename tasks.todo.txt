@@ -1,5 +1,6 @@
 brightness slider +eww @laptop
 chat / voice fader @desktop
+fix sessions not ending on logout
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 investigate Syncthing
