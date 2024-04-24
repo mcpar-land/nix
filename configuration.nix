@@ -106,12 +106,8 @@
   };
 
   services.displayManager = {
-    enable = true;
     defaultSession = "none+i3";
     autoLogin.enable = false;
-    sddm = {
-      enable = true;
-    };
   };
 
   services.xserver = {
@@ -119,18 +115,11 @@
     xkb.layout = "us";
     xkb.variant = "";
     windowManager.i3.enable = true;
-    desktopManager = {
-      xterm.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      greeter.enable = true;
+      background = "${./wallpapers/martinaise.png}";
     };
-    # displayManager = {
-    #   defaultSession = "none+i3";
-    #   autoLogin.enable = false;
-    #   lightdm = {
-    #     enable = true;
-    #     greeter.enable = true;
-    #     background = "${./wallpapers/martinaise.png}";
-    #   };
-    # };
     xautolock = {
       enable = true;
       enableNotifier = true;

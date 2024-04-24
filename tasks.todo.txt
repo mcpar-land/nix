@@ -1,9 +1,11 @@
 brightness slider +eww @laptop
 chat / voice fader @desktop
+check out a clipboard manager
+check out Syncthing
+check out zsh-vi-mode
 fix sessions not ending on logout
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
-investigate Syncthing
 lock desktop on hibernate @desktop
 look at udiskie systemd service (run as root, not user)
 make bar not opaque (sometimes) on login +eww
