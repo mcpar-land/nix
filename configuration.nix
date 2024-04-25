@@ -76,6 +76,8 @@
     ];
   };
 
+  nix.settings.trusted-users = ["root" "mcp" "sc"];
+
   nixpkgs.config.allowUnfree = true;
 
   nix.optimise.automatic = true;
