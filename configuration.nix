@@ -13,6 +13,8 @@
     xdotool
     xsel
     j-ctl
+    via # for keyboard
+    qmk
   ];
 
   fonts.packages = with pkgs; [
@@ -74,6 +76,8 @@
     ];
   };
 
+  nix.settings.trusted-users = ["root" "mcp" "sc"];
+
   nixpkgs.config.allowUnfree = true;
 
   nix.optimise.automatic = true;
@@ -103,22 +107,20 @@
     lidSwitch = "suspend";
   };
 
+  services.displayManager = {
+    defaultSession = "none+i3";
+    autoLogin.enable = false;
+  };
+
   services.xserver = {
     enable = true;
     xkb.layout = "us";
     xkb.variant = "";
     windowManager.i3.enable = true;
-    desktopManager = {
-      xterm.enable = true;
-    };
-    displayManager = {
-      defaultSession = "none+i3";
-      autoLogin.enable = false;
-      lightdm = {
-        enable = true;
-        greeter.enable = true;
-        background = "${./wallpapers/martinaise.png}";
-      };
+    displayManager.lightdm = {
+      enable = true;
+      greeter.enable = true;
+      background = "${./wallpapers/martinaise.png}";
     };
     xautolock = {
       enable = true;
@@ -148,8 +150,11 @@
     };
   };
 
+  hardware.keyboard.qmk.enable = true;
+
   services.udisks2.enable = true;
   services.udev = {
+    packages = [pkgs.via];
     enable = true;
     extraRules = ''
       ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_in.wav}"
