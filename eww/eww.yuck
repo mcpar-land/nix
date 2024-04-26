@@ -32,14 +32,13 @@
   )
 )
 
-(defpoll battery :interval "15s" "~/.config/ewwscripts/battery_level")
+(defpoll battery :interval "15s" "j-ctl icon battery")
 
 (defwidget battery_circle []
-  (circular-progress
-    :value {battery ?: "-1"}
-    :visible {battery != "-1" && battery != ""}
-    :class "battery-circle"
-    :thickness 4)
+    (label
+      :visible {battery != "-1" && battery != ""}
+      :text battery
+    )
 )
 
 (defwidget volume []

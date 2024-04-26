@@ -15,7 +15,7 @@ func main() {
 }
 
 func init() {
-	rootCmd.AddCommand(helloCmd, i3Cmd)
+	rootCmd.AddCommand(helloCmd, i3Cmd, iconCmd)
 }
 
 var rootCmd = &cobra.Command{
