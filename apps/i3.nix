@@ -25,6 +25,10 @@
     rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
   '';
   i3SwitchCmd = offset: "exec --no-startup-id \"j-ctl i3 switch --displays \\\\\"${builtins.concatStringsSep "," monitor-list}\\\\\" --offset ${toString offset}\"";
+  mixerIncrCmd = increment: scriptName:
+    pkgs.writeShellScript scriptName ''
+      export LOOPBACK_MIX_LEVEL=$(j-ctl mixer inc -- ${toString increment})
+    '';
 in {
   home.packages = with pkgs; [
   ];
@@ -143,6 +147,10 @@ in {
           value = "exec --no-startup-id i3-msg \"move container to workspace ${toString v}; workspace ${toString v}\"";
         }
       ]) [1 2 3 4 5 6 7 8 9]));
+    keycodebindings = {
+      "201" = "exec --no-startup-id j-ctl mixer inc -- -10";
+      "202" = "exec --no-startup-id j-ctl mixer inc -- 10";
+    };
     bars = [];
   };
 }

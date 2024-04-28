@@ -203,6 +203,7 @@
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
     NIX_THEME = theme.asJson;
+    LOOPBACK_MIX_LEVEL = "0";
   };
 
   home.stateVersion = "23.11";
