@@ -15,6 +15,7 @@
     j-ctl
     via # for keyboard
     qmk
+    pulseaudio # for pactl, does not actually run the server
   ];
 
   fonts.packages = with pkgs; [
