@@ -2,18 +2,23 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
+	"io/fs"
 	"os"
 	"os/exec"
+	"os/user"
+	"path"
 	"strconv"
 
 	"github.com/spf13/cobra"
 )
 
-const MIX_LEVEL_VAR_NAME = "LOOPBACK_MIX_LEVEL"
+const MIX_TRANSIENT_ID = 34877 // random const for notifications that are transient
+const MIX_VALUE_FILENAME = ".j-ctl-mix-value"
 
 func init() {
-	mixerCmd.AddCommand(mixerGetCmd, mixerSetCmd)
+	mixerCmd.AddCommand(mixerGetCmd, mixerSetCmd, mixerIncCmd)
 }
 
 var mixerCmd = &cobra.Command{
@@ -56,8 +61,41 @@ var mixerSetCmd = &cobra.Command{
 	},
 }
 
+var mixerIncCmd = &cobra.Command{
+	Use:   "inc [value]",
+	Short: "increment/decrement mixer value by a number",
+	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) != 1 {
+			cmd.PrintErrln("expected 1 argument for value")
+			os.Exit(1)
+		}
+		incAmount, err := strconv.Atoi(args[0])
+		if err != nil {
+			cmd.PrintErrln(err)
+			os.Exit(1)
+		}
+		mix, err := getMixValue()
+		if err != nil {
+			cmd.PrintErrln(err)
+			os.Exit(1)
+		}
+		newMix := mix + incAmount
+		newMix = min(50, newMix)
+		newMix = max(-50, newMix)
+		res, err := setMix(newMix)
+		if err != nil {
+			cmd.PrintErrln(err)
+			os.Exit(1)
+		}
+		fmt.Fprint(os.Stdout, res)
+	},
+}
+
 func getMix() (*mixInfo, error) {
-	mix := getMixValue()
+	mix, err := getMixValue()
+	if err != nil {
+		return nil, err
+	}
 
 	mediaVolume, err := getPipewireVolumeForNode("loopback-media")
 	if err != nil {
@@ -90,10 +128,23 @@ func setMix(mix int) (*mixInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	err = os.Setenv(MIX_LEVEL_VAR_NAME, fmt.Sprintf("%d", mix))
+	err = setMixValue(mix)
 	if err != nil {
 		return nil, err
 	}
+
+	err = Notification{
+		Title:     "Media / Chat Mix",
+		Transient: true,
+	}.
+		WithHint(HintTransientId, MIX_TRANSIENT_ID).
+		WithHint(HintProgressValue, mix+50).
+		Send()
+
+	if err != nil {
+		return nil, err
+	}
+
 	return getMix()
 }
 
@@ -103,19 +154,40 @@ type mixInfo struct {
 }
 
 func (i mixInfo) String() string {
-	return fmt.Sprintf("mix: %d\nmedia: %f\nchat: %f", i.mix, i.mediaVolume, i.chatVolume)
+	return fmt.Sprintf("%d", i.mix)
 }
 
-func getMixValue() int {
-	if levelRaw, ok := os.LookupEnv(MIX_LEVEL_VAR_NAME); ok && levelRaw != "" {
-		level, err := strconv.Atoi(levelRaw)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, err)
-			return 0
-		}
-		return level
+func setMixValue(value int) error {
+	usr, err := user.Current()
+	if err != nil {
+		return err
 	}
-	return 0
+	filePath := path.Join(usr.HomeDir, MIX_VALUE_FILENAME)
+	err = os.WriteFile(filePath, []byte(strconv.Itoa(value)), 0644)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func getMixValue() (int, error) {
+	usr, err := user.Current()
+	if err != nil {
+		return 0, err
+	}
+	filePath := path.Join(usr.HomeDir, MIX_VALUE_FILENAME)
+	file, err := os.ReadFile(filePath)
+	if errors.Is(err, fs.ErrNotExist) {
+		fmt.Fprintln(os.Stderr, filePath, "does not exist yet! returning 0")
+		return 0, nil
+	} else if err != nil {
+		return 0, err
+	}
+	level, err := strconv.Atoi(string(file))
+	if err != nil {
+		return 0, err
+	}
+	return level, nil
 }
 
 func getPipewireVolumeForNode(node string) (float32, error) {
