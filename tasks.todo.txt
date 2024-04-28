@@ -1,5 +1,4 @@
 brightness slider +eww @laptop
-chat / voice fader +pipewire
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
@@ -12,7 +11,6 @@ look at udiskie systemd service (run as root, not user)
 make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
 network status item in bar +eww
-noise filter via pipewire instead of noisetorch + pipewire
 noise on usb plug / unplug
 suspend laptop on clamshell close @laptop
 suspend / logout buttons +eww +rofi
@@ -21,10 +19,12 @@ tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
 x battery percentage +eww
 x buttons for moving through workspaces in list order, not number order +eww
+x chat / voice fader +pipewire
 x configure btop to not show all panels by default
 x consider abstracting workspaces into all monitors +eww
 x ensure bars ALWAYS spawn +eww
 x maximum line height on notification
+x noise filter via pipewire instead of noisetorch + pipewire
 x revert xz to safe version
 x sometimes 2 bars appear on make +eww
 x suspend laptop on power button @laptop

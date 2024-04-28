@@ -43,9 +43,6 @@
   # install docker
   virtualisation.docker.enable = true;
 
-  # noisetorch requires special capabilities and must be installed globally
-  programs.noisetorch.enable = true;
-
   services.tailscale = {
     enable = true;
   };

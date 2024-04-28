@@ -72,7 +72,9 @@
   sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = import ../apps/pipewire.nix {
+    inherit pkgs;
     outputDeviceId = "alsa_output.usb-SteelSeries_Arctis_7_-00.analog-stereo";
+    inputDeviceId = "alsa_input.usb-SteelSeries_Arctis_7_-00.mono-fallback";
   };
 
   # ===== everything past this line was copied verbatim from /etc/nixos/hardware-configuration.nixos
