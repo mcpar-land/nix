@@ -22,13 +22,11 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  services.pipewire = import ../apps/pipewire.nix {
+    inherit pkgs;
+    outputDeviceId = "alsa_output.pci-0000_00_1f.3.analog-stereo";
+    inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
   };
 
   # brightness and volume controls on keyboard
