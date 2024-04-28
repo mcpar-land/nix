@@ -127,6 +127,7 @@
       enableNotifier = true;
       locker = "${pkgs.xlockmore}/bin/xlock";
       notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+      time = 120;
     };
   };
 
