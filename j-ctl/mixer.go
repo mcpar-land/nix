@@ -142,7 +142,7 @@ func setMix(mix int) (*mixInfo, error) {
 		Send()
 
 	if err != nil {
-		return nil, err
+		fmt.Fprintln(os.Stderr, "error sending notif for mixer change:", err)
 	}
 
 	return getMix()

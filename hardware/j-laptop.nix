@@ -21,16 +21,6 @@
     naturalScrolling = true;
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   # brightness and volume controls on keyboard
   programs.light.enable = true;
   services.actkbd = {

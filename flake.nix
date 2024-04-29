@@ -93,6 +93,10 @@
       modules =
         [
           ./hardware/j-desktop.nix
+          ((import ./apps/pipewire.nix) {
+            outputDeviceId = "alsa_output.usb-SteelSeries_Arctis_7_-00.analog-stereo";
+            inputDeviceId = "alsa_input.usb-SteelSeries_Arctis_7_-00.mono-fallback";
+          })
           (monitor-list ["HDMI-A-0" "DisplayPort-1" "DisplayPort-2"])
         ]
         ++ sharedSystemConfig;
@@ -102,6 +106,10 @@
       modules =
         [
           ./hardware/j-laptop.nix
+          ((import ./apps/pipewire.nix) {
+            outputDeviceId = "TODO";
+            inputDeviceId = "TODO";
+          })
           (monitor-list ["eDP-1"])
         ]
         ++ sharedSystemConfig;
