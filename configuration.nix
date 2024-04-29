@@ -123,17 +123,9 @@
     xautolock = {
       enable = true;
       enableNotifier = true;
-      locker = "${pkgs.xlockmore}/bin/xlock";
+      locker = "${pkgs.writeShellScript "styled-locker" ''i3lock-styled''}";
       notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
-      time = 120;
-    };
-  };
-
-  systemd.services.lightLocker = {
-    description = "Light Locker Daemon";
-    partOf = ["graphical-session.target"];
-    serviceConfig = {
-      Type = "forking";
+      time = 30;
     };
   };
 

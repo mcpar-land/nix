@@ -66,6 +66,7 @@
       })
       home-manager.nixosModules.home-manager
       ./configuration.nix
+      ./apps/i3lock.nix
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
