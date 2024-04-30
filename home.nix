@@ -80,6 +80,9 @@
     diffuse
 
     dconf
+
+    # misc dependencies
+    playwright-driver.browsers
   ];
 
   programs.gpg = {
@@ -216,7 +219,8 @@
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
     NIX_THEME = theme.asJson;
-    LOOPBACK_MIX_LEVEL = "0";
+    PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+    PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
   };
 
   home.stateVersion = "23.11";
