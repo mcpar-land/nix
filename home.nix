@@ -113,9 +113,9 @@
 
   xdg.desktopEntries = {
     logout = {
-      name = "Log Out";
+      name = "Logout";
       genericName = "Log Out";
-      exec = "loginctl terminate-session";
+      exec = "loginctl terminate-session\"\"";
     };
     lock = {
       name = "Lock";
