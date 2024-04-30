@@ -2,8 +2,6 @@ brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
-fix discord krisp
-fix sessions not ending on logout
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 lock desktop on hibernate @desktop
@@ -17,12 +15,15 @@ suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
+update when this pr merges https://github.com/NixOS/nixpkgs/pull/306421 +discord
 x battery percentage +eww
 x buttons for moving through workspaces in list order, not number order +eww
 x chat / voice fader +pipewire
 x configure btop to not show all panels by default
 x consider abstracting workspaces into all monitors +eww
 x ensure bars ALWAYS spawn +eww
+x fix discord krisp
+x fix sessions not ending on logout
 x maximum line height on notification
 x noise filter via pipewire instead of noisetorch + pipewire
 x revert xz to safe version

@@ -21,14 +21,6 @@
     naturalScrolling = true;
   };
 
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = import ../apps/pipewire.nix {
-    inherit pkgs;
-    outputDeviceId = "alsa_output.pci-0000_00_1f.3.analog-stereo";
-    inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
-  };
-
   # brightness and volume controls on keyboard
   programs.light.enable = true;
   services.actkbd = {

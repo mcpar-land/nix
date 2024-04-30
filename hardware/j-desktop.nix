@@ -68,15 +68,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = import ../apps/pipewire.nix {
-    inherit pkgs;
-    outputDeviceId = "alsa_output.usb-SteelSeries_Arctis_7_-00.analog-stereo";
-    inputDeviceId = "alsa_input.usb-SteelSeries_Arctis_7_-00.mono-fallback";
-  };
-
   # ===== everything past this line was copied verbatim from /etc/nixos/hardware-configuration.nixos
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   # boot.initrd.kernelModules = []; # manually editing this further up
