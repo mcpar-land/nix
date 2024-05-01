@@ -19,6 +19,7 @@
       g = "lazygit";
       d = "lazydocker";
       y = "yazi";
+      sys = "systemctl-tui";
       weather = "curl v2.wttr.in";
       reload-bar = "~/.config/ewwscripts/launch";
     };

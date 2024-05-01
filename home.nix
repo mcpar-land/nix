@@ -16,6 +16,8 @@
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
+    ./apps/firefox/firefox.nix
+    ./apps/chrome.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,12 +37,18 @@
     jq # https://jqlang.github.io/jq/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
+    glow # https://github.com/charmbracelet/glow
+    hurl # https://hurl.dev/
     duckdb
     pandoc
     ffmpeg
     devenv
     lazydocker
     watchexec
+    systemctl-tui
+    xorg.xev
+    sshfs
+    neofetch
 
     # languages
     # rustup
@@ -61,7 +69,6 @@
     ormolu # haskell formatter
 
     # gui apps
-    google-chrome
     vscode
     alacritty
     libreoffice-qt
@@ -80,6 +87,9 @@
     diffuse
 
     dconf
+
+    # misc dependencies
+    playwright-driver.browsers
   ];
 
   programs.gpg = {
@@ -91,9 +101,6 @@
     extraConfig = ''
       pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
     '';
-  };
-  programs.firefox = {
-    enable = true;
   };
 
   programs.yazi = {
@@ -111,18 +118,18 @@
     enableZshIntegration = true;
   };
 
-  xdg.desktopEntries = {
-    logout = {
-      name = "Log Out";
-      genericName = "Log Out";
-      exec = "loginctl terminate-session";
-    };
-    lock = {
-      name = "Lock";
-      genericName = "Lock";
-      exec = "i3lock-styled";
-    };
-  };
+  # xdg.desktopEntries = {
+  #   logout = {
+  #     name = "Logout";
+  #     genericName = "Log Out";
+  #     exec = "loginctl terminate-session \"\"";
+  #   };
+  #   lock = {
+  #     name = "Lock";
+  #     genericName = "Lock";
+  #     exec = "i3lock-styled";
+  #   };
+  # };
 
   # services.screen-locker = {
   #   enable = true;
@@ -213,10 +220,12 @@
     EDITOR = "hx";
     VISUAL = "hx";
     BROWSER = "google-chrome-stable";
+    DELTA_PAGER = "less --mouse";
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
     NIX_THEME = theme.asJson;
-    LOOPBACK_MIX_LEVEL = "0";
+    PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+    PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
   };
 
   home.stateVersion = "23.11";

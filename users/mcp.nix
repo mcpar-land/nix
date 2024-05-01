@@ -1,12 +1,14 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: {
-  # imports = [
-  #   ../home.nix
-  # ];
-
+}: let
+  firefoxProfile = import ../apps/firefox/profile.nix {
+    inherit pkgs;
+    inherit lib;
+  };
+in {
   home.username = "mcp";
   home.homeDirectory = "/home/mcp";
   home.packages = with pkgs; [
@@ -32,7 +34,7 @@
   #   Service.Type = "oneshot";
   # };
 
-  programs.firefox.profiles."mcp" = {
+  programs.firefox.profiles."mcp" = firefoxProfile {
     name = "McP";
     id = 0;
     isDefault = true;

@@ -10,10 +10,72 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  environment.systemPackages = with pkgs; [
+    system76-keyboard-configurator
+  ];
+
+  powerManagement.powertop.enable = true;
+
+  # services.xserver.xrandrHeads = [
+  #   "DP-1"
+  #   {
+  #     output = "eDP-1";
+  #     primary = true;
+  #   }
+  #   "HDMI-1"
+  # ];
+
+  services.autorandr = {
+    enable = true;
+    defaultTarget = "nothing_plugged_in";
+    hooks.postswitch = {
+      reboot_eww = ''
+        ~/.config/ewwscripts/launch
+      '';
+    };
+    profiles."nothing_plugged_in" = {
+      fingerprint = {
+        "eDP-1" = "00ffffffffffff000dae121500000000301d0104a52213780328659759548e271e505400000001010101010101010101010101010101363680a0703820403020a50058c110000018000000fe004e3135364843412d4535420a20000000fe00434d4e0a202020202020202020000000fe004e3135364843412d4535420a2000c7";
+      };
+      config = {
+        "eDP-1" = {
+          primary = true;
+          mode = "1920x1080";
+          rate = "60.0";
+        };
+      };
+    };
+    profiles."office" = {
+      fingerprint = {
+        "DP-1" = "00ffffffffffff0004726f04de0f9014311f010380351e78ee0565a756529c270f5054b30c00714f818081c081009500b300d1c00101023a801871382d40582c45000f282100001e000000fd00384b1f4b12000a202020202020000000fc005232343048590a202020202020000000ff005434424141303031323431310a01c602031cf1499001030412131f0514230907078301000065030c001000023a801871382d40582c45000f282100001e011d007251d01e206e2855000f282100001e8c0ad08a20e02d10103e96000f2821000018d60980a020e02d10086022000f28210808180000000000000000000000000000000000000000000000000000002e";
+        "HDMI-1" = "00ffffffffffff0004726f049d509003271e010380351e78ee0565a756529c270f5054b30c00714f818081c081009500b300d1c00101023a801871382d40582c45000f282100001e000000fd00384b1f4b12000a202020202020000000fc005232343048590a202020202020000000ff005434424141303031323431310a01e202031cf1499001030412131f0514230907078301000065030c001000023a801871382d40582c45000f282100001e011d007251d01e206e2855000f282100001e8c0ad08a20e02d10103e96000f2821000018d60980a020e02d10086022000f28210808180000000000000000000000000000000000000000000000000000002e";
+        "eDP-1" = "00ffffffffffff000dae121500000000301d0104a52213780328659759548e271e505400000001010101010101010101010101010101363680a0703820403020a50058c110000018000000fe004e3135364843412d4535420a20000000fe00434d4e0a202020202020202020000000fe004e3135364843412d4535420a2000c7";
+      };
+      config = {
+        "DP-1" = {
+          mode = "1920x1080";
+          position = "0x0";
+          rate = "60.0";
+        };
+        "eDP-1" = {
+          primary = true;
+          mode = "1920x1080";
+          position = "1920x0";
+          rate = "60.0";
+        };
+        "HDMI-1" = {
+          mode = "1920x1080";
+          position = "3840x0";
+          rate = "60.0";
+        };
+      };
+    };
+  };
+
   hardware.system76.enableAll = true;
   networking.hostName = "j-laptop";
 
-  services.xserver.libinput.touchpad = {
+  services.libinput.touchpad = {
     clickMethod = "clickfinger";
     tapping = false;
     scrollMethod = "twofinger";

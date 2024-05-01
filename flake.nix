@@ -56,6 +56,7 @@
           rust-overlay.overlays.default
           (final: prev: {
             j-ctl = import ./j-ctl {pkgs = final;};
+            custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
           })
         ];
         environment.systemPackages = [
@@ -111,7 +112,7 @@
             outputDeviceId = "alsa_output.pci-0000_00_1f.3.analog-stereo";
             inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
           })
-          (monitor-list ["eDP-1"])
+          (monitor-list ["DP-1" "eDP-1" "HDMI-1"])
         ]
         ++ sharedSystemConfig;
     };

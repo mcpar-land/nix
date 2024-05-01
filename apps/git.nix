@@ -19,7 +19,6 @@ in {
     settings = {
       git = {
         paging = {
-          colorArg = "never";
           pager = "delta --tabs 2 --dark --paging=never";
         };
       };
@@ -40,7 +39,9 @@ in {
         side-by-side = true;
         line-numbers = false;
         hyperlinks = true;
-        true-color = "never";
+        dark = true;
+        tabs = 2;
+        syntax-theme = "Monokai Extended";
       };
     };
   };
