@@ -10,6 +10,9 @@ make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
 network status item in bar +eww
 noise on usb plug / unplug
+rofi script for all workspaces + rofi
+rofi script for logout/suspend/sleep powermenu +rofi
+rofi script for powermenu from json +rofi
 suspend laptop on clamshell close @laptop
 suspend / logout buttons +eww +rofi
 switch to firefox +firefox
