@@ -56,6 +56,7 @@
           rust-overlay.overlays.default
           (final: prev: {
             j-ctl = import ./j-ctl {pkgs = final;};
+            custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
           })
         ];
         environment.systemPackages = [

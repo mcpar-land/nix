@@ -114,18 +114,18 @@
     enableZshIntegration = true;
   };
 
-  xdg.desktopEntries = {
-    logout = {
-      name = "Logout";
-      genericName = "Log Out";
-      exec = "loginctl terminate-session \"\"";
-    };
-    lock = {
-      name = "Lock";
-      genericName = "Lock";
-      exec = "i3lock-styled";
-    };
-  };
+  # xdg.desktopEntries = {
+  #   logout = {
+  #     name = "Logout";
+  #     genericName = "Log Out";
+  #     exec = "loginctl terminate-session \"\"";
+  #   };
+  #   lock = {
+  #     name = "Lock";
+  #     genericName = "Lock";
+  #     exec = "i3lock-styled";
+  #   };
+  # };
 
   # services.screen-locker = {
   #   enable = true;
