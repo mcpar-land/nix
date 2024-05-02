@@ -41,6 +41,7 @@
     devenv
     lazydocker
     watchexec
+    systemctl-tui
 
     # languages
     # rustup
