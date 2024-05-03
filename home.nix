@@ -42,6 +42,7 @@
     lazydocker
     watchexec
     systemctl-tui
+    xorg.xev
 
     # languages
     # rustup
