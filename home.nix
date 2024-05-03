@@ -35,6 +35,7 @@
     jq # https://jqlang.github.io/jq/
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
+    glow # https://github.com/charmbracelet/glow
     duckdb
     pandoc
     ffmpeg
