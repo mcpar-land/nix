@@ -5,6 +5,7 @@
 }: let
   mod = "Mod4";
   launchProfile = pkgs.writeShellScript "rofi-firefox" ''
+    set -e
     SELECTED_PROFILE=$(j-ctl firefox list-profiles | rofi -dmenu -p 'firefox')
 
     firefox -P $SELECTED_PROFILE &

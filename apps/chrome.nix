@@ -5,6 +5,7 @@
 }: let
   mod = "Mod4";
   launchProfile = pkgs.writeShellScript "rofi-chrome" ''
+    set -e
     SELECTED_PROFILE=$(j-ctl chrome list-profiles | rofi -dmenu -auto-select -p 'chrome')
     PROFILE_DIRECTORY=$(j-ctl chrome get-profile "$SELECTED_PROFILE")
 
