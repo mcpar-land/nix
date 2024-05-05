@@ -36,6 +36,10 @@
         label = "Lock";
         exec = "i3lock-styled";
       }
+      {
+        label = "Suspend";
+        exec = "i3lock-styled && systemctl suspend";
+      }
     ];
   };
 in {
