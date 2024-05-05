@@ -16,6 +16,7 @@
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
+    ./apps/firefox/firefox.nix
   ];
 
   home.packages = with pkgs; [
@@ -97,9 +98,6 @@
     extraConfig = ''
       pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
     '';
-  };
-  programs.firefox = {
-    enable = true;
   };
 
   programs.yazi = {

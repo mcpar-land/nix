@@ -15,7 +15,7 @@ func main() {
 }
 
 func init() {
-	rootCmd.AddCommand(helloCmd, i3Cmd, mixerCmd)
+	rootCmd.AddCommand(helloCmd, i3Cmd, mixerCmd, firefoxCmd)
 }
 
 var rootCmd = &cobra.Command{
