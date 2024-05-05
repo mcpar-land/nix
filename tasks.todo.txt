@@ -1,3 +1,5 @@
+try kitty terminal
+fix zellij tab movement keybings
 brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
