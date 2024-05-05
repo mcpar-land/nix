@@ -1,25 +1,22 @@
-try kitty terminal
-fix zellij tab movement keybings
 brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
+fix zellij tab movement keybings
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
-lock desktop on hibernate @desktop
+limit length of media ticker +eww
 look at udiskie systemd service (run as root, not user)
 make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
 network status item in bar +eww
 noise on usb plug / unplug
 rofi script for all workspaces + rofi
-rofi script for logout/suspend/sleep powermenu +rofi
-rofi script for powermenu from json +rofi
 suspend laptop on clamshell close @laptop
-suspend / logout buttons +eww +rofi
 switch to firefox +firefox
 tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
+try kitty terminal even more
 update when this pr merges https://github.com/NixOS/nixpkgs/pull/306421 +discord
 x battery percentage +eww
 x buttons for moving through workspaces in list order, not number order +eww
@@ -29,11 +26,15 @@ x consider abstracting workspaces into all monitors +eww
 x ensure bars ALWAYS spawn +eww
 x fix discord krisp
 x fix sessions not ending on logout
+x lock desktop on hibernate @desktop
 x maximum line height on notification
 x noise filter via pipewire instead of noisetorch + pipewire
 x revert xz to safe version
+x rofi script for logout/suspend/sleep powermenu +rofi
+x rofi script for powermenu from json +rofi
 x sometimes 2 bars appear on make +eww
 x suspend laptop on power button @laptop
+x suspend / logout buttons +eww +rofi
 x try out 1 statusbar with all workspaces (separated by display) +eww
 x uninstall windows @desktop
 x use theme colors for delta
