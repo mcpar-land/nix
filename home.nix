@@ -17,6 +17,7 @@
     ./apps/zellij.nix
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
+    ./apps/chrome.nix
   ];
 
   home.packages = with pkgs; [
@@ -65,7 +66,6 @@
     ormolu # haskell formatter
 
     # gui apps
-    google-chrome
     vscode
     alacritty
     libreoffice-qt
