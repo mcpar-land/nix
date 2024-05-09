@@ -2,7 +2,6 @@ brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
-detect monitors plugged in or not plugged in @laptop
 fix zellij tab movement keybings
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
@@ -24,6 +23,7 @@ x buttons for moving through workspaces in list order, not number order +eww
 x chat / voice fader +pipewire
 x configure btop to not show all panels by default
 x consider abstracting workspaces into all monitors +eww
+x detect monitors plugged in or not plugged in @laptop
 x ensure bars ALWAYS spawn +eww
 x fix discord krisp
 x fix sessions not ending on logout
