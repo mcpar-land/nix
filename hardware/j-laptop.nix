@@ -10,6 +10,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  environment.systemPackages = with pkgs; [
+    system76-keyboard-configurator
+  ];
+
   # services.xserver.xrandrHeads = [
   #   "DP-1"
   #   {
