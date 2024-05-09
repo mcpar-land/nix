@@ -2,6 +2,7 @@ brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
+detect monitors plugged in or not plugged in @laptop
 fix zellij tab movement keybings
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop

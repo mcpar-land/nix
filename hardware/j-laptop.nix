@@ -10,6 +10,15 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  services.xserver.xrandrHeads = [
+    "DP-1"
+    {
+      output = "eDP-1";
+      primary = true;
+    }
+    "HDMI-1"
+  ];
+
   hardware.system76.enableAll = true;
   networking.hostName = "j-laptop";
 

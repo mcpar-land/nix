@@ -112,7 +112,7 @@
             outputDeviceId = "TODO";
             inputDeviceId = "TODO";
           })
-          (monitor-list ["eDP-1"])
+          (monitor-list ["DP-1" "eDP-1" "HDMI-1"])
         ]
         ++ sharedSystemConfig;
     };
