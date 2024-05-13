@@ -46,6 +46,7 @@
     watchexec
     systemctl-tui
     xorg.xev
+    sshfs
 
     # languages
     # rustup
