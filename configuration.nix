@@ -23,6 +23,7 @@
     fira
     fira-code-nerdfont
     font-awesome
+    (import ./fonts/berkeley-mono.nix {inherit pkgs;})
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

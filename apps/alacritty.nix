@@ -25,14 +25,14 @@
       };
       font = {
         normal = {
-          family = "FiraCode Nerd Font Mono";
+          family = "Berkeley Mono Trial";
           style = "Regular";
         };
         bold = {
-          family = "FiraCode Nerd Font Mono";
+          family = "Berkeley Mono Trial";
           style = "Bold";
         };
-        size = 10;
+        size = 11;
       };
       colors = {
         primary = {
