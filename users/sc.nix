@@ -19,6 +19,8 @@ in {
     chatterino2
     streamlink
     path-of-building
+    godot_4
+    gdtoolkit
   ];
 
   xdg.desktopEntries = {
