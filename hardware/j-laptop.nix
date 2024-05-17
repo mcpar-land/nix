@@ -73,7 +73,7 @@
   hardware.system76.enableAll = true;
   networking.hostName = "j-laptop";
 
-  services.xserver.libinput.touchpad = {
+  services.libinput.touchpad = {
     clickMethod = "clickfinger";
     tapping = false;
     scrollMethod = "twofinger";
