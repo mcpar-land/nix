@@ -49,7 +49,6 @@
     xorg.xev
     sshfs
     neofetch
-    powertop
 
     # languages
     # rustup

@@ -14,6 +14,8 @@
     system76-keyboard-configurator
   ];
 
+  powerManagement.powertop.enable = true;
+
   # services.xserver.xrandrHeads = [
   #   "DP-1"
   #   {
