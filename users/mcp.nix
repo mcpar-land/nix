@@ -24,6 +24,10 @@ in {
     zoom-us
   ];
 
+  programs.k9s = {
+    enable = true;
+  };
+
   # systemd.user.services.tailscale-autoconnect = {
   #   Unit.Description = "Automatically connect to tailscale";
   #   Install.WantedBy = ["default.target"];
