@@ -39,6 +39,9 @@ in {
         side-by-side = true;
         line-numbers = false;
         hyperlinks = true;
+        dark = true;
+        tabs = 2;
+        syntax-theme = "Monokai Extended";
       };
     };
   };

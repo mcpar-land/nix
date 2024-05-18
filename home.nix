@@ -220,6 +220,7 @@
     EDITOR = "hx";
     VISUAL = "hx";
     BROWSER = "google-chrome-stable";
+    DELTA_PAGER = "less --mouse";
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
     NIX_THEME = theme.asJson;
