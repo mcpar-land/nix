@@ -50,6 +50,20 @@ var batteryCmd = &cobra.Command{
 			return
 		}
 
+		statusRaw, err := os.ReadFile(fmt.Sprintf(
+			"/sys/class/power_supply/%s/status",
+			batName,
+		))
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return
+		}
+
+		status := string(statusRaw)
+		status = strings.TrimSpace(status)
+		status = strings.ToLower(status)
+		isCharging := status == "charging"
+
 		capacity, err := strconv.Atoi(strings.TrimSpace(string(capacityRaw)))
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
@@ -60,6 +74,10 @@ var batteryCmd = &cobra.Command{
 		icons := "󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹"
 		iconIndex := min(9, capacity/10)
 		icon := strings.Split(icons, "")[iconIndex]
+
+		if isCharging {
+			icon = "󰂄"
+		}
 
 		fmt.Fprintf(os.Stdout, "%s %d%%", icon, capacity)
 	},
