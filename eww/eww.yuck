@@ -24,7 +24,7 @@
         (divider)
         (time)
         (divider)
-        (brightness)
+        ; (brightness)
         (battery_circle)
         (volume)
       )

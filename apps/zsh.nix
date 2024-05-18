@@ -15,12 +15,13 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      l = "ls -l";
+      l = "ls -lh";
       g = "lazygit";
       d = "lazydocker";
       y = "yazi";
       sys = "systemctl-tui";
       weather = "curl v2.wttr.in";
+      brightness = "light -S";
       reload-bar = "~/.config/ewwscripts/launch";
     };
     history.size = 10000;
