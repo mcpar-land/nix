@@ -35,6 +35,7 @@
     visidata # https://www.visidata.org/man/
     youplot # https://github.com/red-data-tools/YouPlot
     jq # https://jqlang.github.io/jq/
+    yq-go # https://mikefarah.gitbook.io/yq
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
     glow # https://github.com/charmbracelet/glow
