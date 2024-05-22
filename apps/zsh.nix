@@ -47,6 +47,10 @@
       	fi
       	rm -f -- "$tmp"
       }
+      # ctrl + left
+      bindkey ";5D" backward-word
+      # ctrl + right
+      bindkey ";5C" forward-word
     '';
   };
 }
