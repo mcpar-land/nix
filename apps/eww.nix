@@ -58,7 +58,7 @@
       executable = true;
     };
     "./.config/ewwscripts/weather" = {
-      text = ''curl "wttr.in?format=%C%20%t" 2> /dev/null | sed "s/\+//g"'';
+      text = ''curl "wttr.in/Boston?u&format=%C%20%t" 2> /dev/null | sed "s/\+//g"'';
       executable = true;
     };
     "./.config/ewwscripts/wslist" = {
