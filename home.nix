@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     # terminal apps
+    wget
     zip
     xz
     unzip
