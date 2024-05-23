@@ -2,7 +2,8 @@
   description = "this is my configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -39,6 +40,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     rust-overlay,
     helix,
@@ -48,6 +50,12 @@
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
     monitor-list = monitors: {
       home-manager.extraSpecialArgs.monitor-list = monitors;
+    };
+    sharedSystemSpecialArgs = system: {
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     };
     # shared system config across all devices
     sharedSystemConfig = [
@@ -90,8 +98,9 @@
         "-L"
       ];
     };
-    nixosConfigurations.j-desktop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.j-desktop = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = sharedSystemSpecialArgs system;
       modules =
         [
           ./hardware/j-desktop.nix
@@ -103,8 +112,9 @@
         ]
         ++ sharedSystemConfig;
     };
-    nixosConfigurations.j-laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.j-laptop = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = sharedSystemSpecialArgs system;
       modules =
         [
           ./hardware/j-laptop.nix
