@@ -112,7 +112,7 @@
             outputDeviceId = "alsa_output.pci-0000_00_1f.3.analog-stereo";
             inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
           })
-          (monitor-list ["DP-1" "eDP-1" "HDMI-1"])
+          (monitor-list ["DP-1-1" "eDP-1" "DP-1-2"])
         ]
         ++ sharedSystemConfig;
     };
