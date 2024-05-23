@@ -128,8 +128,8 @@ in {
         "${mod}+Shift+l" = "move right";
 
         # move workspace
-        "${mod}+Shift+comma" = "move workspace to output left";
-        "${mod}+Shift+period" = "move workspace to output right";
+        "${mod}+Shift+bracketleft" = "move workspace to output left";
+        "${mod}+Shift+bracketright" = "move workspace to output right";
 
         # apps
         "${mod}+t" = "exec --no-startup-id alacritty";
