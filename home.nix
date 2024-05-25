@@ -51,6 +51,7 @@
     xorg.xev
     sshfs
     neofetch
+    nmap
 
     # languages
     # rustup
