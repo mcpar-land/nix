@@ -33,3 +33,8 @@ Host j-laptop-sc
   Port 5346
   User sc
   IdentityFile ~/.ssh/id_rsa
+Host raspi
+  HostName 10.0.0.146
+  Port 22
+  User nixos
+  IdentityFile ~/.ssh/id_rsa
