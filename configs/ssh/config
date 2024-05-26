@@ -38,3 +38,8 @@ Host raspi
   Port 22
   User nixos
   IdentityFile ~/.ssh/id_rsa
+Host raspi-git
+  HostName 10.0.0.146
+  Port 2222
+  User nixos
+  Identityfile ~/.ssh/id_rsa
