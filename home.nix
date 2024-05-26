@@ -52,6 +52,7 @@
     sshfs
     neofetch
     nmap
+    xclip # clipboard
 
     # languages
     # rustup

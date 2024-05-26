@@ -24,6 +24,8 @@
       weather = "curl \"v2.wttr.in/Cambridge+MA?u\"";
       brightness = "light -S";
       reload-bar = "~/.config/ewwscripts/launch";
+      setclip = "xclip -selection c";
+      getclip = "xclip -selection c -o";
     };
     history.size = 10000;
     plugins = [
