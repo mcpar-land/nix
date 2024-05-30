@@ -55,6 +55,23 @@
   #   };
   # };
 
+  # # automatically mount raspi data via sshfs
+  # # https://nixos.org/manual/nixos/stable/#sec-sshfs-file-systems
+  # fileSystems."/mnt/raspi" = {
+  #   device = "nixos@10.0.0.146:/data/";
+  #   fsType = "sshfs";
+  #   options = [
+  #     "allow_other"
+  #     "_netdev"
+  #     "x-systemd.automount"
+  #     "reconnect"
+  #     "ServerAliveInterval=15"
+  #     # gotta make this manually ig
+  #     "IdentityFile=/root/.ssh/id_rsa"
+  #     "debug"
+  #   ];
+  # };
+
   services.gnome.gnome-keyring.enable = true;
 
   users.users.sc = {
