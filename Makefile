@@ -20,6 +20,8 @@ wallpaper:
 	betterlockscreen -u ./wallpapers/martinaise.png
 update:
 	nix flake update
+repair:
+	sudo nix-store --repair --verify --check-contents
 refresh-udev:
 	sudo udevadm control --reload-rules
 	sudo udevadm trigger
