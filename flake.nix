@@ -2,7 +2,8 @@
   description = "this is my configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -15,22 +16,20 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs-unstable";
       };
     };
     helix = {
       url = "github:helix-editor/helix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         rust-overlay.follows = "rust-overlay";
-        flake-utils.follows = "flake-utils";
       };
     };
     eww = {
       url = "github:elkowar/eww";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         rust-overlay.follows = "rust-overlay";
       };
     };

@@ -84,7 +84,7 @@
     gnome.nautilus
     gnome.sushi
     gnome.gnome-font-viewer
-    dbeaver
+    dbeaver-bin
     bruno
     pavucontrol
     qdirstat
