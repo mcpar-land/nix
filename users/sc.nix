@@ -34,7 +34,7 @@ in {
   };
 
   programs.firefox.profiles."sc" = firefoxProfile {
-    name = "SC";
+    name = "J";
     id = 0;
     isDefault = true;
   };

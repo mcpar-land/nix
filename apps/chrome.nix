@@ -16,7 +16,7 @@ in {
     google-chrome
   ];
 
-  xsession.windowManager.i3.config.keybindings = lib.mkOptionDefault {
-    "${mod}+b" = "exec --no-startup-id ${launchProfile}";
-  };
+  # xsession.windowManager.i3.config.keybindings = lib.mkOptionDefault {
+  #   "${mod}+b" = "exec --no-startup-id ${launchProfile}";
+  # };
 }
