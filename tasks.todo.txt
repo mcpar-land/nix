@@ -6,7 +6,6 @@ fix zellij tab movement keybings
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 limit length of media ticker +eww
-look at udiskie systemd service (run as root, not user)
 make bar not opaque (sometimes) on login +eww
 make eww respect autorandr +eww @laptop
 mouse gestures to switch workspaces @laptop
@@ -29,6 +28,7 @@ x ensure bars ALWAYS spawn +eww
 x fix discord krisp
 x fix sessions not ending on logout
 x lock desktop on hibernate @desktop
+x look at udiskie systemd service (run as root, not user)
 x maximum line height on notification
 x noise filter via pipewire instead of noisetorch + pipewire
 x revert xz to safe version

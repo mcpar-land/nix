@@ -203,7 +203,10 @@
     Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
   };
 
-  services.udiskie.enable = true;
+  services.udiskie = {
+    enable = true;
+    tray = "never";
+  };
 
   home.file = {
     "./.background-image" = {
