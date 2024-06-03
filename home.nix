@@ -17,7 +17,6 @@
     ./apps/zellij.nix
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
-    ./apps/chrome.nix
   ];
 
   home.packages = with pkgs; [
@@ -75,6 +74,7 @@
     # gui apps
     vscode
     alacritty
+    ungoogled-chromium
     libreoffice-qt
     hardinfo
     obsidian
