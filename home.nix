@@ -202,13 +202,8 @@
     Install.WantedBy = ["graphical-session-i3.target"];
     Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
   };
-  # automatically mount disks
-  systemd.user.services.udiskie = {
-    Unit.Description = "Udiskie uses udisks2 to automount inserted media";
-    Install.WantedBy = ["multi-user.target"];
-    Serivce.Type = "simple";
-    Service.ExecStart = "${pkgs.udiskie}/bin/udiskie";
-  };
+
+  services.udiskie.enable = true;
 
   home.file = {
     "./.background-image" = {
