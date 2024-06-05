@@ -40,6 +40,10 @@
         label = "Suspend";
         exec = "i3lock-styled && systemctl suspend";
       }
+      {
+        label = "Switch User";
+        exec = "dm-tool switch-to-greeter";
+      }
     ];
   };
 in {
