@@ -12,14 +12,11 @@ all:
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc
-wallpaper:
-	# this weird package manages its images itself instead of just being able
-	# to take a path like it should.
-	betterlockscreen -u ./wallpapers/martinaise.png
 update:
 	nix flake update
 repair:
 	sudo nix-store --repair --verify --check-contents
+# what is thsis here for? i forgor.
 refresh-udev:
 	sudo udevadm control --reload-rules
 	sudo udevadm trigger
