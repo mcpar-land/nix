@@ -14,7 +14,7 @@ in {
   home.packages = with pkgs; [
     # terminal apps
     sops
-    awscli
+    awscli2
     aws-vault
     mysql80
     kubectl
