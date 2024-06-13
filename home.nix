@@ -221,7 +221,7 @@
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
-    BROWSER = "google-chrome-stable";
+    BROWSER = "firefox";
     DELTA_PAGER = "less --mouse";
     TERMINAL = "alacritty";
     GTK_THEME = "Adwaita-dark";
