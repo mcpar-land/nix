@@ -18,6 +18,7 @@ in {
     aws-vault
     mysql80
     kubectl
+    # https://github.com/ankitpokhrel/jira-cli
     jira-cli-go
 
     # gui apps
