@@ -18,6 +18,7 @@ in {
     aws-vault
     mysql80
     kubectl
+    jira-cli-go
 
     # gui apps
     slack
