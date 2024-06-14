@@ -45,4 +45,5 @@ Host raspi-git
 Host jamrock
   HostName 10.0.0.127
   Port 22
+  User nixos
   IdentityFile ~/.ssh/id_rsa
