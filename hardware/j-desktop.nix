@@ -25,7 +25,7 @@
   boot.kernelParams = [
     "amdgpu.gpu_recovery=1"
   ];
-  boot.loader.grub.memtest86.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.initrd.kernelModules = ["amdgpu"];
   services.xserver.videoDrivers = ["amdgpu"];
   hardware.opengl = {
