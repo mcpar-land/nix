@@ -21,6 +21,7 @@ in {
     path-of-building
     godot_4
     gdtoolkit
+    minecraft
   ];
 
   xdg.desktopEntries = {
