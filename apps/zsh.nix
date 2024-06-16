@@ -56,8 +56,6 @@
       bindkey ";5D" backward-word
       # ctrl + right
       bindkey ";5C" forward-word
-
-      export JIRA_API_TOKEN=$(cat ~/.jira-api-token)
     '';
   };
 }

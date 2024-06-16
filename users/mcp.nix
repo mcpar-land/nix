@@ -46,6 +46,10 @@ in {
     isDefault = true;
   };
 
+  programs.zsh.initExtra = ''
+    export JIRA_API_TOKEN=$(cat ~/.jira-api-token)
+  '';
+
   home.sessionVariables = {
     # https://github.com/99designs/aws-vault/blob/master/USAGE.md#environment-variables
     AWS_SESSION_TOKEN_TTL = "12h";
