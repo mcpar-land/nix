@@ -2,6 +2,7 @@ brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
+cpu / gpu temp in bar +eww
 figure out sops +sops
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
