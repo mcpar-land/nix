@@ -89,6 +89,7 @@
     pavucontrol
     qdirstat
     diffuse
+    heaptrack
 
     dconf
 
