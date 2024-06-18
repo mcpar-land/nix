@@ -40,6 +40,21 @@ in {
   #   Service.Type = "oneshot";
   # };
 
+  systemd.user.enable = true;
+  systemd.user.services.mount-civera-ftp = {
+    Unit = {
+      Description = "Civera SFTP Server";
+    };
+    Install = {
+      WantedBy = ["default.target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.sshfs}/bin/sshfs civera-ftp: /home/mcp/mnt/civera_ftp -f -v -o auto_unmount";
+      Restart = "always";
+      ExecStop = "${pkgs.fuse}/bin/fusermount -uz /home/mcp/mnt/civera_ftp";
+    };
+  };
+
   programs.firefox.profiles."mcp" = firefoxProfile {
     name = "McP";
     id = 0;
