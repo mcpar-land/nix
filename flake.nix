@@ -33,6 +33,13 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -42,6 +49,7 @@
     rust-overlay,
     helix,
     eww,
+    agenix,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -65,6 +73,7 @@
         ];
       })
       home-manager.nixosModules.home-manager
+      agenix.nixosModules.default
       ./configuration.nix
       ./apps/i3lock.nix
       {
@@ -76,6 +85,7 @@
           inherit theme;
           helix-master = helix;
           eww-master = eww;
+          agenix = agenix;
         };
       }
     ];

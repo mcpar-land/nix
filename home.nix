@@ -3,6 +3,7 @@
   lib,
   pkgs,
   theme,
+  agenix,
   ...
 }: {
   imports = [
@@ -52,6 +53,7 @@
     neofetch
     nmap
     xclip # clipboard
+    agenix.packages.x86_64-linux.default
 
     # languages
     # rustup
