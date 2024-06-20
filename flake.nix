@@ -45,6 +45,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     rust-overlay,
     helix,
@@ -64,6 +65,7 @@
           (final: prev: {
             j-ctl = import ./j-ctl {pkgs = final;};
             custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
+            unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
           })
         ];
         environment.systemPackages = [
