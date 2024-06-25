@@ -2,6 +2,7 @@ brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
+cpu / gpu temp in bar +eww
 figure out sops +sops
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
@@ -15,6 +16,7 @@ suspend / lock laptop on clamshell close @laptop
 tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
 try kitty terminal even more
+why does ctrl-alt-del cause permanent spinner on desktop?
 x battery percentage +eww
 x buttons for moving through workspaces in list order, not number order +eww
 x chat / voice fader +pipewire

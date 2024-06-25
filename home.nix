@@ -3,6 +3,7 @@
   lib,
   pkgs,
   theme,
+  agenix,
   ...
 }: {
   imports = [
@@ -52,6 +53,7 @@
     neofetch
     nmap
     xclip # clipboard
+    agenix.packages.x86_64-linux.default
     # to connect to wifi, use nmtui
 
     # languages
@@ -90,6 +92,7 @@
     pavucontrol
     qdirstat
     diffuse
+    heaptrack
 
     dconf
 

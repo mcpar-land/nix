@@ -7,7 +7,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    vesktop
+    unstable.vesktop
     ntfs3g
     udiskie
     xdotool
@@ -26,6 +26,12 @@
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  age.secrets.test_secret.file = ./secrets/test_secret.age;
+  age.identityPaths = [
+    "/home/sc/.ssh/id_rsa"
+    "/home/mcp/.ssh/id_rsa"
+  ];
 
   # programs.hyprland.enable = true;
 

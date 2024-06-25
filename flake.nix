@@ -33,15 +33,24 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     rust-overlay,
     helix,
     eww,
+    agenix,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -56,6 +65,7 @@
           (final: prev: {
             j-ctl = import ./j-ctl {pkgs = final;};
             custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
+            unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
           })
         ];
         environment.systemPackages = [
@@ -65,6 +75,7 @@
         ];
       })
       home-manager.nixosModules.home-manager
+      agenix.nixosModules.default
       ./configuration.nix
       ./apps/i3lock.nix
       {
@@ -76,6 +87,7 @@
           inherit theme;
           helix-master = helix;
           eww-master = eww;
+          agenix = agenix;
         };
       }
     ];

@@ -21,6 +21,9 @@ in {
     path-of-building
     godot_4
     gdtoolkit
+
+    jre_headless # for minecraft
+    prismlauncher
   ];
 
   xdg.desktopEntries = {
