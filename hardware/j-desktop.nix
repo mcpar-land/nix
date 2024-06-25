@@ -12,7 +12,6 @@
 
   environment.systemPackages = with pkgs; [
     headsetcontrol # for steelseries headset
-    helvum # for pipewire
     gparted
   ];
 
