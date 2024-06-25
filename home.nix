@@ -54,6 +54,7 @@
     nmap
     xclip # clipboard
     agenix.packages.x86_64-linux.default
+    wavemon # wifi signal analysis tui
     # to connect to wifi, use nmtui
 
     # languages
