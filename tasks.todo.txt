@@ -1,3 +1,4 @@
+add mute symbol to sound icon in bar +eww
 brightness slider +eww @laptop
 check out a clipboard manager
 check out Syncthing
