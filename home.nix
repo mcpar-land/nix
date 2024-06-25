@@ -52,6 +52,7 @@
     neofetch
     nmap
     xclip # clipboard
+    # to connect to wifi, use nmtui
 
     # languages
     # rustup
