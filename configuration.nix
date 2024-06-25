@@ -16,6 +16,7 @@
     via # for keyboard
     qmk
     pulseaudio # for pactl, does not actually run the server
+    helvum # for pipewire GUI
   ];
 
   fonts.packages = with pkgs; [
