@@ -8,6 +8,7 @@ figure out sops +sops
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 get jira cli working with token stored in sops +sops
+global light mode
 limit length of media ticker +eww
 make bar not opaque (sometimes) on login +eww
 mouse gestures to switch workspaces @laptop
