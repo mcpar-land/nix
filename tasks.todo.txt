@@ -4,7 +4,6 @@ check out a clipboard manager
 check out Syncthing
 check out zsh-vi-mode
 cpu / gpu temp in bar +eww
-figure out sops +sops
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
 get jira cli working with token stored in sops +sops
@@ -26,6 +25,7 @@ x configure btop to not show all panels by default
 x consider abstracting workspaces into all monitors +eww
 x detect monitors plugged in or not plugged in @laptop
 x ensure bars ALWAYS spawn +eww
+x figure out sops +sops
 x fix discord krisp
 x fix sessions not ending on logout
 x fix zellij tab movement keybings
