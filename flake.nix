@@ -68,11 +68,6 @@
             unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
           })
         ];
-        environment.systemPackages = [
-          (pkgs.rust-bin.stable.latest.default.override {
-            extensions = ["rust-analyzer" "clippy" "rust-src"];
-          })
-        ];
       })
       home-manager.nixosModules.home-manager
       agenix.nixosModules.default
