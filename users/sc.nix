@@ -21,6 +21,7 @@ in {
     path-of-building
     godot_4
     gdtoolkit
+    r2modman
 
     jre_headless # for minecraft
     prismlauncher
