@@ -7,7 +7,9 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    unstable.vesktop
+    (unstable.vesktop.override {
+      withSystemVencord = false;
+    })
     ntfs3g
     udiskie
     xdotool
