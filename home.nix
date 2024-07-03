@@ -41,6 +41,7 @@
     jless # https://jless.io/
     glow # https://github.com/charmbracelet/glow
     hurl # https://hurl.dev/
+    rnr # https://github.com/ismaelgv/rnr
     duckdb
     pandoc
     ffmpeg
