@@ -86,6 +86,12 @@ in {
   xsession.windowManager.i3.enable = true;
   xsession.windowManager.i3.extraConfig = ''
     exec --no-startup-id ${sessionStart}
+
+    for_window [class="zoom"] floating enable
+    for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+    for_window [class="zoom" title="Zoom - Free Account"] floating disable
+    for_window [class="zoom" title="Zoom Meeting"] floating disable
+    for_window [class="zoom" title="Zoom Webinar"] floating disable
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
