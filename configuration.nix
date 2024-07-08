@@ -64,6 +64,9 @@
   #   };
   # };
 
+  # enable gvfs (gnome virtual file system) for connecting to stuff in nautilus
+  services.gvfs.enable = true;
+
   # # automatically mount raspi data via sshfs
   # # https://nixos.org/manual/nixos/stable/#sec-sshfs-file-systems
   # fileSystems."/mnt/raspi" = {
