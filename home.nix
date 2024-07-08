@@ -128,6 +128,24 @@
     enableZshIntegration = true;
   };
 
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/terminal" = "alacritty.desktop";
+    "inode/directory" = "nautilus.desktop";
+    "text/html" = "firefox.desktop";
+    "application/pdf" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+    "x-scheme-handler/chrome" = "firefox.desktop";
+    "application/x-extension-htm" = "firefox.desktop";
+    "application/x-extension-html" = "firefox.desktop";
+    "application/x-extension-shtml" = "firefox.desktop";
+    "application/xhtml+xml" = "firefox.desktop";
+    "application/x-extension-xhtml" = "firefox.desktop";
+    "application/x-extension-xht" = "firefox.desktop";
+  };
+
   # xdg.desktopEntries = {
   #   logout = {
   #     name = "Logout";
