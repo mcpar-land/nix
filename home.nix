@@ -95,6 +95,7 @@
     qdirstat
     diffuse
     heaptrack
+    unstable.imhex
 
     dconf
 
