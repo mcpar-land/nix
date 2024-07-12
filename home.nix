@@ -18,6 +18,7 @@
     ./apps/zellij.nix
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
+    ./apps/newsboat.nix
   ];
 
   home.packages = with pkgs; [

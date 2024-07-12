@@ -76,8 +76,8 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.sc.imports = [./home.nix ./users/sc.nix];
-        home-manager.users.mcp.imports = [./home.nix ./users/mcp.nix];
+        home-manager.users.sc.imports = [agenix.homeManagerModules.default ./home.nix ./users/sc.nix];
+        home-manager.users.mcp.imports = [agenix.homeManagerModules.default ./home.nix ./users/mcp.nix];
         home-manager.extraSpecialArgs = {
           inherit theme;
           helix-master = helix;
