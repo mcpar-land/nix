@@ -19,6 +19,7 @@
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
     ./apps/newsboat.nix
+    ./apps/vscode.nix
   ];
 
   home.packages = with pkgs; [
@@ -65,7 +66,6 @@
     gopls # go language server
     nodejs_18
     bun
-    vscode-langservers-extracted
     nil # nix lsp?
     alejandra # nix formatter
     gcc
@@ -78,7 +78,6 @@
     ormolu # haskell formatter
 
     # gui apps
-    vscode
     alacritty
     ungoogled-chromium
     libreoffice-qt
