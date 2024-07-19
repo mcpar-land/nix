@@ -19,6 +19,7 @@
     qmk
     pulseaudio # for pactl, does not actually run the server
     helvum # for pipewire GUI
+    qemu
   ];
 
   fonts.packages = with pkgs; [
