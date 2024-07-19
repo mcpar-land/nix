@@ -64,6 +64,9 @@
   #   };
   # };
 
+  # need to enable this to compile C i think
+  programs.nix-ld.enable = true;
+
   # enable gvfs (gnome virtual file system) for connecting to stuff in nautilus
   services.gvfs.enable = true;
 
