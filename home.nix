@@ -65,6 +65,7 @@
     go
     gopls # go language server
     nodejs_18
+    vscode-langservers-extracted
     bun
     nil # nix lsp?
     alejandra # nix formatter
