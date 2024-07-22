@@ -97,6 +97,7 @@
     diffuse
     heaptrack
     unstable.imhex
+    simplescreenrecorder
 
     dconf
 
