@@ -7,6 +7,7 @@
 }: {
   programs.btop = {
     enable = true;
+    package = pkgs.unstable.btop;
     settings = {
       color_theme = "TTY";
       theme_background = false;
