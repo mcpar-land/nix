@@ -18,13 +18,14 @@ in {
     spotify
     chatterino2
     streamlink
-    path-of-building
     godot_4
     gdtoolkit
     r2modman
 
     jre_headless # for minecraft
     prismlauncher
+
+    (pkgs.callPackage ../derivations/path-of-building.nix {})
   ];
 
   xdg.desktopEntries = {
