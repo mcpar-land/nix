@@ -25,12 +25,20 @@
       };
       font = {
         normal = {
-          family = "FiraCode Nerd Font Mono";
+          family = "Iosevka Comfy Fixed";
           style = "Regular";
         };
         bold = {
-          family = "FiraCode Nerd Font Mono";
+          family = "Iosevka Comfy Fixed";
           style = "Bold";
+        };
+        italic = {
+          family = "Iosevka Comfy Motion Fixed";
+          style = "Italic";
+        };
+        bold_italic = {
+          family = "Iosevka Comfy Motion Fixed";
+          style = "Bold Italic";
         };
         size = 10;
       };

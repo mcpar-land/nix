@@ -27,6 +27,8 @@
     fira
     fira-code-nerdfont
     font-awesome
+    iosevka-comfy.comfy-motion-fixed
+    iosevka-comfy.comfy-fixed
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
