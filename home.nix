@@ -55,6 +55,7 @@
     sshfs
     neofetch
     nmap
+    s3fs # mount s3 on filesystem with fuse
     xclip # clipboard
     agenix.packages.x86_64-linux.default
     wavemon # wifi signal analysis tui
