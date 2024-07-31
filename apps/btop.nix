@@ -7,7 +7,8 @@
 }: {
   programs.btop = {
     enable = true;
-    package = pkgs.unstable.btop;
+    # for some reason i had this as using unstable btop. Don't remember why?
+    # package = pkgs.unstable.btop;
     settings = {
       color_theme = "TTY";
       theme_background = false;
