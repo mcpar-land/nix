@@ -26,6 +26,7 @@ in {
     prismlauncher
 
     (pkgs.callPackage ../derivations/path-of-building.nix {})
+    (pkgs.callPackage ../derivations/awakened-poe-trade.nix {})
   ];
 
   xdg.desktopEntries = {
@@ -33,6 +34,13 @@ in {
       name = "Path of Building";
       genericName = "Build Planner";
       exec = "pobfrontend";
+      terminal = false;
+      categories = ["Game" "Utility"];
+    };
+    awakened-poe-trade = {
+      name = "Awakened PoE Trade";
+      genericName = "Trading Utility";
+      exec = "awakened-poe-trade";
       terminal = false;
       categories = ["Game" "Utility"];
     };
