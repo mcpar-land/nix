@@ -54,6 +54,7 @@ in {
       "window_type = 'popup_menu'"
       "window_type = 'utility'"
       "window_type = 'dock'"
+      "class_g = 'awakened-poe-trade'"
     ];
   in {
     enable = true;
@@ -92,8 +93,6 @@ in {
     for_window [class="zoom" title="Zoom - Free Account"] floating disable
     for_window [class="zoom" title="Zoom Meeting"] floating disable
     for_window [class="zoom" title="Zoom Webinar"] floating disable
-    for_window [class="simplescreenrecorder"] floating enable
-    for_window [title="SimpleScreenRecorder"] floating enable
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
@@ -108,6 +107,9 @@ in {
     floating.criteria = [
       {class = "Pavucontrol";}
       {class = "alacritty_btop";}
+      {class = "simplescreenrecorder";}
+      {class = "SimpleScreenRecorder";}
+      {class = "awakened-poe-trade";}
     ];
 
     keybindings =
