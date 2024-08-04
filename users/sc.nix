@@ -21,6 +21,7 @@ in {
     godot_4
     gdtoolkit
     r2modman
+    vcv-rack
 
     jre_headless # for minecraft
     prismlauncher
