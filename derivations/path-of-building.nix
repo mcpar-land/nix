@@ -5,7 +5,7 @@
   pkgs,
   lib,
 }: let
-  version = "2.45.0";
+  version = "2.47.3";
   data = stdenv.mkDerivation (finalAttrs: {
     pname = "path-of-building-data";
     version = version;
@@ -14,8 +14,7 @@
       owner = "PathOfBuildingCommunity";
       repo = "PathOfBuilding";
       rev = "v${version}";
-      hash = "sha256-WxaE9QvpM+1Mp3K979HqQxDjO0QUBL4lzLaZwYdhtfc=";
-      # hash = "sha256-OxAyB+tMszQktGvxlGL/kc+Wt0iInFYY0qHNjK6EnSg=";
+      hash = "sha256-wxsU178BrjdeBTTPY2C3REWlyORWI+/fFijn5oa2Gms=";
     };
 
     nativeBuildInputs = [pkgs.unzip];
