@@ -57,6 +57,10 @@
           cyan = theme.cyan.hex;
           white = theme.base8.hex;
         };
+        selection = {
+          text = theme.blue.hex;
+          background = theme.white.hex;
+        };
       };
       env = {
         WINIT_X11_SCALE_FACTOR = "1";
