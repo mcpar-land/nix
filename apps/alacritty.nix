@@ -40,7 +40,7 @@
           family = "Iosevka Comfy Motion Fixed";
           style = "Bold Italic";
         };
-        size = 10;
+        size = 11;
       };
       colors = {
         primary = {
