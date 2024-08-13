@@ -41,6 +41,7 @@
     yq-go # https://mikefarah.gitbook.io/yq
     xsv # https://github.com/BurntSushi/xsv
     jless # https://jless.io/
+    jd-diff-patch # https://github.com/josephburnett/jd
     glow # https://github.com/charmbracelet/glow
     hurl # https://hurl.dev/
     rnr # https://github.com/ismaelgv/rnr
