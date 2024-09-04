@@ -177,6 +177,14 @@ in {
       {
         position = "top";
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+        fonts = {
+          names = ["FiraCode Nerd Font"];
+          size = 11.0;
+        };
+        trayOutput = "primary";
+        colors = {
+          background = theme.base0.hexTransparent 0.5;
+        };
       }
     ];
   };
@@ -185,11 +193,45 @@ in {
     enable = true;
     bars = {
       top = {
+        icons = "material-nf";
+        theme = "modern";
         blocks = [
+          {
+            block = "temperature";
+            interval = 15;
+            scale = "fahrenheit";
+            format = " $icon $average ";
+            # no idea how these numbers work.
+            good = 1.0;
+            idle = 999.0;
+            info = 999.0;
+            warning = 999.0;
+          }
+          {
+            block = "cpu";
+            interval = 15;
+            format = " $icon $utilization ";
+            format_alt = " $icon $barchart $utilization ";
+            # info_cpu = 20;
+            warning_cpu = 50;
+            critical_cpu = 90;
+          }
+          {
+            block = "memory";
+            interval = 15;
+            format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true)";
+            warning_mem = 70;
+            critical_mem = 90;
+          }
+          {
+            block = "docker";
+            interval = 5;
+            format = " $icon $running ";
+          }
           {
             block = "time";
             interval = 60;
-            format = "%a %d/%m %k:%M %p";
+            format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %k:%M') ";
           }
         ];
       };
