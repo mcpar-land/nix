@@ -45,6 +45,7 @@
     glow # https://github.com/charmbracelet/glow
     hurl # https://hurl.dev/
     rnr # https://github.com/ismaelgv/rnr
+    youplot # https://github.com/red-data-tools/YouPlot
     duckdb
     pandoc
     ffmpeg
