@@ -26,13 +26,6 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
-    eww = {
-      url = "github:elkowar/eww";
-      inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
-        rust-overlay.follows = "rust-overlay";
-      };
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
@@ -49,7 +42,6 @@
     home-manager,
     rust-overlay,
     helix,
-    eww,
     agenix,
     ...
   }: let
@@ -81,7 +73,6 @@
         home-manager.extraSpecialArgs = {
           inherit theme;
           helix-master = helix;
-          eww-master = eww;
           agenix = agenix;
         };
       }

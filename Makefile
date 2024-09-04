@@ -8,7 +8,6 @@ all:
 	# i3-msg reload
 	- i3-msg restart
 	- systemctl --user restart picom.service
-	- ~/.config/ewwscripts/launch
 gc:
 	nix-env --delete-generations +10
 	nix-store --gc

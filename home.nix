@@ -10,7 +10,6 @@
     ./apps/alacritty.nix
     ./apps/btop.nix
     ./apps/dunst.nix
-    ./apps/eww.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix

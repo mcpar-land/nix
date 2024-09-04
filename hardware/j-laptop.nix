@@ -29,9 +29,6 @@
     enable = true;
     defaultTarget = "nothing_plugged_in";
     hooks.postswitch = {
-      reboot_eww = ''
-        ~/.config/ewwscripts/launch
-      '';
     };
     profiles."nothing_plugged_in" = {
       fingerprint = {

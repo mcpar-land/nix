@@ -15,8 +15,6 @@
     # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
 
-    # launch eww
-    ~/.config/ewwscripts/launch
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
@@ -175,6 +173,26 @@ in {
       "201" = "exec --no-startup-id j-ctl mixer inc -- -10";
       "202" = "exec --no-startup-id j-ctl mixer inc -- 10";
     };
-    bars = [];
+    bars = [
+      {
+        position = "top";
+        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+      }
+    ];
+  };
+
+  programs.i3status-rust = {
+    enable = true;
+    bars = {
+      top = {
+        blocks = [
+          {
+            block = "time";
+            interval = 60;
+            format = "%a %d/%m %k:%M %p";
+          }
+        ];
+      };
+    };
   };
 }
