@@ -121,6 +121,22 @@
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      opener.jless_opener = [
+        {
+          run = "jless $0";
+          block = true;
+        }
+      ];
+      open = {
+        prepend_rules = [
+          {
+            name = "*.json";
+            use = "jless_opener";
+          }
+        ];
+      };
+    };
   };
 
   home.sessionPath = [
