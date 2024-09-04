@@ -27,6 +27,7 @@ in {
 
     (pkgs.callPackage ../derivations/path-of-building.nix {})
     (pkgs.callPackage ../derivations/awakened-poe-trade.nix {})
+    (pkgs.callPackage ../derivations/inky.nix {})
   ];
 
   xdg.desktopEntries = {
