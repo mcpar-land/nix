@@ -236,7 +236,7 @@ in {
           {
             block = "time";
             interval = 60;
-            format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %k:%M') ";
+            format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %I:%M') ";
           }
         ];
       };
