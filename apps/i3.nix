@@ -198,7 +198,7 @@ in {
         blocks = [
           {
             block = "music";
-            format = " $icon {$combo.str(max_w:20,rot_interval:2.0,rot_separator:' / ') $prev $play $next |}";
+            format = " $icon {$combo.str(max_w:30,rot_interval:2.0,rot_separator:' / ') $prev $play $next |}";
           }
           {
             block = "temperature";
