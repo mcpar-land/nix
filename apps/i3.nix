@@ -178,10 +178,11 @@ in {
         position = "top";
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
         fonts = {
-          names = ["FiraCode Nerd Font"];
+          names = ["FiraCode Nerd Font Propo"];
           size = 11.0;
         };
         trayOutput = "primary";
+        trayPadding = 0;
         colors = {
           background = theme.base0.hexTransparent 0.5;
         };
