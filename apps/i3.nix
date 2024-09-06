@@ -234,6 +234,16 @@ in {
             format = " $icon $running ";
           }
           {
+            block = "custom";
+            interval = 60 * 5;
+            command = ''
+              curl "wttr.in/Cambridge+MA?u&format=%C%20%t" 2> /dev/null \
+              | sed "s/\+//g" \
+              | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\" }"
+            '';
+            json = true;
+          }
+          {
             block = "time";
             interval = 60;
             format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %I:%M') ";
