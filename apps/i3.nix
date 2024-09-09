@@ -237,7 +237,7 @@ in {
             block = "custom";
             interval = 60 * 5;
             command = ''
-              curl "wttr.in/Cambridge+MA?u&format=%C%20%t" 2> /dev/null \
+              (curl "wttr.in/Cambridge+MA?u&format=%C%20%t" 2> /dev/null || echo -n "Weather service down") \
               | sed "s/\+//g" \
               | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\" }"
             '';
