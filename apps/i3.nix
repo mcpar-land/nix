@@ -185,7 +185,7 @@ in {
         trayOutput = "primary";
         trayPadding = 0;
         colors = {
-          background = theme.base0.hexTransparent 0.5;
+          background = theme.base0.hex;
         };
       }
     ];
@@ -197,6 +197,24 @@ in {
       top = {
         icons = "material-nf";
         theme = "modern";
+        settings.theme.theme = "modern";
+        settings.theme.overrides = let
+          text_w = theme.base8.hex;
+          text_b = theme.base0.hex;
+        in {
+          idle_bg = theme.base0.hex;
+          idle_fg = text_w;
+          alternating_tint_bg = theme.base1.hex;
+          # alternating_tint_fg = text_w;
+          good_bg = theme.green.hex;
+          good_fg = text_b;
+          warning_bg = theme.orange.hex;
+          warning_fg = text_b;
+          critical_bg = theme.red.hex;
+          critical_fg = text_b;
+          info_bg = theme.blue.hex;
+          info_fg = text_b;
+        };
         blocks = [
           {
             block = "music";
@@ -217,7 +235,6 @@ in {
             block = "cpu";
             interval = 15;
             format = " $icon $utilization ";
-            format_alt = " $icon $barchart $utilization ";
             # info_cpu = 20;
             warning_cpu = 50;
             critical_cpu = 90;
@@ -225,7 +242,7 @@ in {
           {
             block = "memory";
             interval = 15;
-            format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true)";
+            format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true) ";
             warning_mem = 70;
             critical_mem = 90;
           }
