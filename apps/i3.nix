@@ -244,6 +244,16 @@ in {
             '';
             json = true;
           }
+          (let
+            fmt = " $icon $percentage ";
+          in {
+            block = "battery";
+            format = fmt;
+            full_format = fmt;
+            charging_format = fmt;
+            empty_format = fmt;
+            missing_format = "";
+          })
           {
             block = "time";
             interval = 60;
