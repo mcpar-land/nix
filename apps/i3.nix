@@ -184,8 +184,19 @@ in {
         };
         trayOutput = "primary";
         trayPadding = 0;
-        colors = {
+        colors = let
+          workspace = bg: text: {
+            background = bg.hex;
+            border = bg.hex;
+            text = text.hex;
+          };
+        in {
           background = theme.base0.hex;
+          focusedBackground = theme.base2.hex;
+          urgentWorkspace = workspace theme.red theme.base0;
+          focusedWorkspace = workspace theme.blue theme.base0;
+          activeWorkspace = workspace theme.base2 theme.base8;
+          inactiveWorkspace = workspace theme.base0 theme.base8;
         };
       }
     ];
