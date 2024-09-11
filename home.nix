@@ -12,7 +12,7 @@
     ./apps/dunst.nix
     ./apps/git.nix
     ./apps/helix.nix
-    ./apps/i3.nix
+    # ./apps/i3.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix

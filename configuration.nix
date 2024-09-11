@@ -6,6 +6,10 @@
   self,
   ...
 }: {
+  imports = [
+    ./apps/xmonad.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     (unstable.vesktop.override {
       withSystemVencord = false;
@@ -140,16 +144,18 @@
     lidSwitch = "suspend";
   };
 
-  services.displayManager = {
-    defaultSession = "none+i3";
-    autoLogin.enable = false;
-  };
+  # services.displayManager = {
+  #   defaultSession = "none+xmonad";
+  #   autoLogin.enable = false;
+  # };
 
   services.xserver = {
     enable = true;
     xkb.layout = "us";
     xkb.variant = "";
-    windowManager.i3.enable = true;
+    desktopManager = {
+      xterm.enable = true;
+    };
     displayManager.lightdm = {
       enable = true;
       greeter.enable = true;
