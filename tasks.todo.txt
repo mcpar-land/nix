@@ -14,6 +14,7 @@ suspend / lock laptop on clamshell close @laptop
 tailscale autoconnect
 transparent bar etc with userChrome.css +firefox
 try kitty terminal even more
+use ly for login and display management
 why does ctrl-alt-del cause permanent spinner on desktop?
 x battery percentage +eww
 x buttons for moving through workspaces in list order, not number order +eww
