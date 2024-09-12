@@ -60,6 +60,7 @@
     xclip # clipboard
     agenix.packages.x86_64-linux.default
     wavemon # wifi signal analysis tui
+    cyme # usb listing https://github.com/tuna-f1sh/cyme
     # to connect to wifi, use nmtui
 
     # languages
