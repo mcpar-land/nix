@@ -18,6 +18,7 @@
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
     ./apps/newsboat.nix
+    ./apps/spotify.nix
     ./apps/vscode.nix
   ];
 
@@ -61,6 +62,8 @@
     agenix.packages.x86_64-linux.default
     wavemon # wifi signal analysis tui
     cyme # usb listing https://github.com/tuna-f1sh/cyme
+    spotify-player
+    librespot
     # to connect to wifi, use nmtui
 
     # languages
