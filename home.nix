@@ -104,6 +104,7 @@
     heaptrack
     unstable.imhex
     simplescreenrecorder
+    filezilla
 
     dconf
 
