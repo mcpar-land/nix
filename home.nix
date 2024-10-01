@@ -46,7 +46,7 @@
     hurl # https://hurl.dev/
     rnr # https://github.com/ismaelgv/rnr
     youplot # https://github.com/red-data-tools/YouPlot
-    duckdb
+    unstable.duckdb
     pandoc
     ffmpeg
     devenv
