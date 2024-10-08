@@ -83,6 +83,7 @@
     stack # haskell package manager
     haskell-language-server
     ormolu # haskell formatter
+    unstable.superhtml
 
     # gui apps
     alacritty
