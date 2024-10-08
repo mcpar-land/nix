@@ -6,7 +6,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    font = "Fira Sans 14";
+    font = "FiraCode Nerd Font Propo 14";
     terminal = "alacritty";
     plugins = [
       pkgs.rofi-emoji
