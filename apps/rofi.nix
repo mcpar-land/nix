@@ -6,7 +6,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    font = "Fira Sans 14";
+    font = "FiraCode Nerd Font Propo 14";
     terminal = "alacritty";
     plugins = [
       pkgs.rofi-emoji
@@ -42,7 +42,7 @@
         text-color = mkLiteral theme.base8.hex;
       };
       "entry" = {
-        placeholder = "Search";
+        placeholder = "=^ ovo^=";
         placeholder-color = mkLiteral theme.base7.hex;
       };
       "message" = {

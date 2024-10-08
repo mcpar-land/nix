@@ -13,6 +13,7 @@ in {
 
   home.username = "sc";
   home.homeDirectory = "/home/sc";
+  home.file."./.background-image".source = ../wallpapers/martinaise.png;
 
   home.packages = with pkgs; [
     spotify
