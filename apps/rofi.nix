@@ -42,7 +42,7 @@
         text-color = mkLiteral theme.base8.hex;
       };
       "entry" = {
-        placeholder = "Search";
+        placeholder = "=^ ovo^=";
         placeholder-color = mkLiteral theme.base7.hex;
       };
       "message" = {
