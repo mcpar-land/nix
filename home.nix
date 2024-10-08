@@ -273,9 +273,6 @@
   };
 
   home.file = {
-    "./.background-image" = {
-      source = ./wallpapers/martinaise2.png;
-    };
     "./.npmrc".text = ''
       prefix=~/.npm-packages
     '';

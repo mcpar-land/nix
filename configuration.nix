@@ -153,7 +153,7 @@
     displayManager.lightdm = {
       enable = true;
       greeter.enable = true;
-      background = "${./wallpapers/martinaise.png}";
+      background = "${./wallpapers/disco_thoughts.png}";
     };
     xautolock = {
       enable = true;

@@ -11,6 +11,7 @@
 in {
   home.username = "mcp";
   home.homeDirectory = "/home/mcp";
+  home.file."./.background-image".source = ../wallpapers/disco_church.png;
   home.packages = with pkgs; [
     # terminal apps
     sops
