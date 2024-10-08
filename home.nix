@@ -86,25 +86,25 @@
 
     # gui apps
     alacritty
-    ungoogled-chromium
-    libreoffice-qt
-    hardinfo
-    obsidian
-    vlc
-    pinta
+    audacity
+    dbeaver-bin
+    diffuse
+    filezilla
     flameshot
     gnome.nautilus
     gnome.sushi
     gnome.gnome-font-viewer
-    dbeaver-bin
-    bruno
-    pavucontrol
-    qdirstat
-    diffuse
+    hardinfo
     heaptrack
-    unstable.imhex
+    libreoffice-qt
+    obsidian
+    pavucontrol
+    pinta
+    qdirstat
     simplescreenrecorder
-    filezilla
+    unstable.imhex
+    ungoogled-chromium
+    vlc
 
     dconf
 
