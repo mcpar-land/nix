@@ -2,6 +2,7 @@ add icons for path of building and awakened poe trade
 add mute symbol to sound icon in bar +eww
 brightness slider @laptop
 check out a clipboard manager
+check out soulseek and nicotine+
 check out Syncthing
 check out zsh-vi-mode
 fxn buttons for brightness on laptop @laptop
