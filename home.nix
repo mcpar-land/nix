@@ -49,7 +49,7 @@
     unstable.duckdb
     pandoc
     ffmpeg
-    devenv
+    unstable.devenv
     lazydocker
     watchexec
     systemctl-tui
