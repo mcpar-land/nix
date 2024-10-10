@@ -9,7 +9,7 @@
     settings = {
       theme = "monokai_pro_custom";
       editor = {
-        line-number = "relative";
+        line-number = "absolute";
         cursorline = true;
         bufferline = "always";
         color-modes = true;
@@ -24,6 +24,8 @@
         scroll-lines = 6;
         completion-trigger-len = 2;
         text-width = 80;
+        # ordered by ease of finger access
+        jump-label-alphabet = "asdfjklghqwerzxcvuiopbnm";
       };
       editor.lsp = {
         display-messages = true;
@@ -125,16 +127,6 @@
           args = ["--stdin-input-file" "."];
         };
         # language-servers = ["haskell-language-server"];
-      }
-    ];
-    languages.grammar = [
-      # https://github.com/gleam-lang/tree-sitter-gleam/issues/79
-      {
-        name = "gleam";
-        source = {
-          git = "https://github.com/gleam-lang/tree-sitter-gleam";
-          rev = "bcf9c45b56cbe46e9dac5eee0aee75df270000ac";
-        };
       }
     ];
     # languages.language-server.pylsp.config.pylsp = {
