@@ -13,6 +13,9 @@ in {
     extensions = with pkgs; [
       gh-dash
     ];
+    settings = {
+      pager = "delta";
+    };
   };
   programs.lazygit = {
     enable = true;
