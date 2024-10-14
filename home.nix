@@ -92,9 +92,7 @@
     diffuse
     filezilla
     flameshot
-    gnome.nautilus
-    gnome.sushi
-    gnome.gnome-font-viewer
+    pcmanfm
     hardinfo
     heaptrack
     libreoffice-qt
@@ -158,8 +156,8 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = let
     defaultApplications = {
-      "x-scheme-handler/terminal" = "alacritty.desktop";
-      "inode/directory" = "nautilus.desktop";
+      "x-scheme-handler/terminal" = "Alacritty.desktop";
+      "inode/directory" = "pcmanfm.desktop";
     };
     browser = "firefox.desktop";
     openInBrowser = [

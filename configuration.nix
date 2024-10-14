@@ -164,6 +164,18 @@
     };
   };
 
+  # this appears to intermittently work?
+  # it works for opening files from firefox,
+  # but opening files from pcman still does not work
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      GNOME = ["Alacritty.desktop" "alacritty.desktop"];
+      default = ["Alacritty.desktop" "alacritty.desktop"];
+    };
+  };
+  environment.variables.XDG_TERMINAL = "alacritty";
+
   services.openssh = {
     enable = true;
     ports = [5346];
