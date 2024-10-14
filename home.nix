@@ -92,7 +92,6 @@
     diffuse
     filezilla
     flameshot
-    pcmanfm
     hardinfo
     heaptrack
     libreoffice-qt
@@ -101,6 +100,7 @@
     pinta
     qdirstat
     simplescreenrecorder
+    xfce.thunar
     unstable.imhex
     ungoogled-chromium
     vlc
