@@ -67,3 +67,15 @@ Host civera-ftp
   HostName ftp.aws.elstats.com
   User civera_johnmcparland
   IdentityFile ~/.ssh/id_rsa
+Host storage_box
+  HostName u428278.your-storagebox.de
+  User u428278
+  IdentityFile ~/.ssh/id_rsa
+Host sbox
+  HostName u428278.your-storagebox.de
+  User u428278
+  IdentityFile ~/.ssh/id_rsa
+Host storagebox
+  HostName u428278.your-storagebox.de
+  User u428278
+  IdentityFile ~/.ssh/id_rsa

@@ -43,20 +43,18 @@ in {
 
   systemd.user.enable = true;
 
-  # Is there some reason why this deviates from the wiki suggested way to mount with sshfs?
-  # Maybe it's because it's for a specific user?
-  systemd.user.services.mount-civera-ftp = {
-    Unit = {
-      Description = "Civera SFTP Server";
-    };
-    Install = {
-      WantedBy = ["default.target"];
-    };
-    Service = {
-      ExecStart = "${pkgs.sshfs}/bin/sshfs civera-ftp: /home/mcp/mnt/civera_ftp -f -v -o auto_unmount";
-      Restart = "always";
-      ExecStop = "${pkgs.fuse}/bin/fusermount -uz /home/mcp/mnt/civera_ftp";
-    };
+  systemd.user.services.sshfs-civera-ftp = import ../units/sshfs_systemd.nix {
+    inherit pkgs;
+    host = "civera-ftp";
+    description = "Civera SFTP Server";
+    dir = "/home/mcp/mnt/civera_ftp";
+  };
+
+  systemd.user.services.sshfs-storagebox = import ../units/sshfs_systemd.nix {
+    inherit pkgs;
+    host = "sbox";
+    description = "Hetzner Storage Box";
+    dir = "/home/mcp/mnt/sbox";
   };
 
   programs.firefox.profiles."mcp" = firefoxProfile {
