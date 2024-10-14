@@ -42,6 +42,9 @@ in {
   # };
 
   systemd.user.enable = true;
+
+  # Is there some reason why this deviates from the wiki suggested way to mount with sshfs?
+  # Maybe it's because it's for a specific user?
   systemd.user.services.mount-civera-ftp = {
     Unit = {
       Description = "Civera SFTP Server";
