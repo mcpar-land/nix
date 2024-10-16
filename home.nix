@@ -122,26 +122,24 @@
     '';
   };
 
-  programs.yazi = {
+  programs.nnn = {
     enable = true;
-    enableZshIntegration = true;
-    settings = {
-      opener.jless_opener = [
-        {
-          run = "jless $0";
-          block = true;
-        }
-      ];
-      open = {
-        prepend_rules = [
-          {
-            name = "*.json";
-            use = "jless_opener";
-          }
-        ];
-      };
+    extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv tabbed mpv zathura];
+    plugins.src =
+      (pkgs.fetchFromGitHub {
+        owner = "jarun";
+        repo = "nnn";
+        rev = "v5.0";
+        sha256 = "sha256-HShHSjqD0zeE1/St1Y2dUeHfac6HQnPFfjmFvSuEXUA=";
+      })
+      + "/plugins";
+    plugins.mappings = {
+      "p" = "preview-tabbed";
+      "i" = "imgview";
     };
   };
+  home.sessionVariables.NNN_OPTS = "diUxeEaP";
+  home.sessionVariables.NNN_TERMINAL = "alacritty";
 
   home.sessionPath = [
     "$HOME/.cargo/bin"
@@ -184,19 +182,6 @@
         value = browser;
       })
       openInBrowser));
-
-  # xdg.desktopEntries = {
-  #   logout = {
-  #     name = "Logout";
-  #     genericName = "Log Out";
-  #     exec = "loginctl terminate-session \"\"";
-  #   };
-  #   lock = {
-  #     name = "Lock";
-  #     genericName = "Lock";
-  #     exec = "i3lock-styled";
-  #   };
-  # };
 
   # services.screen-locker = {
   #   enable = true;
