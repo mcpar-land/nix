@@ -64,6 +64,7 @@
     cyme # usb listing https://github.com/tuna-f1sh/cyme
     spotify-player
     librespot
+    libxml2
     # to connect to wifi, use nmtui
 
     # languages
