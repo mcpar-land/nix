@@ -20,6 +20,7 @@
     ./apps/newsboat.nix
     ./apps/spotify.nix
     ./apps/vscode.nix
+    ./apps/custom-cmds.nix
   ];
 
   home.packages = with pkgs; [
