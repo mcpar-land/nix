@@ -127,6 +127,9 @@
   programs.nnn = {
     enable = true;
     extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv tabbed mpv zathura];
+    package = pkgs.nnn.override {
+      withNerdIcons = true;
+    };
     plugins.src =
       (pkgs.fetchFromGitHub {
         owner = "jarun";
