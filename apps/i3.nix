@@ -278,11 +278,9 @@ in {
             }
             {
               block = "custom";
-              interval = 60 * 5;
+              interval = 60 * 10;
               command = ''
-                (curl "wttr.in/Cambridge+MA?u&format=%C%20%t" 2> /dev/null || echo -n "Weather service down") \
-                | sed "s/\+//g" \
-                | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\" }"
+                j-ctl weather "42.38874" "-71.1056" | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\"}"
               '';
               json = true;
             }
