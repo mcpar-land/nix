@@ -265,7 +265,7 @@
     "./.npmrc".text = ''
       prefix=~/.npm-packages
     '';
-    "./.ssh/config".source = ./configs/ssh/config;
+    "./.ssh/config".text = import ./configs/ssh/config.nix;
   };
 
   home.sessionVariables = {
