@@ -47,5 +47,8 @@ in {
         syntax-theme = "Monokai Extended";
       };
     };
+    lfs = {
+      enable = true;
+    };
   };
 }
