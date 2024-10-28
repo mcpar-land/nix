@@ -62,6 +62,13 @@ let
       IdentityFile = "~/.ssh/id_rsa";
     }
     {
+      Host = "homelab-nat";
+      HostName = "5.161.249.54";
+      Port = "22";
+      User = "nixos";
+      IdentityFile = "~/.ssh/id_rsa";
+    }
+    {
       Host = "civera-ftp";
       HostName = "ftp.aws.elstats.com";
       User = "civera_johnmcparland";
