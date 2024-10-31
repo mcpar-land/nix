@@ -66,6 +66,7 @@
     spotify-player
     librespot
     libxml2
+    inetutils # whois, telnet, etc etc
     # to connect to wifi, use nmtui
 
     # languages
