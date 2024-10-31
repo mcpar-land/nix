@@ -69,8 +69,14 @@
     };
   };
 
-  hardware.system76.enableAll = true;
   networking.hostName = "j-laptop";
+
+  hardware.system76.enableAll = true;
+  services.system76-scheduler = {
+    enable = true;
+    useStockConfig = true;
+  };
+  services.power-profiles-daemon.enable = false;
 
   services.libinput.touchpad = {
     clickMethod = "clickfinger";
