@@ -112,6 +112,9 @@
 
     # misc dependencies
     playwright-driver.browsers
+
+    # my custom derivations
+    (pkgs.callPackage ./derivations/zipinfo-csv.nix {})
   ];
 
   programs.gpg = {
