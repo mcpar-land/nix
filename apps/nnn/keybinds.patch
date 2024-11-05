@@ -1,0 +1,25 @@
+diff --git a/src/nnn.c b/src/nnn.c
+index 5973c9d9..bfad68ed 100644
+--- a/src/nnn.c
++++ b/src/nnn.c
+@@ -5235,7 +5235,6 @@ static void show_help(const char *path)
+ 		  "cq  Quit context\n"
+ 	"0\n"
+ 	"1FILTER & PROMPT\n"
+-		  "c/  Filter%17^N  Toggle type-to-nav\n"
+ 		"aEsc  Exit prompt%12^L  Toggle last filter\n"
+ 		  "c.  Toggle hidden%05Alt+Esc  Unfilter, quit context\n"
+ 	"0\n"
+diff --git a/src/nnn.h b/src/nnn.h
+index 3bf6b8f1..0dc630ba 100644
+--- a/src/nnn.h
++++ b/src/nnn.h
+@@ -201,8 +201,6 @@ static struct key bindings[] = {
+ 	{ 'B',            SEL_BMARK },
+ 	/* Filter */
+ 	{ '/',            SEL_FLTR },
+-	/* Toggle filter mode */
+-	{ CONTROL('N'),   SEL_MFLTR },
+ 	/* Toggle hide .dot files */
+ 	{ '.',            SEL_HIDDEN },
+ 	/* Detailed listing */

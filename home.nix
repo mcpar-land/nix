@@ -13,6 +13,7 @@
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
+    ./apps/nnn/nnn.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
@@ -129,25 +130,6 @@
     '';
   };
 
-  programs.nnn = {
-    enable = true;
-    extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv tabbed mpv zathura];
-    package = pkgs.nnn.override {
-      withNerdIcons = true;
-    };
-    plugins.src =
-      (pkgs.fetchFromGitHub {
-        owner = "jarun";
-        repo = "nnn";
-        rev = "v5.0";
-        sha256 = "sha256-HShHSjqD0zeE1/St1Y2dUeHfac6HQnPFfjmFvSuEXUA=";
-      })
-      + "/plugins";
-    plugins.mappings = {
-      "p" = "preview-tabbed";
-      "i" = "imgview";
-    };
-  };
   home.sessionVariables.NNN_OPTS = "diUxeEaP";
   home.sessionVariables.NNN_TERMINAL = "alacritty";
 
