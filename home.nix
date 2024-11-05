@@ -67,6 +67,7 @@
     librespot
     libxml2
     inetutils # whois, telnet, etc etc
+    remarshal # json2toml, yaml2cbor, cbr2json, toml2json, etc.
     # to connect to wifi, use nmtui
 
     # languages
