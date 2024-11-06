@@ -33,6 +33,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    gurk-rs = {
+      url = "github:mcpar-land/gurk-rs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -43,6 +49,7 @@
     rust-overlay,
     helix,
     agenix,
+    gurk-rs,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -61,6 +68,7 @@
             j-ctl = import ./j-ctl {pkgs = final;};
             custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
             unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
+            gurk-rs = gurk-rs.defaultPackage.${pkgs.system};
           })
         ];
       })
@@ -77,6 +85,7 @@
           inherit theme;
           helix-master = helix;
           agenix = agenix;
+          gurk-rs = gurk-rs;
         };
       }
     ];
