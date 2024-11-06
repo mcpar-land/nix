@@ -109,6 +109,7 @@
     unstable.imhex
     ungoogled-chromium
     vlc
+    signal-desktop
 
     dconf
 
