@@ -37,6 +37,7 @@
       url = "github:mcpar-land/gurk-rs";
       inputs = {
         nixpkgs.follows = "nixpkgs-unstable";
+        flake-utils.follows = "flake-utils";
       };
     };
   };
