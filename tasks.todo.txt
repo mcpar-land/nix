@@ -4,6 +4,7 @@ brightness slider @laptop
 check out a clipboard manager
 check out soulseek and nicotine+
 check out Syncthing
+check out wluma https://github.com/maximbaz/wluma
 check out zsh-vi-mode
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
