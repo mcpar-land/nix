@@ -266,6 +266,7 @@
     NIX_THEME = theme.asJson;
     PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
     PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
   };
 
   home.stateVersion = "23.11";
