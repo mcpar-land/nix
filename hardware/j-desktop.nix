@@ -15,6 +15,10 @@
     gparted
   ];
 
+  services.libinput.mouse = {
+    middleEmulation = false;
+  };
+
   fileSystems."/mnt/attic" = {
     device = "/dev/disk/by-uuid/DE6ABA5E6ABA335F";
     options = ["nofail" "x-systemd.automount"];
