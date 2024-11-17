@@ -110,6 +110,7 @@
     ungoogled-chromium
     vlc
     signal-desktop
+    bambu-studio
 
     dconf
 
