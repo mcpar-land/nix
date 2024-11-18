@@ -89,6 +89,7 @@
     haskell-language-server
     ormolu # haskell formatter
     unstable.superhtml
+    openscad-lsp
 
     # gui apps
     alacritty
@@ -111,6 +112,7 @@
     vlc
     signal-desktop
     bambu-studio
+    openscad-unstable
 
     dconf
 
