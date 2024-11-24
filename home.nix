@@ -97,6 +97,7 @@
     audacity
     dbeaver-bin
     diffuse
+    element-desktop
     filezilla
     flameshot
     hardinfo
