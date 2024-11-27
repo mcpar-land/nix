@@ -254,11 +254,18 @@
     tray = "never";
   };
 
+  age.secrets.ssh_config = {
+    file = ./secrets/ssh_config.age;
+    path = ".ssh/includes/ssh-config-agenix";
+  };
+
   home.file = {
     "./.npmrc".text = ''
       prefix=~/.npm-packages
     '';
-    "./.ssh/config".text = import ./configs/ssh/config.nix;
+    "./.ssh/config".text = ''
+      Include ${lib.removePrefix ".ssh/" config.age.secrets.ssh_config.path}
+    '';
   };
 
   home.sessionVariables = {
