@@ -171,10 +171,11 @@ in {
           value = "exec --no-startup-id i3-msg \"move container to workspace ${toString v}; workspace ${toString v}\"";
         }
       ]) [1 2 3 4 5 6 7 8 9]));
-    keycodebindings = {
-      "201" = "exec --no-startup-id j-ctl mixer inc -- -10";
-      "202" = "exec --no-startup-id j-ctl mixer inc -- 10";
-    };
+    # this was for the mixer between chat and media but i kind of dont use that any more
+    # keycodebindings = {
+    #   "201" = "exec --no-startup-id j-ctl mixer inc -- -10";
+    #   "202" = "exec --no-startup-id j-ctl mixer inc -- 10";
+    # };
     bars = [
       {
         position = "top";
