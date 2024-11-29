@@ -29,6 +29,7 @@
     font-awesome
     iosevka-comfy.comfy-motion-fixed
     iosevka-comfy.comfy-fixed
+    cozette
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
