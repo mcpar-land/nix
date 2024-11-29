@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ./apps/aerc.nix
     ./apps/alacritty.nix
     ./apps/btop.nix
     ./apps/dunst.nix

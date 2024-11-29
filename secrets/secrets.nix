@@ -5,4 +5,5 @@ in {
   "miniflux_host.age".publicKeys = [publicKey];
   "miniflux_password.age".publicKeys = [publicKey];
   "ssh_config.age".publicKeys = [publicKey];
+  "aerc_accounts.age".publicKeys = [publicKey];
 }
