@@ -116,6 +116,7 @@
     signal-desktop
     bambu-studio
     openscad-unstable
+    thunderbird
 
     dconf
 
