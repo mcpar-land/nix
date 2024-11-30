@@ -16,7 +16,7 @@
     # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
     # why does services.libinput.mouse.middleEmulation = false not work??
-    xinput set-prop 16 "libinput Middle Emulation Enabled" 0
+    xinput set-prop "SteelSeries SteelSeries Rival 600" "libinput Middle Emulation Enabled" 0
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
