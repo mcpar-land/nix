@@ -20,7 +20,7 @@ in {
     chatterino2
     streamlink
     godot_4
-    gdtoolkit
+    gdtoolkit_4
     r2modman
 
     jre_headless # for minecraft

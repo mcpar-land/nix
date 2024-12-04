@@ -15,7 +15,7 @@
         opacity = 0.75;
         blur = true;
       };
-      shell = {
+      terminal.shell = {
         program = "zsh";
         args = [
           "--login"

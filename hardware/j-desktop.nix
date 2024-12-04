@@ -32,10 +32,7 @@
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.initrd.kernelModules = ["amdgpu"];
   services.xserver.videoDrivers = ["amdgpu"];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
+  hardware.graphics.enable = true;
 
   services.xserver.xrandrHeads = [
     "HDMI-A-0"
