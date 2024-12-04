@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     headsetcontrol # for steelseries headset
     gparted
+    solaar # for logitech mouse
   ];
 
   services.libinput.mouse = {
