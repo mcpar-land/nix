@@ -117,6 +117,7 @@
     bambu-studio
     openscad-unstable
     mitmproxy
+    wireshark
 
     dconf
 

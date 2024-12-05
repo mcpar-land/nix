@@ -49,6 +49,9 @@
     # dedicatedServer.openFirewall = true;
   };
 
+  # so does wireshark
+  programs.wireshark.enable = true;
+
   # because it needs to edit /etc/shells, we have to set default shell globally
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -96,7 +99,7 @@
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
-    extraGroups = ["networkmanager" "wheel" "docker" "video"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
@@ -104,7 +107,7 @@
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
-    extraGroups = ["networkmanager" "wheel" "docker" "video"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
