@@ -116,7 +116,7 @@
     signal-desktop
     bambu-studio
     openscad-unstable
-    thunderbird
+    mitmproxy
 
     dconf
 
