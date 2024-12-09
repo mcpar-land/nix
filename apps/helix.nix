@@ -87,6 +87,10 @@
       keys.select = {
         "C-d" = ["search_selection" "extend_search_next"];
       };
+      keys.normal.space = {
+        "f" = "file_picker_in_current_directory";
+        "F" = "file_picker";
+      };
     };
     languages.language = [
       {
