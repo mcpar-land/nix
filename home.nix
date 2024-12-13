@@ -136,10 +136,9 @@
     enableZshIntegration = true;
     # used to use pinentry-rofi but this caused problems when
     # using over ssh
-    pinentryPackage = pkgs.pinentry-tty;
-    # extraConfig = ''
-    #   pinentry-program ${pkgs.pinentry-tty}/bin/pinentry-tty
-    # '';
+    extraConfig = ''
+      pinentry-program ${pkgs.pinentry-tty}/bin/pinentry-tty
+    '';
   };
 
   home.sessionVariables.NNN_OPTS = "diUxeEaP";
