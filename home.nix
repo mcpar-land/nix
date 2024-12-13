@@ -131,6 +131,7 @@
   programs.gpg = {
     enable = true;
   };
+  # test
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
