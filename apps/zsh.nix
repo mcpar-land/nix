@@ -22,8 +22,8 @@
       sys = "systemctl-tui";
       weather = "curl \"v2.wttr.in/Cambridge+MA?u\"";
       brightness = "light -S";
-      setclip = "xclip -selection c";
-      getclip = "xclip -selection c -o";
+      clipboard-set = "xclip -selection c";
+      clipboard-get = "xclip -selection c -o";
       sus = "hx ~/mnt/sbox/suspense.txt";
       suspense = "hx ~/mnt/sbox/suspense.txt";
     };
