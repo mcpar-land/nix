@@ -16,15 +16,6 @@
 
   powerManagement.powertop.enable = true;
 
-  # services.xserver.xrandrHeads = [
-  #   "DP-1"
-  #   {
-  #     output = "eDP-1";
-  #     primary = true;
-  #   }
-  #   "HDMI-1"
-  # ];
-
   services.autorandr = {
     enable = true;
     defaultTarget = "nothing_plugged_in";
@@ -87,22 +78,9 @@
   };
 
   # brightness and volume controls on keyboard
-  programs.light.enable = true;
-  services.actkbd = {
+  programs.light = {
     enable = true;
-    bindings = [
-      # Fn
-      {
-        keys = [232];
-        events = ["key"];
-        command = "/run/current-system/sw/bin/light -A 30";
-      }
-      {
-        keys = [233];
-        events = ["key"];
-        command = "/run/current-system/sw/bin/light -U 30";
-      }
-    ];
+    brightnessKeys.enable = true;
   };
 
   # ===== everything past this line was copied verbatim from /etc/nixos/configuration.nixos
