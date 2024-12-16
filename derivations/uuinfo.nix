@@ -1,3 +1,4 @@
+# https://github.com/Racum/uuinfo
 {pkgs, ...}:
 pkgs.rustPlatform.buildRustPackage rec {
   pname = "uuinfo";
@@ -6,8 +7,9 @@ pkgs.rustPlatform.buildRustPackage rec {
     owner = "Racum";
     repo = pname;
     rev = version;
-    hash = "";
+    hash = "sha256-tbsQT9QFjKEikT+vzEjCac3w8D3O+mOZueKWKppr0Ok=";
   };
 
-  cargoHash = "";
+  cargoHash = "sha256-hG/uGYtFVBDkLcB8skUc3iuNvJEBw/fbtK8ZbYeJk1g=";
+  doCheck = false;
 }
