@@ -64,6 +64,9 @@
       };
     };
   };
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.autorandr}/bin/autorandr ${config.services.autorandr.defaultTarget}
+  '';
 
   environment.sessionVariables = {
     # this is a fix for electron apps to make them run in wayland i think
