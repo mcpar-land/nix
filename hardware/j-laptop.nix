@@ -8,6 +8,10 @@
   # copied verbatim from /etc/nixos/hardware-configuration.nix
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    (import ../apps/syncthing.nix {
+      key_secret = ../secrets/st_laptop_key.age;
+      cert_secret = ../secrets/st_laptop_cert.age;
+    })
   ];
 
   environment.systemPackages = with pkgs; [

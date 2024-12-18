@@ -13,6 +13,5 @@
     enable = true;
     key = config.age.secrets.syncthing_key.path;
     cert = config.age.secrets.syncthing_cert.path;
-    passwordFile = config.age.secrets.syncthing_pass.path;
   };
 }
