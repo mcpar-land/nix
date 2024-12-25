@@ -6,4 +6,5 @@
     file = ../secrets/taskwarrior_config.age;
     path = ".taskwarrior_config_secret";
   };
+  programs.zsh.shellAliases.tw = "taskwarrior-tui";
 }
