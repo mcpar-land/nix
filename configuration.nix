@@ -29,6 +29,56 @@
     font-awesome
     iosevka-comfy.comfy-motion-fixed
     iosevka-comfy.comfy-fixed
+    (iosevka.override {
+      privateBuildPlan = {
+        family = "Iosevka Custom";
+        spacing = "term";
+        serifs = "sans";
+        noCvSs = false;
+        exportGlyphNames = true;
+        variants.inherits = "ss20";
+        ligations.inherits = "dlig";
+        weights = {
+          ExtraLight = {
+            shape = 300;
+            menu = 300;
+            css = 300;
+          };
+          Regular = {
+            shape = 500;
+            menu = 500;
+            css = 500;
+          };
+          ExtraBold = {
+            shape = 800;
+            menu = 800;
+            css = 800;
+          };
+        };
+        widths = {
+          Normal = {
+            shape = 500;
+            menu = 5;
+            css = "normal";
+          };
+        };
+        slopes = {
+          Upright = {
+            angle = 0;
+            shape = "upright";
+            menu = "upright";
+            css = "normal";
+          };
+          Italic = {
+            angle = 9.4;
+            shape = "italic";
+            menu = "italic";
+            css = "italic";
+          };
+        };
+      };
+      set = "Custom";
+    })
     cozette
   ];
 

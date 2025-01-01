@@ -24,6 +24,7 @@
     ./apps/taskwarrior3.nix
     ./apps/vscode.nix
     ./apps/custom-cmds.nix
+    ./apps/wezterm.nix
   ];
 
   home.packages = with pkgs; [

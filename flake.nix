@@ -33,6 +33,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    wezterm = {
+      url = "github:wez/wezterm/main?dir=nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -43,6 +49,7 @@
     rust-overlay,
     helix,
     agenix,
+    wezterm,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -61,6 +68,7 @@
             j-ctl = import ./j-ctl {pkgs = final;};
             custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
             unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
+            wezterm = inputs.wezterm.packages.${final.system}.default;
           })
         ];
       })
