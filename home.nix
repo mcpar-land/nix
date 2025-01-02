@@ -288,7 +288,9 @@
     NIX_THEME = theme.asJson;
     PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
     PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
-    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+    # https://discourse.nixos.org/t/my-nix-package-is-broken/58050/17
+    # apparently you should not do this
+    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
   };
 
   home.stateVersion = "23.11";
