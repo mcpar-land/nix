@@ -111,6 +111,7 @@
     pavucontrol
     pinta
     qdirstat
+    qFlipper
     simplescreenrecorder
     xfce.thunar
     unstable.imhex
