@@ -74,6 +74,7 @@
     file # detect file type (how was this not installed??)
     taskwarrior-tui
     cachix
+    tio
     # to connect to wifi, use nmtui
 
     # languages
