@@ -33,7 +33,7 @@
 
       include dark-16.theme
 
-      sync.server.url=https:\/\/taskchampion.breezystatic77.xyz
+      urgency.project.coefficient=0
       include ~/.taskwarrior_config_secret
     '';
   };

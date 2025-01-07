@@ -96,10 +96,13 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  # https://wiki.nixos.org/wiki/Serial_Console#Unprivileged_access_to_serial_device
+  # the default group for serial devices is "dialout"
+
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
@@ -107,7 +110,7 @@
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
