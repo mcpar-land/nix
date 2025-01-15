@@ -119,7 +119,7 @@
     ungoogled-chromium
     vlc
     signal-desktop
-    bambu-studio
+    orca-slicer
     openscad-unstable
     mitmproxy
     wireshark
