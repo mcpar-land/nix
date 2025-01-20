@@ -21,6 +21,7 @@
     ./apps/firefox/firefox.nix
     ./apps/newsboat.nix
     ./apps/spotify.nix
+    ./apps/syncthing.nix
     ./apps/taskwarrior3.nix
     ./apps/vscode.nix
     ./apps/custom-cmds.nix
