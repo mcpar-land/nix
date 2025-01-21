@@ -106,7 +106,6 @@
     filezilla
     flameshot
     hardinfo
-    heaptrack
     libreoffice-qt
     obsidian
     pavucontrol
@@ -115,7 +114,6 @@
     qFlipper
     simplescreenrecorder
     xfce.thunar
-    unstable.imhex
     ungoogled-chromium
     vlc
     signal-desktop
