@@ -34,6 +34,7 @@
       include dark-16.theme
 
       urgency.project.coefficient=0
+      urgency.tags.coefficient=0
       include ~/.taskwarrior_config_secret
     '';
   };
