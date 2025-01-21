@@ -9,7 +9,9 @@
     inherit lib;
   };
 in {
-  imports = [];
+  imports = [
+    ../apps/syncthing.nix
+  ];
 
   home.username = "sc";
   home.homeDirectory = "/home/sc";
