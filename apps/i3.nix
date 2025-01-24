@@ -238,8 +238,8 @@ in {
             {
               block = "temperature";
               interval = 15;
-              scale = "fahrenheit";
-              format = " $icon $average ";
+              scale = "celsius";
+              format = " $icon $average.eng()C ";
               # no idea how these numbers work.
               good = 1.0;
               idle = 999.0;
