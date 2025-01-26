@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737673940,
-        "narHash": "sha256-ChzQGgSLngpJ5jJO6U/6/Rz76qkmu1UAmA04syEQG0Q=",
+        "lastModified": 1737912290,
+        "narHash": "sha256-+sWwE4uU3Qd35BVgdBuOobsApiHLBCT4D/8EvvDwaek=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "0b9701e8995fb93884a83b0924b98438ca7623a9",
+        "rev": "9829ac0c02a01a51e22b12570b82a076187b9f94",
         "type": "github"
       },
       "original": {
