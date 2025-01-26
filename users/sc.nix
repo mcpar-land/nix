@@ -11,6 +11,7 @@
 in {
   imports = [
     ../apps/syncthing.nix
+    ../apps/vintagestory.nix
   ];
 
   home.username = "sc";
@@ -24,7 +25,6 @@ in {
     godot_4
     gdtoolkit_4
     r2modman
-    unstable.vintagestory
 
     jre_headless # for minecraft
     prismlauncher
