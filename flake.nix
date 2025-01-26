@@ -60,7 +60,14 @@
           (final: prev: {
             j-ctl = import ./j-ctl {pkgs = final;};
             custom-rofi-menu = (import ./apps/custom-rofi-menu.nix) {pkgs = final;};
-            unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+              config.permittedInsecurePackages = [
+                # this is for vintage story
+                "dotnet-runtime-7.0.20"
+              ];
+            };
           })
         ];
       })
