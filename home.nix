@@ -110,6 +110,7 @@
     obsidian
     pavucontrol
     pinta
+    krita
     qdirstat
     qFlipper
     simplescreenrecorder
