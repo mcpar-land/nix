@@ -75,6 +75,8 @@
     taskwarrior-tui
     cachix
     tio
+    # https://www.nongnu.org/renameutils/
+    renameutils
     # to connect to wifi, use nmtui
 
     # languages
