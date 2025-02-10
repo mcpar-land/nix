@@ -17,6 +17,7 @@
     dbus-update-activation-environment --all
     # why does services.libinput.mouse.middleEmulation = false not work??
     xinput set-prop "SteelSeries SteelSeries Rival 600" "libinput Middle Emulation Enabled" 0
+    autorandr -c
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
