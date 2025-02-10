@@ -162,13 +162,6 @@
       greeter.enable = true;
       background = "${./wallpapers/disco_thoughts.png}";
     };
-    xautolock = {
-      enable = true;
-      enableNotifier = true;
-      locker = "${pkgs.writeShellScript "styled-locker" ''i3lock-styled''}";
-      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
-      time = 30;
-    };
   };
 
   # this appears to intermittently work?
