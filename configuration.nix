@@ -150,14 +150,6 @@
   services.displayManager = {
     defaultSession = "none+i3";
     autoLogin.enable = false;
-    ly = {
-      enable = true;
-      settings = {
-        animation = "matrix";
-        clear_password = true;
-        clock = "%c";
-      };
-    };
   };
 
   services.xserver = {
@@ -165,6 +157,18 @@
     xkb.layout = "us";
     xkb.variant = "";
     windowManager.i3.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      greeter.enable = true;
+      background = "${./wallpapers/disco_thoughts.png}";
+    };
+    xautolock = {
+      enable = true;
+      enableNotifier = true;
+      locker = "${pkgs.writeShellScript "styled-locker" ''i3lock-styled''}";
+      notifier = ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+      time = 30;
+    };
   };
 
   # this appears to intermittently work?
