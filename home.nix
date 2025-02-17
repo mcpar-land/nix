@@ -113,6 +113,7 @@
     pavucontrol
     pinta
     krita
+    qimgv
     qdirstat
     qFlipper
     simplescreenrecorder
