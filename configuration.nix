@@ -32,7 +32,22 @@
     cozette
   ];
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+    auto-optimise-store = true;
+  };
+
+  nix.distributedBuilds = true;
+  nix.buildMachines = [
+    {
+      hostName = "10.0.0.127";
+      sshUser = "nixos";
+      sshKey = "/home/sc/.ssh/id_rsa";
+      system = "x86_64-linux";
+      protocol = "ssh";
+      maxJobs = 32;
+    }
+  ];
 
   age.secrets.test_secret.file = ./secrets/test_secret.age;
   age.identityPaths = [
