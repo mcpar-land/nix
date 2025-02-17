@@ -38,7 +38,7 @@
     tree
     imagemagick
     pkg-config
-    yt-dlp # https://github.com/yt-dlp/yt-dlp
+    unstable.yt-dlp # https://github.com/yt-dlp/yt-dlp
     visidata # https://www.visidata.org/man/
     youplot # https://github.com/red-data-tools/YouPlot
     jq # https://jqlang.github.io/jq/
