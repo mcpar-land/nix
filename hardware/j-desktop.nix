@@ -14,6 +14,7 @@
     headsetcontrol # for steelseries headset
     gparted
     solaar # for logitech mouse
+    radeontop # view amd gpu usage
   ];
 
   services.libinput.mouse = {
