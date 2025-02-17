@@ -20,6 +20,9 @@
     pulseaudio # for pactl, does not actually run the server
     helvum # for pipewire GUI
     qemu
+    # for iphone
+    libimobiledevice
+    ifuse
   ];
 
   fonts.packages = with pkgs; [
@@ -55,7 +58,8 @@
     "/home/mcp/.ssh/id_rsa"
   ];
 
-  # programs.hyprland.enable = true;
+  # for iphone
+  services.usbmuxd.enable = true;
 
   # steam has to be installed globally.
   programs.steam = {
