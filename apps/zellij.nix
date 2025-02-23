@@ -31,8 +31,10 @@
       unbind "Alt i" "Alt o"
       normal {
         unbind "Alt i" "Alt o"
-        bind "Alt {" { MoveTab "Left"; }
-        bind "Alt }" { MoveTab "Right"; }
+      }
+      shared_except "locked" {
+        bind "Alt [" { MoveTab "Left"; }
+        bind "Alt ]" { MoveTab "Right"; }
       }
     }
   '';
