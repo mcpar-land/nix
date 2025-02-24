@@ -33,8 +33,8 @@
         unbind "Alt i" "Alt o"
       }
       shared_except "locked" {
-        bind "Alt [" { MoveTab "Left"; }
-        bind "Alt ]" { MoveTab "Right"; }
+        bind "Alt Shift [" { MoveTab "Left"; }
+        bind "Alt Shift ]" { MoveTab "Right"; }
       }
     }
   '';
