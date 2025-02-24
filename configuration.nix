@@ -7,7 +7,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    (unstable.vesktop.override {
+    (vesktop.override {
       withSystemVencord = false;
     })
     ntfs3g
