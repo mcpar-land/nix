@@ -24,6 +24,7 @@
       ms-python.isort
       ms-toolsai.jupyter
       eamodio.gitlens
+      mkhl.direnv
     ];
     package = pkgs.vscodium;
     mutableExtensionsDir = false;
