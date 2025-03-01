@@ -12,6 +12,7 @@ in {
   imports = [
     ../apps/syncthing.nix
     ../apps/vintagestory.nix
+    ../apps/joystickwake.nix
   ];
 
   home.username = "sc";
