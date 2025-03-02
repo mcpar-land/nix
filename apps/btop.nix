@@ -14,7 +14,7 @@
       theme_background = false;
       proc_tree = false;
       vim_keys = true;
-      temp_scale = "fahrenheit";
+      temp_scale = "celsius";
     };
   };
 }
