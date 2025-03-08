@@ -1,0 +1,10 @@
+black
+isort
+jedi
+pylint
+pyls-isort
+flake8
+pylsp-mypy
+python-lsp-black
+python-lsp-server[all]
+rope

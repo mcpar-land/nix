@@ -132,17 +132,21 @@
         };
         # language-servers = ["haskell-language-server"];
       }
+      {
+        name = "python";
+        auto-format = true;
+        language-servers = ["pylsp"];
+      }
     ];
-    # languages.language-server.pylsp.config.pylsp = {
-    #   plugins = {
-    #     black.enabled = true;
-    #     # pylint.enabled = true;
-    #     pyflakes.enabled = true;
-    #     pyls_mypy.enabled = true;
-    #     pyls_mypy.live_mode = false;
-    #     isort.enabled = true;
-    #   };
-    # };
+    languages.language-server.pylsp.config.pylsp = {
+      plugins = {
+        black.enabled = true;
+        flake8.enabled = true;
+        pyls_mypy.enabled = true;
+        pyls_mypy.live_mode = false;
+        isort.enabled = true;
+      };
+    };
   };
   home.file."./.config/helix/themes/monokai_pro_custom.toml".source = (pkgs.formats.toml {}).generate "monokai_pro_custom" {
     inherits = "monokai_pro";
