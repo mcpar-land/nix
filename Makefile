@@ -25,3 +25,9 @@ refresh-udev:
 # grammar:
 # 	- hx --grammar fetch
 # 	hx --grammar build
+
+# todo - make a script to delete cruft caches i don't want or need
+# here's a running list of all the cruft directories I have located:
+#
+# ~/.zoom/data/cefcache (ai binaries?????? this was 19GB!!)
+# /var/lib/systemd/coredumb (not cruft but i dont care about core dumps)
