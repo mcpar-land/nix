@@ -14,7 +14,8 @@
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
-    ./apps/nnn/nnn.nix
+    # ./apps/nnn/nnn.nix
+    ./apps/yazi.nix
     ./apps/rofi.nix
     ./apps/zellij.nix
     ./apps/zsh.nix
@@ -23,6 +24,7 @@
     ./apps/spotify.nix
     ./apps/taskwarrior3.nix
     ./apps/vscode.nix
+    ./apps/wezterm.nix
     ./apps/custom-cmds.nix
   ];
 
