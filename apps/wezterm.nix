@@ -1,14 +1,47 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
     extraConfig = ''
       local wezterm = require 'wezterm'
       return {
-        color_scheme = "Mikado (terminal.sexy)",
         window_background_opacity = 0.75,
         hide_tab_bar_if_only_one_tab = true,
         use_fancy_tab_bar = false,
+        colors = {
+          foreground = '${theme.base8.hex}',
+          background = '${theme.base0.hex}',
+          ansi = {
+            '${theme.base0.hex}',
+            '${theme.red.hex}',
+            '${theme.green.hex}',
+            '${theme.yellow.hex}',
+            '${theme.blue.hex}',
+            '${theme.magenta.hex}',
+            '${theme.cyan.hex}',
+            '${theme.base7.hex}',
+          },
+          brights = {
+            '${theme.base2.hex}',
+            '${theme.light.red.hex}',
+            '${theme.light.green.hex}',
+            '${theme.light.yellow.hex}',
+            '${theme.light.blue.hex}',
+            '${theme.light.magenta.hex}',
+            '${theme.light.cyan.hex}',
+            '${theme.base8.hex}',
+          },
+        },
+        window_padding = {
+          left = '8px',
+          right = '8px',
+          top = '8px',
+          bottom = '8px',
+        },
         font_size = 11.0,
         cell_width = 0.8,
         font_rules = {

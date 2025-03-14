@@ -16,6 +16,17 @@ in rec {
   blue = color "#78dce8";
   magenta = color "#ab9df2";
   cyan = color "#00ffff"; #TODO
+
+  light = {
+    red = color "#ff809f";
+    orange = color "#fdaa82";
+    yellow = color "#ffdf80";
+    green = color "#bfe599";
+    blue = color "#92e3ec";
+    magenta = color "#9f8ef0";
+    cyan = color "#80ffff";
+  };
+
   # base colors, sorted from darkest to lightest
   base0 = color "#19181a";
   base1 = color "#221f22";
