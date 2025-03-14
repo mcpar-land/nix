@@ -96,33 +96,53 @@
           {
             key = 'h',
             mods = 'ALT',
+            action = wezterm.action.ActivateTabRelative(-1),
+          },
+          {
+            key = 'j',
+            mods = 'ALT',
+            action = wezterm.action.ActivatePaneDirection 'Next',
+          },
+          {
+            key = 'k',
+            mods = 'ALT',
             action = wezterm.action.ActivatePaneDirection 'Prev',
           },
           {
             key = 'l',
             mods = 'ALT',
-            action = wezterm.action.ActivatePaneDirection 'Next',
-          },
-          {
-            key = '[',
-            mods = 'ALT',
-            action = wezterm.action.ActivateTabRelative(-1),
-          },
-          {
-            key = ']',
-            mods = 'ALT',
             action = wezterm.action.ActivateTabRelative(1),
+          },
+          {
+            key = 'p',
+            mods = 'ALT',
+            action = wezterm.action.PaneSelect,
           },
 
           {
             key = 'h',
+            mods = 'ALT|SHIFT',
+            action = wezterm.action.MoveTabRelative(-1),
+          },
+          {
+            key = 'j',
+            mods = 'ALT|SHIFT',
+            action = wezterm.action.RotatePanes 'Clockwise',
+          },
+          {
+            key = 'k',
             mods = 'ALT|SHIFT',
             action = wezterm.action.RotatePanes 'CounterClockwise',
           },
           {
             key = 'l',
             mods = 'ALT|SHIFT',
-            action = wezterm.action.RotatePanes 'Clockwise',
+            action = wezterm.action.MoveTabRelative(1),
+          },
+          {
+            key = 'p',
+            mods = 'ALT|SHIFT',
+            action = wezterm.action.PaneSelect { mode = 'SwapWithActive' },
           },
 
           {
