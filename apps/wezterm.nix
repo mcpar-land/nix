@@ -26,7 +26,7 @@
             '${theme.base7.hex}',
           },
           brights = {
-            '${theme.base2.hex}',
+            '${theme.base4.hex}',
             '${theme.light.red.hex}',
             '${theme.light.green.hex}',
             '${theme.light.yellow.hex}',
