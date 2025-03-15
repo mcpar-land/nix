@@ -70,6 +70,11 @@ return {
   colors = {
     foreground = theme.base8,
     background = theme.base0,
+    cursor_bg = theme.green,
+    cursor_fg = theme.base0,
+    cursor_border = theme.green,
+    selection_fg = theme.base0,
+    selection_bg = theme.magenta,
     tab_bar = {
       background = theme.base2,
     },
