@@ -196,11 +196,11 @@
   xdg.terminal-exec = {
     enable = true;
     settings = {
-      GNOME = ["Alacritty.desktop" "alacritty.desktop"];
-      default = ["Alacritty.desktop" "alacritty.desktop"];
+      GNOME = ["WezTerm.desktop" "wezterm.desktop"];
+      default = ["WezTerm.desktop" "wezterm.desktop"];
     };
   };
-  environment.variables.XDG_TERMINAL = "alacritty";
+  environment.variables.XDG_TERMINAL = "wezterm";
 
   services.openssh = {
     enable = true;

@@ -8,7 +8,7 @@
 }: {
   imports = [
     ./apps/aerc.nix
-    ./apps/alacritty.nix
+    # ./apps/alacritty.nix
     ./apps/btop.nix
     ./apps/dunst.nix
     ./apps/git.nix
@@ -117,7 +117,6 @@
     python312Packages.rope
 
     # gui apps
-    alacritty
     audacity
     dbeaver-bin
     diffuse
@@ -168,7 +167,7 @@
   };
 
   home.sessionVariables.NNN_OPTS = "diUxeEaP";
-  home.sessionVariables.NNN_TERMINAL = "alacritty";
+  home.sessionVariables.NNN_TERMINAL = "wezterm";
 
   home.sessionPath = [
     "$HOME/.cargo/bin"
@@ -183,7 +182,7 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = let
     defaultApplications = {
-      "x-scheme-handler/terminal" = "Alacritty.desktop";
+      "x-scheme-handler/terminal" = "WezTerm.desktop";
       "inode/directory" = "pcmanfm.desktop";
     };
     browser = "firefox.desktop";
@@ -304,7 +303,7 @@
     VISUAL = "hx";
     BROWSER = "firefox";
     DELTA_PAGER = "less --mouse";
-    TERMINAL = "alacritty";
+    TERMINAL = "wezterm";
     GTK_THEME = "Adwaita-dark";
     NIX_THEME = theme.asJson;
     PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";

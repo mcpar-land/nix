@@ -7,7 +7,7 @@
   programs.rofi = {
     enable = true;
     font = "FiraCode Nerd Font Propo 14";
-    terminal = "alacritty";
+    terminal = "wezterm";
     plugins = [
       pkgs.rofi-emoji
     ];

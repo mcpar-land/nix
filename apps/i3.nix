@@ -97,7 +97,7 @@ in {
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
-    terminal = "alacritty";
+    terminal = "wezterm";
     gaps.inner = theme.gap;
     gaps.outer = 0;
     window.titlebar = false;
@@ -107,7 +107,7 @@ in {
 
     floating.criteria = [
       {class = "Pavucontrol";}
-      {class = "alacritty_btop";}
+      {class = "term_btop";}
       {class = "simplescreenrecorder";}
       {class = "SimpleScreenRecorder";}
       {class = "awakened-poe-trade";}
@@ -143,7 +143,7 @@ in {
         "${mod}+Shift+bracketright" = "move workspace to output right";
 
         # apps
-        "${mod}+t" = "exec --no-startup-id alacritty";
+        "${mod}+t" = "exec --no-startup-id wezterm";
         "${mod}+o" = "exec --no-startup-id obsidian";
         "${mod}+period" = "exec --no-startup-id sh ${openRofiEmoji}";
         # hmm https://github.com/flameshot-org/flameshot/issues/784
@@ -158,7 +158,7 @@ in {
         "${mod}+bracketright" = i3SwitchCmd 1;
         "${mod}+Tab" = "workspace back_and_forth";
 
-        "Control+Mod1+Delete" = "exec alacritty -t btop --class alacritty_btop -e btop -p 1";
+        "Control+Mod1+Delete" = "exec wezterm start --class term_btop --always-new-process btop -p 1";
 
         "${mod}+Delete" = "exec ${powermenu}/bin/powermenu";
       }
