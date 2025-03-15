@@ -100,6 +100,7 @@
     ormolu # haskell formatter
     unstable.superhtml
     openscad-lsp
+    lua-language-server
 
     # python and formatters for python
     # lmao
