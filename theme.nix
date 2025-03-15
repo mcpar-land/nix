@@ -43,7 +43,7 @@ in rec {
 
   gap = 8;
   barHeight = gap * 4;
-  asJson = builtins.toJSON {
+  hexAttrSet = {
     red = red.hex;
     orange = orange.hex;
     yellow = yellow.hex;
@@ -60,7 +60,18 @@ in rec {
     base6 = base6.hex;
     base7 = base7.hex;
     base8 = base8.hex;
+    light = {
+      red = light.red.hex;
+      orange = light.orange.hex;
+      yellow = light.yellow.hex;
+      green = light.green.hex;
+      blue = light.blue.hex;
+      magenta = light.magenta.hex;
+      cyan = light.cyan.hex;
+    };
     gap = gap;
     barHeight = barHeight;
   };
+  asJson = builtins.toJSON hexAttrSet;
+  asLua = pkgs.lib.generators.toLua {} hexAttrSet;
 }
