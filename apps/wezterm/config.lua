@@ -8,6 +8,7 @@ TAB_FG_INACTIVE = theme.base8
 TAB_BG_ACTIVE   = theme.green
 TAB_FG_ACTIVE   = theme.base0
 RIGHT_ARROW     = wezterm.nerdfonts.pl_left_hard_divider
+FONT = "Iosevka Custom"
 
 wezterm.on('format-tab-title', function(tab, tabs, _, _, hover, max_width)
   local title = tab.tab_title
@@ -57,7 +58,7 @@ return {
   tab_max_width = 48,
   show_new_tab_button_in_tab_bar = false,
   window_frame = {
-    font = wezterm.font 'Iosevka Comfy Fixed',
+    font = wezterm.font { family = FONT },
   },
   window_close_confirmation = 'NeverPrompt',
   window_background_gradient = {
@@ -112,7 +113,7 @@ return {
       italic = false,
       intensity = 'Normal',
       font = wezterm.font {
-        family = 'Iosevka Comfy Fixed',
+        family = FONT,
         weight = 'Regular',
         italic = false,
       }
@@ -121,7 +122,7 @@ return {
       italic = false,
       intensity = 'Bold',
       font = wezterm.font {
-        family = 'Iosevka Comfy Fixed',
+        family = FONT,
         weight = 'Bold',
         italic = false,
       }
@@ -130,7 +131,7 @@ return {
       italic = true,
       intensity = 'Normal',
       font = wezterm.font {
-        family = 'Iosevka Comfy Fixed',
+        family = FONT,
         weight = 'Regular',
         italic = true,
       }
@@ -139,7 +140,7 @@ return {
       italic = true,
       intensity = 'Bold',
       font = wezterm.font {
-        family = 'Iosevka Comfy Fixed',
+        family = FONT,
         weight = 'Regular',
         italic = true,
       }

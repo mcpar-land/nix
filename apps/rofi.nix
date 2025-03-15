@@ -6,7 +6,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    font = "FiraCode Nerd Font Propo 14";
+    font = "Iosevka Custom 14";
     terminal = "wezterm";
     plugins = [
       pkgs.rofi-emoji

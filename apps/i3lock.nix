@@ -3,7 +3,7 @@
   theme,
   ...
 }: let
-  font = "FiraCode Nerd Font";
+  font = "Iosevka Custom";
   color = "ffffffff";
   i3lockScript = pkgs.writeShellScriptBin "i3lock-styled" ''
     ${pkgs.i3lock-color}/bin/i3lock-color \
