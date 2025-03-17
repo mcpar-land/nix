@@ -44,7 +44,7 @@ wezterm.on('format-tab-title', function(tab, tabs, _, _, hover, max_width)
   return {
     { Background = { Color = bg } },
     { Foreground = { Color = fg } },
-    { Text = ' ' .. title .. ' ' },
+    { Text = ' ' .. tab.tab_index .. ': ' .. title .. ' ' },
     { Background = { Color = arrow_bg } },
     { Foreground = { Color = arrow_fg } },
     { Text = RIGHT_ARROW }
