@@ -80,6 +80,7 @@
     # https://www.nongnu.org/renameutils/
     renameutils
     # to connect to wifi, use nmtui
+    xautolock
 
     # languages
     rustup
@@ -211,13 +212,11 @@
       })
       openInBrowser));
 
-  # services.screen-locker = {
-  #   enable = true;
-  #   xautolock = {
-  #     enable = true;
-  #   };
-  #   lockCmd = "light-locker-command -l";
-  # };
+  services.screen-locker = {
+    enable = true;
+    lockCmd = "i3lock-styled";
+    inactiveInterval = 10;
+  };
 
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;

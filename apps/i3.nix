@@ -33,11 +33,11 @@
       }
       {
         label = "Lock";
-        exec = "i3lock-styled";
+        exec = "xautolock -locknow";
       }
       {
         label = "Suspend";
-        exec = "i3lock-styled && systemctl suspend";
+        exec = "xautolock -locknow && systemctl suspend";
       }
     ];
   };

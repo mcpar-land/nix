@@ -5,11 +5,14 @@
   pkgs,
   self,
   ...
-}: {
+}: let
+  i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
+in {
   environment.systemPackages = with pkgs; [
     (vesktop.override {
       withSystemVencord = false;
     })
+    i3lockScript
     ntfs3g
     udiskie
     xdotool

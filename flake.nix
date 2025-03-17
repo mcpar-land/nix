@@ -71,7 +71,6 @@
       home-manager.nixosModules.home-manager
       agenix.nixosModules.default
       ./configuration.nix
-      ./apps/i3lock.nix
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
