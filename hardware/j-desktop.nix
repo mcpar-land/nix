@@ -5,7 +5,6 @@
   modulesPath,
   ...
 }: {
-  # copied verbatim from /etc/nixos/hardware-configuration.nix
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -19,12 +18,6 @@
 
   services.libinput.mouse = {
     middleEmulation = false;
-  };
-
-  fileSystems."/mnt/attic" = {
-    device = "/dev/disk/by-uuid/DE6ABA5E6ABA335F";
-    options = ["nofail" "x-systemd.automount"];
-    # options = ["nofail" "x-systemd.automount"];
   };
 
   boot.kernelParams = [
@@ -74,18 +67,12 @@
     # NIXOS_OZONE_WL = "1";
   };
 
-  # ===== everything past this line was copied verbatim from /etc/nixos/configuration.nixos
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "j-desktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostId = "5346fadc"; # needed for zfs, but i'm not fully sure why.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -96,23 +83,48 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # ===== everything past this line was copied verbatim from /etc/nixos/hardware-configuration.nixos
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  # boot.initrd.kernelModules = []; # manually editing this further up
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
+  # recommended?
+  services.zfs.autoScrub.enable = true;
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/c65fcce6-f780-4fb9-82e8-9d5c8dafe3ec";
-    fsType = "ext4";
+    device = "zpool/root";
+    fsType = "zfs";
+    options = ["zfsutil"];
+  };
+
+  fileSystems."/nix" = {
+    device = "zpool/nix";
+    fsType = "zfs";
+    options = ["zfsutil"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D4A4-24E4";
+    device = "/dev/nvme0n1p1";
     fsType = "vfat";
   };
 
-  swapDevices = [];
+  fileSystems."/var" = {
+    device = "zpool/enc/var";
+    fsType = "zfs";
+    options = ["zfsutil"];
+  };
+
+  fileSystems."/home" = {
+    device = "zpool/enc/home";
+    fsType = "zfs";
+    options = ["zfsutil"];
+  };
+
+  swapDevices = [
+    {
+      device = "/dev/nvme0n1p2";
+      randomEncryption = true;
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -123,4 +135,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  system.stateVersion = "24.11";
 }

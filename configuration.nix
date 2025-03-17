@@ -267,6 +267,4 @@
       ACTION=="remove", SUBSYSTEM=="usb", RUN+="${pkgs.alsa-utils}/bin/aplay ${./sounds/plug_out.wav}"
     '';
   };
-
-  system.stateVersion = "23.11";
 }
