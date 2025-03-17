@@ -4,7 +4,6 @@
   theme,
   config,
   monitor-list,
-  discs,
   custom-rofi-menu,
   ...
 }: let
@@ -229,79 +228,75 @@ in {
           info_bg = theme.blue.hex;
           info_fg = text_b;
         };
-        blocks =
-          [
-            {
-              block = "music";
-              format = " $icon {$combo.str(max_w:30,rot_interval:2.0,rot_separator:' / ') $prev $play $next |}";
-            }
-            {
-              block = "temperature";
-              interval = 15;
-              scale = "celsius";
-              format = " $icon $average.eng()C ";
-              # no idea how these numbers work.
-              good = 1.0;
-              idle = 999.0;
-              info = 999.0;
-              warning = 999.0;
-            }
-            {
-              block = "cpu";
-              interval = 15;
-              format = " $icon $utilization ";
-              # info_cpu = 20;
-              warning_cpu = 50;
-              critical_cpu = 90;
-            }
-            {
-              block = "memory";
-              interval = 15;
-              format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true) ";
-              warning_mem = 70;
-              critical_mem = 90;
-            }
-          ]
-          ++ (map (disc: {
-              block = "disk_space";
-              path = disc.path;
-              info_type = "available";
-              warning = 20.0;
-              alert = 5.0;
-              format = " $icon ${disc.label} $percentage ";
-              format_alt = " $icon ${disc.label} $available.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$total.eng(u:B,p:Gi,hide_unit:true) ";
-            })
-            discs)
-          ++ [
-            {
-              block = "docker";
-              interval = 5;
-              format = " $icon $running ";
-            }
-            {
-              block = "custom";
-              interval = 60 * 10;
-              command = ''
-                j-ctl weather "42.38874" "-71.1056" | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\"}"
-              '';
-              json = true;
-            }
-            (let
-              fmt = " $icon $percentage ";
-            in {
-              block = "battery";
-              format = fmt;
-              full_format = fmt;
-              charging_format = fmt;
-              empty_format = fmt;
-              missing_format = "";
-            })
-            {
-              block = "time";
-              interval = 60;
-              format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %I:%M') ";
-            }
-          ];
+        blocks = [
+          {
+            block = "music";
+            format = " $icon {$combo.str(max_w:30,rot_interval:2.0,rot_separator:' / ') $prev $play $next |}";
+          }
+          {
+            block = "temperature";
+            interval = 15;
+            scale = "celsius";
+            format = " $icon $average.eng()C ";
+            # no idea how these numbers work.
+            good = 1.0;
+            idle = 999.0;
+            info = 999.0;
+            warning = 999.0;
+          }
+          {
+            block = "cpu";
+            interval = 15;
+            format = " $icon $utilization ";
+            # info_cpu = 20;
+            warning_cpu = 50;
+            critical_cpu = 90;
+          }
+          {
+            block = "memory";
+            interval = 15;
+            format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true) ";
+            warning_mem = 70;
+            critical_mem = 90;
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "available";
+            warning = 20.0;
+            alert = 5.0;
+            format = " $icon $percentage ";
+            format_alt = " $icon $available.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$total.eng(u:B,p:Gi,hide_unit:true) ";
+          }
+          {
+            block = "docker";
+            interval = 5;
+            format = " $icon $running ";
+          }
+          {
+            block = "custom";
+            interval = 60 * 10;
+            command = ''
+              j-ctl weather "42.38874" "-71.1056" | jq -RcMj "{text: ., icon: \"weather_default\", state: \"Info\"}"
+            '';
+            json = true;
+          }
+          (let
+            fmt = " $icon $percentage ";
+          in {
+            block = "battery";
+            format = fmt;
+            full_format = fmt;
+            charging_format = fmt;
+            empty_format = fmt;
+            missing_format = "";
+          })
+          {
+            block = "time";
+            interval = 60;
+            format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %I:%M') ";
+          }
+        ];
       };
     };
   };

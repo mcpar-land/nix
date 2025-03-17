@@ -49,9 +49,6 @@
     monitor-list = monitors: {
       home-manager.extraSpecialArgs.monitor-list = monitors;
     };
-    discs = discs: {
-      home-manager.extraSpecialArgs.discs = discs;
-    };
     # shared system config across all devices
     sharedSystemConfig = [
       ({pkgs, ...}: {
@@ -107,16 +104,6 @@
             inputDeviceId = "alsa_input.usb-SteelSeries_Arctis_7_-00.mono-fallback";
           })
           (monitor-list ["HDMI-A-0" "DisplayPort-1" "DisplayPort-2"])
-          (discs [
-            {
-              path = "/";
-              label = "/";
-            }
-            {
-              path = "/mnt/attic";
-              label = "attic";
-            }
-          ])
         ]
         ++ sharedSystemConfig;
     };
@@ -130,12 +117,6 @@
             inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
           })
           (monitor-list ["DP-1-1" "eDP-1" "DP-1-2"])
-          (discs [
-            {
-              path = "/";
-              label = "/";
-            }
-          ])
         ]
         ++ sharedSystemConfig;
     };
