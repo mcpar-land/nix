@@ -19,8 +19,6 @@ in {
     aws-vault
     mysql80
     kubectl
-    # https://github.com/ankitpokhrel/jira-cli
-    jira-cli-go
 
     # gui apps
     slack
@@ -62,10 +60,6 @@ in {
     id = 0;
     isDefault = true;
   };
-
-  programs.zsh.initExtra = ''
-    export JIRA_API_TOKEN=$(cat ~/.jira-api-token)
-  '';
 
   home.sessionVariables = {
     # https://github.com/99designs/aws-vault/blob/master/USAGE.md#environment-variables

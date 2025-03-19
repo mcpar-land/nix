@@ -8,7 +8,6 @@ check out wluma https://github.com/maximbaz/wluma
 check out zsh-vi-mode
 fxn buttons for brightness on laptop @laptop
 fxn buttons for volume on laptop @laptop
-get jira cli working with token stored in sops +sops
 global light mode
 mouse gestures to switch workspaces @laptop
 noise on usb plug / unplug
