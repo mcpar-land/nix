@@ -32,6 +32,7 @@
     # terminal apps
     wget
     zip
+    p7zip
     xz
     unzip
     ripgrep # https://github.com/BurntSushi/ripgrep
