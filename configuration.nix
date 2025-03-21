@@ -26,6 +26,8 @@ in {
     # for iphone
     libimobiledevice
     ifuse
+    # antivirus
+    clamav
   ];
 
   fonts.packages = with pkgs; [
