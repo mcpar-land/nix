@@ -234,6 +234,12 @@ in {
             format = " $icon {$combo.str(max_w:30,rot_interval:2.0,rot_separator:' / ') $prev $play $next |}";
           }
           {
+            block = "taskwarrior";
+            interval = 300;
+            warning_threshold = 50;
+            critical_threshold = 100;
+          }
+          {
             block = "temperature";
             interval = 15;
             scale = "celsius";
