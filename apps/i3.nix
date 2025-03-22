@@ -236,8 +236,14 @@ in {
           {
             block = "taskwarrior";
             interval = 300;
-            warning_threshold = 50;
-            critical_threshold = 100;
+            warning_threshold = 5;
+            critical_threshold = 10;
+            filters = [
+              {
+                name = "important";
+                filter = "urgency > 10 -COMPLETED -DELETED";
+              }
+            ];
           }
           {
             block = "temperature";
