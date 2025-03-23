@@ -4,6 +4,7 @@
   theme,
   config,
   monitor-list,
+  system-name,
   custom-rofi-menu,
   ...
 }: let
@@ -244,6 +245,7 @@ in {
                 filter = "urgency > 10 -COMPLETED -DELETED";
               }
             ];
+            format_everything_done = "";
           }
           {
             block = "temperature";
@@ -271,15 +273,26 @@ in {
             warning_mem = 70;
             critical_mem = 90;
           }
-          {
-            block = "disk_space";
-            path = "/";
-            info_type = "available";
-            warning = 20.0;
-            alert = 5.0;
-            format = " $icon $percentage ";
-            format_alt = " $icon $available.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$total.eng(u:B,p:Gi,hide_unit:true) ";
-          }
+          (
+            if system-name == "j-desktop"
+            then {
+              block = "custom";
+              command = ''
+                zpool list -Ho free zpool | jq -RcMj "{text: ., icon: \"disk_drive\", state: \"Idle\"}"
+              '';
+              interval = 120;
+              json = true;
+            }
+            else {
+              block = "disk_space";
+              path = "/";
+              info_type = "available";
+              warning = 20.0;
+              alert = 5.0;
+              format = " $icon $percentage ";
+              format_alt = " $icon $available.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$total.eng(u:B,p:Gi,hide_unit:true) ";
+            }
+          )
           {
             block = "docker";
             interval = 5;

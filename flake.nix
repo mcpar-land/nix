@@ -83,6 +83,9 @@
         };
       }
     ];
+    systemNameOverlay = systemName: {
+      home-manager.extraSpecialArgs.system-name = systemName;
+    };
   in {
     system.autoUpgrade = {
       enable = true;
@@ -103,6 +106,7 @@
             inputDeviceId = "alsa_input.usb-SteelSeries_Arctis_7_-00.mono-fallback";
           })
           (monitor-list ["HDMI-A-0" "DisplayPort-1" "DisplayPort-2"])
+          (systemNameOverlay "j-desktop")
         ]
         ++ sharedSystemConfig;
     };
@@ -116,6 +120,7 @@
             inputDeviceId = "alsa_input.pci-0000_00_1f.3.analog-stereo";
           })
           (monitor-list ["DP-1-1" "eDP-1" "DP-1-2"])
+          (systemNameOverlay "j-laptop")
         ]
         ++ sharedSystemConfig;
     };
