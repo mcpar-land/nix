@@ -52,7 +52,7 @@ wezterm.on('format-tab-title', function(tab, tabs, _, _, hover, max_width)
 end)
 
 return {
-  window_background_opacity = 0.75,
+  window_background_opacity = 0.95,
   hide_tab_bar_if_only_one_tab = true,
   use_fancy_tab_bar = false,
   tab_max_width = 48,
