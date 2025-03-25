@@ -82,6 +82,8 @@
     renameutils
     # to connect to wifi, use nmtui
     xautolock
+    # i maintain this!
+    unstable.git-who
 
     # languages
     rustup
