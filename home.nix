@@ -46,7 +46,7 @@
     youplot # https://github.com/red-data-tools/YouPlot
     jq # https://jqlang.github.io/jq/
     yq-go # https://mikefarah.gitbook.io/yq
-    xsv # https://github.com/BurntSushi/xsv
+    unstable.xan # https://github.com/medialab/xan/
     jless # https://jless.io/
     jd-diff-patch # https://github.com/josephburnett/jd
     glow # https://github.com/charmbracelet/glow
