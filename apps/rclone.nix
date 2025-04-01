@@ -11,6 +11,13 @@
       provider = AWS
       env_auth = true
       region = us-east-1
+
+      [civera_sftp]
+      type = sftp
+      host = ftp.aws.elstats.com
+      user = civera_johnmcparland
+      known_hosts_file = ~/.ssh/known_hosts
+      key_file = ~/.ssh/id_rsa
     '';
   };
 }
