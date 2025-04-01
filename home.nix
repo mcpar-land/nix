@@ -84,6 +84,7 @@
     xautolock
     # i maintain this!
     unstable.git-who
+    rclone
 
     # languages
     rustup
