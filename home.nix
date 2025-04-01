@@ -26,6 +26,7 @@
     ./apps/vscode.nix
     ./apps/wezterm.nix
     ./apps/custom-cmds.nix
+    ./apps/rclone.nix
   ];
 
   home.packages = with pkgs; [
@@ -84,7 +85,6 @@
     xautolock
     # i maintain this!
     unstable.git-who
-    rclone
 
     # languages
     rustup
