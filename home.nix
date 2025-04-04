@@ -124,6 +124,7 @@
     # gui apps
     audacity
     dbeaver-bin
+    deadbeef
     diffuse
     element-desktop
     filezilla
