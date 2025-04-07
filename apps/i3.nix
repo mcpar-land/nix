@@ -260,7 +260,7 @@ in {
           }
           {
             block = "cpu";
-            interval = 15;
+            interval = 5;
             format = " $icon $utilization ";
             # info_cpu = 20;
             warning_cpu = 50;
@@ -268,10 +268,8 @@ in {
           }
           {
             block = "memory";
-            interval = 15;
+            interval = 5;
             format = " $icon $mem_used.eng(u:B,p:Gi,hide_unit:true,hide_prefix:true)/$mem_total.eng(u:B,p:Gi,hide_unit:true) ";
-            warning_mem = 70;
-            critical_mem = 90;
           }
           (
             if system-name == "j-desktop"
