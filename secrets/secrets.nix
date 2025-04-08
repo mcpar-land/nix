@@ -12,6 +12,7 @@ let
     "st_laptop_cert"
     "st_password"
     "taskwarrior_config"
+    "aws_config"
   ];
 in
   builtins.listToAttrs (map (

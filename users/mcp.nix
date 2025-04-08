@@ -29,6 +29,11 @@ in {
     enable = true;
   };
 
+  age.secrets.aws-config = {
+    file = ../secrets/aws_config.age;
+    path = ".aws/config";
+  };
+
   # systemd.user.services.tailscale-autoconnect = {
   #   Unit.Description = "Automatically connect to tailscale";
   #   Install.WantedBy = ["default.target"];
