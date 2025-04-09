@@ -26,6 +26,7 @@ in {
     godot_4
     gdtoolkit_4
     r2modman
+    rpcs3
 
     jre_headless # for minecraft
     prismlauncher
