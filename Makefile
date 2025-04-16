@@ -1,17 +1,22 @@
 HOST=$(shell hostname)
+.PHONY: build build-local clear-generations gc update repair refresh-udev
 
-all:
+build: clear-generations
 	@echo slammin it now!!! $(HOST)
+	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto
+	i3-msg restart
+	systemctl --user restart picom.service
+build-local: clear-generations
+	@echo slammin it now \(no remote builders\)!!! $(HOST)
+	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto --builders ""
+	i3-msg restart
+	systemctl --user restart picom.service
+clear-generations:
 	# delete old entries
 	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
-	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto
-	# i3-msg reload
-	- i3-msg restart
-	- systemctl --user restart picom.service
-gc:
-	nix-env --delete-generations +10
-	nix-store --gc
-	nix-store --optimise
+gc: clear-generations
+	sudo nix-store --gc
+	sudo nix-store --optimise
 update:
 	nix flake update
 repair:

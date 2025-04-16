@@ -1,11 +1,6 @@
-{
-  pkgs,
-  helix-master,
-  ...
-}: {
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
-    package = helix-master.packages.${pkgs.system}.default;
     settings = {
       theme = "monokai_pro_custom";
       editor = {

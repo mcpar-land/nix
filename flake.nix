@@ -33,6 +33,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -43,6 +49,7 @@
     rust-overlay,
     helix,
     agenix,
+    devenv,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -65,6 +72,9 @@
                 "dotnet-runtime-7.0.20"
               ];
             };
+            devenv = devenv.packages.${final.system}.default;
+            helix = helix.packages.${final.system}.default;
+            agenix = agenix.packages.${final.system}.default;
           })
         ];
       })
@@ -78,8 +88,6 @@
         home-manager.users.mcp.imports = [agenix.homeManagerModules.default ./home.nix ./users/mcp.nix];
         home-manager.extraSpecialArgs = {
           inherit theme;
-          helix-master = helix;
-          agenix = agenix;
         };
       }
     ];

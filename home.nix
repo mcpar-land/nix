@@ -3,7 +3,6 @@
   lib,
   pkgs,
   theme,
-  agenix,
   ...
 }: {
   imports = [
@@ -57,7 +56,7 @@
     unstable.duckdb
     pandoc
     ffmpeg
-    unstable.devenv
+    devenv
     lazydocker
     watchexec
     systemctl-tui
@@ -67,7 +66,7 @@
     nmap
     s3fs # mount s3 on filesystem with fuse
     xclip # clipboard
-    agenix.packages.x86_64-linux.default
+    agenix
     wavemon # wifi signal analysis tui
     cyme # usb listing https://github.com/tuna-f1sh/cyme
     spotify-player
