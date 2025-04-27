@@ -158,6 +158,11 @@ return {
       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
     },
     {
+      key = 'n',
+      mods = 'ALT|SHIFT',
+      action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }
+    },
+    {
       key = 'h',
       mods = 'ALT',
       action = wezterm.action.ActivateTabRelative(-1),
