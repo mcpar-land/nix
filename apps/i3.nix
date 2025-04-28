@@ -20,7 +20,16 @@
   '';
   openRofi = pkgs.writeShellScript "open-rofi" ''
     pkill rofi
-    rofi -show combi -combi-modes "window,drun,ssh" -show-icons -modes combi -display-drun "" -display-combi "" -display-window "" -window-thumbnail
+    rofi \
+      -show combi \
+      -combi-modes "window,drun,ssh" \
+      -show-icons \
+      -modes combi \
+      -display-drun "" \
+      -display-combi "" \
+      -display-window "" \
+      -window-thumbnail \
+      -ssh-command "wezterm ssh {host}"
   '';
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
     rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
