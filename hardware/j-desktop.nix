@@ -47,7 +47,7 @@
         "DisplayPort-1" = {
           mode = "1920x1080";
           position = "1920x0";
-          rate = "250.00";
+          rate = "60.00";
           primary = true;
         };
         "DisplayPort-2" = {
