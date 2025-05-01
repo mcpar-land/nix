@@ -64,6 +64,7 @@ in {
       "window_type = 'utility'"
       "window_type = 'dock'"
       "class_g = 'awakened-poe-trade'"
+      "class_g = 'activate-linux'"
       "name = 'Annotation - Zoom'"
     ];
   in {
