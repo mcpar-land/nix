@@ -161,6 +161,7 @@ in {
   # };
 
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
   # https://wiki.nixos.org/wiki/Serial_Console#Unprivileged_access_to_serial_device
   # the default group for serial devices is "dialout"
