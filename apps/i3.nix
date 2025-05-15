@@ -46,6 +46,10 @@
         exec = "xautolock -locknow";
       }
       {
+        label = "Screen Off";
+        exec = "xset -display :0.0 dpms force off";
+      }
+      {
         label = "Suspend";
         exec = "xautolock -locknow && systemctl suspend";
       }
