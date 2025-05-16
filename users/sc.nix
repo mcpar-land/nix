@@ -22,7 +22,6 @@ in {
   home.packages = with pkgs; [
     spotify
     chatterino2
-    streamlink
     godot_4
     gdtoolkit_4
     r2modman
