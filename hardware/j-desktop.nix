@@ -16,6 +16,17 @@
     radeontop # view amd gpu usage
   ];
 
+  # for tekken?
+  environment.etc.hosts = lib.mkForce {
+    enable = true;
+    user = "root";
+    group = "root";
+    text = ''
+      127.0.0.1 localhost
+      ::1 localhost
+    '';
+  };
+
   services.libinput.mouse = {
     middleEmulation = false;
   };
