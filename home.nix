@@ -110,16 +110,8 @@
     # python and formatters for python
     # lmao
     python312Full
-    python312Packages.black
-    python312Packages.isort
-    python312Packages.jedi
-    python312Packages.pylint
-    python312Packages.pyls-isort
-    python312Packages.flake8
-    python312Packages.pylsp-mypy
-    python312Packages.python-lsp-black
-    python312Packages.python-lsp-server
-    python312Packages.rope
+    ruff
+    python312Packages.jedi-language-server
 
     # gui apps
     audacity
