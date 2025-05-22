@@ -111,7 +111,6 @@
     # lmao
     python312Full
     ruff
-    python312Packages.jedi-language-server
 
     # gui apps
     audacity
