@@ -85,6 +85,7 @@
     xautolock
     # i maintain this!
     unstable.git-who
+    dust
 
     # languages
     rustup
@@ -170,6 +171,16 @@
     "$HOME/.cargo/bin"
     "$HOME/.npm-packages/bin"
   ];
+
+  programs.bat = {
+    enable = true;
+  };
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    git = true;
+    icons = "auto";
+  };
 
   programs.direnv = {
     enable = true;

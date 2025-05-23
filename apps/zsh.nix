@@ -16,6 +16,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+      cat = "bat";
+      du = "dust";
       l = "ls -lh";
       g = "lazygit";
       d = "lazydocker";
