@@ -5,9 +5,11 @@
   pkgs,
   self,
   ...
-}: let
-  i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
-in {
+}:
+#let
+# i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
+# in
+{
   imports = [
     ./apps/gamemode.nix
   ];
@@ -16,7 +18,7 @@ in {
     (vesktop.override {
       withSystemVencord = false;
     })
-    i3lockScript
+    # i3lockScript
     ntfs3g
     udiskie
     xdotool

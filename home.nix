@@ -221,11 +221,13 @@
       })
       openInBrowser));
 
-  services.screen-locker = {
-    enable = true;
-    lockCmd = "i3lock-styled";
-    inactiveInterval = 10;
-  };
+  # disabled when upgraded to 25.05 because it's not
+  # accepting correctly input password??
+  # services.screen-locker = {
+  #   enable = true;
+  #   lockCmd = "i3lock-styled";
+  #   inactiveInterval = 10;
+  # };
 
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;
