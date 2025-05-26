@@ -8,6 +8,10 @@
 }: let
   i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
 in {
+  imports = [
+    ./apps/gamemode.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     (vesktop.override {
       withSystemVencord = false;

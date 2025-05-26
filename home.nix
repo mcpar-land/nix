@@ -13,6 +13,7 @@
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/i3.nix
+    ./apps/mangohud.nix
     # ./apps/nnn/nnn.nix
     ./apps/yazi.nix
     ./apps/rofi.nix
