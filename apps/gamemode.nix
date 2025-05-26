@@ -14,6 +14,10 @@
         start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
         end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
       };
+      cpu = {
+        park_cores = true;
+        pin_cores = true;
+      };
     };
   };
 }

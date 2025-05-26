@@ -175,7 +175,7 @@
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
@@ -183,7 +183,7 @@
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
