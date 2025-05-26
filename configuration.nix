@@ -37,7 +37,7 @@ in {
   fonts.packages = with pkgs; [
     corefonts
     fira
-    fira-code-nerdfont
+    nerd-fonts.fira-code
     font-awesome
     (iosevka.override {
       # https://typeof.net/Iosevka/customizer

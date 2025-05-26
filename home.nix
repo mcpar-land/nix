@@ -92,7 +92,7 @@
     rustup
     go
     gopls # go language server
-    nodejs_18
+    nodejs_22
     vscode-langservers-extracted
     bun
     nil # nix lsp?
@@ -122,7 +122,7 @@
     element-desktop
     filezilla
     flameshot
-    hardinfo
+    hardinfo2
     libreoffice-qt
     obsidian
     pavucontrol

@@ -10,6 +10,6 @@ pkgs.rustPlatform.buildRustPackage rec {
     hash = "sha256-tbsQT9QFjKEikT+vzEjCac3w8D3O+mOZueKWKppr0Ok=";
   };
 
-  cargoHash = "sha256-hG/uGYtFVBDkLcB8skUc3iuNvJEBw/fbtK8ZbYeJk1g=";
+  cargoHash = "sha256-10rNrjtE50aCZhqlqz+hfQolC/T6iwPL2BIZE6XEPuU=";
   doCheck = false;
 }

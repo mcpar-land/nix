@@ -42,7 +42,7 @@
         file = "p10k.zsh";
       }
     ];
-    initExtra = ''
+    initContent = ''
       autoload -z edit-command-line
       zle -N edit-command-line
       bindkey "^E" edit-command-line
