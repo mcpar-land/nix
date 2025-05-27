@@ -9,7 +9,7 @@
     font = "Iosevka Custom 14";
     terminal = "wezterm";
     plugins = [
-      pkgs.rofi-emoji
+      pkgs.unstable.rofi-emoji
     ];
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
