@@ -87,6 +87,7 @@
     # i maintain this!
     unstable.git-who
     dust
+    ipinfo
 
     # languages
     rustup
