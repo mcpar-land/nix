@@ -23,6 +23,7 @@ in {
     # gui apps
     slack
     zoom-us
+    (pkgs.callPackage ../derivations/drsprinto.nix {})
   ];
 
   programs.k9s = {
