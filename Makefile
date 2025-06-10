@@ -6,9 +6,10 @@ build: clear-generations
 	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto
 	i3-msg restart
 	systemctl --user restart picom.service
+	nix flake archive --to ssh://nix-ssh@jamrock .
 build-local: clear-generations
 	@echo slammin it now \(no remote builders\)!!! $(HOST)
-	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto --builders ""
+	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto --print-build-logs --builders ""
 	i3-msg restart
 	systemctl --user restart picom.service
 clear-generations:
