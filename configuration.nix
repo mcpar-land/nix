@@ -88,7 +88,7 @@
       "https://cache.nixos.org"
       # for fetching helix builds from cachix
       "https://helix.cachix.org"
-      "ssh://nix-ssh@jamrock"
+      "ssh://nix-ssh@10.0.0.127?ssh-key=/home/sc/.ssh/id_rsa"
     ];
     trusted-public-keys = [
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
