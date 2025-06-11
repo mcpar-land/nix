@@ -74,6 +74,12 @@
       set = "Custom";
     })
   ];
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-u14n.psf.gz";
+    packages = with pkgs; [terminus_font];
+    keyMap = "us";
+  };
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
