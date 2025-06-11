@@ -5,24 +5,18 @@
   pkgs,
   self,
   ...
-}:
-#let
-# i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
-# in
-{
+}: {
   imports = [
     ./apps/gamemode.nix
+    ./apps/niri.nix
   ];
 
   environment.systemPackages = with pkgs; [
     (vesktop.override {
       withSystemVencord = false;
     })
-    # i3lockScript
     ntfs3g
     udiskie
-    xdotool
-    xsel
     j-ctl
     via # for keyboard
     qmk
@@ -224,23 +218,6 @@
   services.logind = {
     extraConfig = "HandlePowerKey=suspend";
     lidSwitch = "suspend";
-  };
-
-  services.displayManager = {
-    defaultSession = "none+i3";
-    autoLogin.enable = false;
-  };
-
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
-    windowManager.i3.enable = true;
-    displayManager.lightdm = {
-      enable = true;
-      greeter.enable = true;
-      background = "${./wallpapers/disco_thoughts.png}";
-    };
   };
 
   # this appears to intermittently work?
