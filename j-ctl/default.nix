@@ -4,7 +4,7 @@ pkgs.buildGoModule {
   version = "0.0.1";
   src = ./.;
 
-  vendorHash = "sha256-17JDKKPJDlXupTl7UhuQkNGYsIIrO+/LxKWDUhfWp60=";
+  vendorHash = "sha256-Fhm4Pocth6dmqt+1vnsZL6LlGkTMh2MJ9Ktl/duX59E=";
   postInstall = ''
     mv $out/bin/nix $out/bin/j-ctl
   '';

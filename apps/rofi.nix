@@ -3,13 +3,28 @@
   config,
   theme,
   ...
-}: {
+}: let
+  rofiLauncher = pkgs.writeShellScriptBin "rofi-launcher" ''
+    # pkill rofi
+    rofi -show combi \
+      -modes combi \
+      -combi-modes "window#drun#ssh" \
+      -show-icons \
+      -display-drun "" \
+      -display-combi "" \
+      -display-window "" \
+      -window-thumbnail \
+      -ssh-command "wezterm ssh {host}"
+  '';
+in {
+  home.packages = [rofiLauncher];
   programs.rofi = {
     enable = true;
     font = "Iosevka Custom 14";
     terminal = "wezterm";
+    package = pkgs.rofi-wayland;
     plugins = [
-      pkgs.unstable.rofi-emoji
+      pkgs.rofi-emoji
     ];
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
