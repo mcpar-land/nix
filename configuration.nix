@@ -94,6 +94,10 @@
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
     ];
   };
+  nix.extraOptions = ''
+    # so we can still build without a connection to jamrock
+    fallback = true
+  '';
 
   nix.distributedBuilds = true;
   nix.buildMachines = [
