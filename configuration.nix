@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./apps/gamemode.nix
+    ./apps/greetd.nix
     ./apps/niri.nix
   ];
 
