@@ -250,12 +250,6 @@
     // which may be more convenient to use.
     // See the binds section below for more spawn examples.
 
-    // This line starts waybar, a commonly used bar for Wayland compositors.
-    spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
-    spawn-at-startup "${pkgs.waybar}/bin/waybar"
-    spawn-at-startup "${pkgs.swaybg}/bin/swaybg -i ${../wallpapers/martinaise.png}"
-    spawn-at-startup "systemctl --user start graphical-session-niri.target"
-
     // Uncomment this line to ask the clients to omit their client-side decorations if possible.
     // If the client will specifically ask for CSD, the request will be honored.
     // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -326,40 +320,23 @@
     }
 
     binds {
-      // Keys consist of modifiers separated by + signs, followed by an XKB key name
-      // in the end. To find an XKB name for a particular key, you may use a program
-      // like wev.
-      //
+      // To find an XKB name for a particular key, you may use a program like wev.
       // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
       // when running as a winit window.
-      //
-      // Most actions that you can bind here can also be invoked programmatically with
-      // `niri msg action do-something`.
-
-      // Mod-Shift-/, which is usually the same as Mod-?,
-      // shows a list of important hotkeys.
       Mod+Shift+Slash { show-hotkey-overlay; }
 
-      // Suggested binds for running programs: terminal, app launcher, screen locker.
       Mod+T hotkey-overlay-title="Open Terminal (Wezterm)" { spawn "wezterm"; }
       Mod+B hotkey-overlay-title="Open Browser (Firefox)" { spawn "rofi-firefox"; }
       Mod+Space hotkey-overlay-title="Open Rofi" { spawn "rofi-launcher"; }
       Super+Alt+L hotkey-overlay-title="Lock the Screen (swaylock)" { spawn "${pkgs.swaylock}/bin/swaylock"; }
 
-      // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-      // Note: the entire command goes as a single argument in the end.
       // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-
-      // Example volume keys mappings for PipeWire & WirePlumber.
       // The allow-when-locked=true property makes them work even when the session is locked.
       XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
       XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
       XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
       XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-      // Open/close the Overview: a zoomed-out view of workspaces and windows.
-      // You can also move the mouse into the top-left hot corner,
-      // or do a four-finger swipe up on a touchpad.
       Mod+O repeat=false { toggle-overview; }
 
       Mod+Q { close-window; }
@@ -585,26 +562,27 @@
     }
   '';
 in {
-  environment.systemPackages = with pkgs; [
-    unstable.xwayland-satellite
-  ];
-  # services.xserver.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
   programs.niri.enable = true;
-  # programs.xwayland.enable = true;
   environment.sessionVariables.NIRI_CONFIG = "${config}";
-  systemd.user.services.xwayland-satellite = {
-    description = "Xwayland outside your wayland";
-    bindsTo = ["graphical-session.target"];
-    partOf = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    requisite = ["graphical-session.target"];
-    wantedBy = ["graphical-session.target"];
+  systemd.user.targets.graphical-session-niri = {
+    description = "Niri has started";
+    wantedBy = ["niri.service"];
+    after = ["niri.service"];
+  };
+  systemd.user.services.waybar = {
+    description = "Wayland bar";
+    wantedBy = ["graphical-session-niri.target"];
+    partOf = ["graphical-session-niri.target"];
     serviceConfig = {
-      Type = "notify";
-      NotifyAccess = "all";
-      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
-      StandardOutput = "journal";
+      ExecStart = "${pkgs.waybar}/bin/waybar";
+    };
+  };
+  systemd.user.services.swaybg = {
+    description = "Wayland desktop background";
+    wantedBy = ["graphical-session-niri.target"];
+    partOf = ["graphical-session-niri.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${../wallpapers/martinaise.png}";
     };
   };
 }
