@@ -5,7 +5,7 @@
     settings = {
       terminal.vt = 1;
       default_session = {
-        command = "${pkgs.cage}/bin/cage -d -m extend -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet";
+        command = "${pkgs.cage}/bin/cage -d -m extend -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet --background ${../wallpapers/martinaise2.png}";
       };
     };
   };
