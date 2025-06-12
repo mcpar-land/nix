@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    unstable.xwayland-satellite
-  ];
-  programs.xwayland.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
   services.greetd = {
     enable = true;
@@ -14,21 +10,7 @@
     };
   };
   environment.etc."greetd/environments".text = ''
-    niri
+    niri-session
     zsh
   '';
-  systemd.user.services.xwayland-satellite = {
-    description = "Xwayland outside your wayland";
-    bindsTo = ["graphical-session.target"];
-    partOf = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    requisite = ["graphical-session.target"];
-    wantedBy = ["graphical-session.target"];
-    serviceConfig = {
-      Type = "notify";
-      NotifyAccess = "all";
-      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
-      StandardOutput = "journal";
-    };
-  };
 }
