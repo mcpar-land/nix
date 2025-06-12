@@ -39,6 +39,13 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    niri = {
+      url = "github:YaLTeR/niri";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -50,6 +57,7 @@
     helix,
     agenix,
     devenv,
+    niri,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -75,6 +83,7 @@
             devenv = devenv.packages.${final.system}.default;
             helix = helix.packages.${final.system}.default;
             agenix = agenix.packages.${final.system}.default;
+            niri = niri.packages.${final.system}.default;
           })
         ];
       })
