@@ -26,6 +26,7 @@
     ./apps/wezterm.nix
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
+    ./apps/waybar.nix
   ];
 
   home.packages = with pkgs; [
@@ -276,8 +277,8 @@
   # enable network applet in tray
   systemd.user.services.nmapplet = {
     Unit.Description = "Custom service for enabling the network applet";
-    Unit.After = ["graphical-session-niri.target"];
-    Install.WantedBy = ["graphical-session-niri.target"];
+    Unit.After = ["niri.service"];
+    Install.WantedBy = ["graphical-session.target"];
     Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
   };
 
