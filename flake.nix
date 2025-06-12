@@ -46,6 +46,13 @@
         rust-overlay.follows = "";
       };
     };
+    xwayland-satellite = {
+      url = "github:Supreeeme/xwayland-satellite";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = inputs @ {
@@ -58,6 +65,7 @@
     agenix,
     devenv,
     niri,
+    xwayland-satellite,
     ...
   }: let
     theme = (import ./theme.nix) {pkgs = nixpkgs;};
@@ -84,6 +92,7 @@
             helix = helix.packages.${final.system}.default;
             agenix = agenix.packages.${final.system}.default;
             niri = niri.packages.${final.system}.default;
+            xwayland-satellite = xwayland-satellite.packages.${final.system}.default;
           })
         ];
       })
