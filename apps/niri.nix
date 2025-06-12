@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   config = pkgs.writeText "foo.kdl" ''
     environment {
+      MOZ_ENABLE_WAYLAND "1"
       QT_QPA_PLATFORM "wayland"
       DISPLAY ":0"
     }
@@ -61,9 +62,6 @@
       border {
         off
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
         // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
       }
@@ -112,7 +110,7 @@
       }
     }
     window-rule {
-      match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+      match app-id=r#"firefox$"# title=r#"Picture-in-Picture$"#
       open-floating true
     }
     /-window-rule {
@@ -123,8 +121,39 @@
       block-out-from "screencast"
     }
     window-rule {
-      geometry-corner-radius 12
+      geometry-corner-radius 8
       clip-to-geometry true
+    }
+    window-rule {
+      match is-window-cast-target=true
+
+      focus-ring {
+        on
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+      }
+
+      // border {
+      //   on
+      //   inactive-color "#7d0d2d"
+      // }
+
+      shadow {
+        on
+        color "#7d0d2d70"
+      }
+
+      tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+      }
+    }
+    window-rule {
+      match is-urgent=true
+      border {
+        on
+        urgent-color "#9b0000"
+      }
     }
 
     binds {
@@ -346,9 +375,9 @@
       // Mod+Space     { switch-layout "next"; }
       // Mod+Shift+Space { switch-layout "prev"; }
 
-      // Print { screenshot; }
-      // Ctrl+Print { screenshot-screen; }
-      // Alt+Print { screenshot-window; }
+      Print { screenshot; }
+      Ctrl+Print { screenshot-screen; }
+      Alt+Print { screenshot-window; }
 
       // Applications such as remote-desktop clients and software KVM switches may
       // request that niri stops processing the keyboard shortcuts defined here
