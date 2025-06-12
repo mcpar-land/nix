@@ -22,16 +22,16 @@
       // focus-follows-mouse max-scroll-amount="0%"
     }
 
-    output "HDMI-A-0" {
+    output "HDMI-A-1" {
       mode "1920x1080@60.0"
       position x=0 y=0
     }
-    output "DisplayPort-1" {
+    output "DP-2" {
       mode "1920x1080@60.0"
       position x=1920 y=0
       focus-at-startup
     }
-    output "DisplayPort-2" {
+    output "DP-3" {
       mode "1920x1080@60.0"
       position x=3840 y=0
     }
