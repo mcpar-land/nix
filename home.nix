@@ -122,7 +122,6 @@
     diffuse
     element-desktop
     filezilla
-    flameshot
     hardinfo2
     libreoffice-qt
     obsidian
