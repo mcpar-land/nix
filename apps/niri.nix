@@ -5,6 +5,11 @@
     // Check the wiki for a full description of the configuration:
     // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
+    environment {
+      QT_QPA_PLATFORM "wayland"
+      DISPLAY ":1"
+    }
+
     // Input device configuration.
     // Find the full list of options on the wiki:
     // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -81,7 +86,7 @@
     }
 
     xwayland-satellite {
-      path "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
+      path "${pkgs.unstable.xwayland-satellite}/bin/xwayland-satellite"
     }
 
     // Settings that influence how windows are positioned and sized.
@@ -581,26 +586,25 @@
   '';
 in {
   environment.systemPackages = with pkgs; [
-    xwayland-satellite
+    unstable.xwayland-satellite
   ];
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
   programs.niri.enable = true;
-  programs.xwayland.enable = true;
+  # programs.xwayland.enable = true;
   environment.sessionVariables.NIRI_CONFIG = "${config}";
-  # environment.sessionVariables.DISPLAY = ":1";
-  # systemd.services.xwayland-satellite = {
-  # description = "Xwayland outside your wayland";
-  # bindsTo = ["graphical-session.target"];
-  # partOf = ["graphical-session.target"];
-  # after = ["graphical-session.target"];
-  # requisite = ["graphical-session.target"];
-  # wantedBy = ["graphical-session.target"];
-  # serviceConfig = {
-  # Type = "notify";
-  # NotifyAccess = "all";
-  # ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
-  # StandardOutput = "journal";
-  # };
-  # };
+  systemd.user.services.xwayland-satellite = {
+    description = "Xwayland outside your wayland";
+    bindsTo = ["graphical-session.target"];
+    partOf = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    requisite = ["graphical-session.target"];
+    wantedBy = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "notify";
+      NotifyAccess = "all";
+      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+      StandardOutput = "journal";
+    };
+  };
 }
