@@ -9,6 +9,10 @@
     inherit lib;
   };
 in {
+  imports = [
+    ../apps/jira.nix
+  ];
+
   home.username = "mcp";
   home.homeDirectory = "/home/mcp";
   home.file."./.background-image".source = ../wallpapers/disco_church.png;

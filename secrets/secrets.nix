@@ -13,6 +13,7 @@ let
     "st_password"
     "taskwarrior_config"
     "aws_config"
+    "jira_token"
   ];
 in
   builtins.listToAttrs (map (
