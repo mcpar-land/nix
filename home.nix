@@ -118,7 +118,6 @@
     # gui apps
     audacity
     dbeaver-bin
-    deadbeef
     diffuse
     element-desktop
     filezilla
@@ -133,6 +132,7 @@
     qdirstat
     qFlipper
     simplescreenrecorder
+    supersonic
     xfce.thunar
     ungoogled-chromium
     vlc
