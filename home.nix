@@ -27,7 +27,6 @@
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
     ./apps/dl-music.nix
-    ./apps/waybar.nix
   ];
 
   home.packages = with pkgs; [
