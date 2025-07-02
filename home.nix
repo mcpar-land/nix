@@ -27,6 +27,7 @@
     ./apps/wezterm.nix
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
+    ./apps/dl-music.nix
   ];
 
   home.packages = with pkgs; [
