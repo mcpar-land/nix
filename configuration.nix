@@ -8,8 +8,9 @@
 }: {
   imports = [
     ./apps/gamemode.nix
-    ./apps/greetd.nix
-    ./apps/niri.nix
+    # ./apps/greetd.nix
+    # ./apps/niri.nix
+    ./apps/plasma.nix
   ];
 
   environment.systemPackages = with pkgs; [
