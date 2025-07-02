@@ -9,7 +9,6 @@
       --extract-audio \
       --audio-format mp3 \
       --no-keep-video \
-      --embed-thumbnail \
       --embed-metadata \
       --restrict-filenames \
       --parse-metadata "playlist_index:%(track_number)s" \
