@@ -10,6 +10,7 @@
     enableZshIntegration = true;
     plugins = {
       duckdb = pkgs.yaziPlugins.duckdb;
+      piper = pkgs.yaziPlugins.piper;
     };
     initLua = ''
       -- DuckDB plugin configuration
@@ -52,6 +53,25 @@
           {
             name = "*.duckdb";
             run = "duckdb";
+          }
+          {
+            name = "*.mp3";
+            run = "piper -- ${pkgs.id3v2}/bin/id3v2 -l \"$1\"";
+          }
+          {
+            name = "*.md";
+            run = "piper -- CLICOLOR_FORCE=1 ${pkgs.glow}/bin/glow -w=$w -s=dark \"$1\"";
+          }
+          {
+            name = "*.zip";
+            run = "piper -- zipinfo \"$1\"";
+          }
+        ];
+
+        append_previewers = [
+          {
+            name = "*";
+            run = "piper -- ${pkgs.hexyl}/bin/hexyl --border=none --terminal-width=$w \"$1\"";
           }
         ];
 
