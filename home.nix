@@ -142,6 +142,7 @@
     openscad-unstable
     mitmproxy
     wireshark
+    eartag
 
     dconf
 
