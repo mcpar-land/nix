@@ -32,7 +32,7 @@
       -ssh-command "wezterm ssh {host}"
   '';
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
-    rofi -modi emoji -show emoji -kb-custom-1 Ctrl+c -theme-str 'listview { columns: 6; } window { width: 1280px; }'
+    rofi -modi emoji -show emoji -theme-str 'listview { columns: 6; } window { width: 1280px; }'
   '';
   i3SwitchCmd = offset: "exec --no-startup-id \"j-ctl i3 switch --displays \\\\\"${builtins.concatStringsSep "," monitor-list}\\\\\" --offset ${toString offset}\"";
   powermenu = pkgs.custom-rofi-menu "powermenu" {
