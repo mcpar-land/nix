@@ -26,8 +26,6 @@
       brightness = "light -S";
       clipboard-set = "xclip -selection c";
       clipboard-get = "xclip -selection c -o";
-      sus = "hx ~/mnt/sbox/suspense.txt";
-      suspense = "hx ~/mnt/sbox/suspense.txt";
     };
     history.size = 10000;
     plugins = [

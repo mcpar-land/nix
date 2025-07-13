@@ -52,13 +52,6 @@ in {
     };
   };
 
-  systemd.user.services.sshfs-storagebox = import ../units/sshfs_systemd.nix {
-    inherit pkgs;
-    host = "sbox";
-    description = "Hetzner Storage Box";
-    dir = "/home/sc/mnt/sbox";
-  };
-
   programs.firefox.profiles."sc" = firefoxProfile {
     name = "J";
     id = 0;

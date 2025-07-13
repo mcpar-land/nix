@@ -58,13 +58,6 @@ in {
     dir = "/home/mcp/mnt/civera_ftp";
   };
 
-  systemd.user.services.sshfs-storagebox = import ../units/sshfs_systemd.nix {
-    inherit pkgs;
-    host = "sbox";
-    description = "Hetzner Storage Box";
-    dir = "/home/mcp/mnt/sbox";
-  };
-
   programs.firefox.profiles."mcp" = firefoxProfile {
     name = "McP";
     id = 0;
