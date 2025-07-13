@@ -88,7 +88,6 @@
       "https://cache.nixos.org"
       # for fetching helix builds from cachix
       "https://helix.cachix.org"
-      "ssh://nix-ssh@10.0.0.127?ssh-key=/home/sc/.ssh/id_rsa&trusted=1"
     ];
     trusted-public-keys = [
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
@@ -98,18 +97,6 @@
     # so we can still build without a connection to jamrock
     fallback = true
   '';
-
-  nix.distributedBuilds = true;
-  nix.buildMachines = [
-    {
-      hostName = "10.0.0.127";
-      sshUser = "nixos";
-      sshKey = "/home/sc/.ssh/id_rsa";
-      system = "x86_64-linux";
-      protocol = "ssh";
-      maxJobs = 32;
-    }
-  ];
 
   age.secrets.test_secret.file = ./secrets/test_secret.age;
   age.identityPaths = [

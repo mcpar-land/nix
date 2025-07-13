@@ -7,6 +7,7 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ../configuration-remote-builds.nix
   ];
 
   environment.systemPackages = with pkgs; [
