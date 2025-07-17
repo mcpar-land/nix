@@ -193,36 +193,33 @@
   };
 
   xdg.mimeApps.enable = true;
-  xdg.mimeApps.defaultApplications = let
-    defaultApplications = {
-      "x-scheme-handler/terminal" = "WezTerm.desktop";
-      "inode/directory" = "pcmanfm.desktop";
-    };
-    browser = "firefox.desktop";
-    openInBrowser = [
-      "application/pdf"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/unknown"
-      "x-scheme-handler/chrome"
-      "application/x-extension-htm"
-      "application/x-extension-html"
-      "application/x-extension-shtml"
-      "application/xhtml+xml"
-      "application/x-extension-xhtml"
-      "application/x-extension-xht"
-      "image/png"
-      "image/jpeg"
-      "image/tiff"
-      "image/gif"
-    ];
-  in
-    defaultApplications
-    // (builtins.listToAttrs (map (k: {
-        name = k;
-        value = browser;
-      })
-      openInBrowser));
+  xdg.mimeApps.defaultApplications = {
+    # firefox
+    "application/pdf" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+    "x-scheme-handler/chrome" = "firefox.desktop";
+    "application/x-extension-htm" = "firefox.desktop";
+    "application/x-extension-html" = "firefox.desktop";
+    "application/x-extension-shtml" = "firefox.desktop";
+    "application/xhtml+xml" = "firefox.desktop";
+    "application/x-extension-xhtml" = "firefox.desktop";
+    "application/x-extension-xht" = "firefox.desktop";
+    "image/png" = "firefox.desktop";
+    "image/jpeg" = "firefox.desktop";
+    "image/tiff" = "firefox.desktop";
+    "image/gif" = "firefox.desktop";
+    # vlc
+    "audio/mp3" = "vlc.desktop";
+    "audio/mp4" = "vlc.desktop";
+    "video/mp4" = "vlc.desktop";
+    "video/webm" = "vlc.desktop";
+    # wezterm
+    "x-scheme-handler/terminal" = "wezterm.desktop";
+    # thunar
+    "inode/directory" = "thunar.desktop";
+  };
 
   # disabled when upgraded to 25.05 because it's not
   # accepting correctly input password??
