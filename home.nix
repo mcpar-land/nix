@@ -9,10 +9,9 @@
     ./apps/aerc.nix
     # ./apps/alacritty.nix
     ./apps/btop.nix
-    ./apps/dunst.nix
+    ./apps/mako.nix
     ./apps/git.nix
     ./apps/helix.nix
-    ./apps/i3.nix
     ./apps/mangohud.nix
     # ./apps/nnn/nnn.nix
     ./apps/yazi.nix
@@ -126,7 +125,6 @@
     diffuse
     element-desktop
     filezilla
-    flameshot
     hardinfo2
     libreoffice-qt
     obsidian
@@ -229,14 +227,6 @@
     "inode/directory" = "thunar.desktop";
   };
 
-  # disabled when upgraded to 25.05 because it's not
-  # accepting correctly input password??
-  # services.screen-locker = {
-  #   enable = true;
-  #   lockCmd = "i3lock-styled";
-  #   inactiveInterval = 10;
-  # };
-
   home.pointerCursor = {
     # package = pkgs.bibata-cursors;
     # name = "Bibata_Ghost";
@@ -290,12 +280,12 @@
   };
 
   # enable network applet in tray
-  systemd.user.services.nmapplet = {
-    Unit.Description = "Custom service for enabling the network applet";
-    Unit.After = ["graphical-session-i3.target"];
-    Install.WantedBy = ["graphical-session-i3.target"];
-    Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  };
+  # systemd.user.services.nmapplet = {
+  #   Unit.Description = "Custom service for enabling the network applet";
+  #   Unit.After = ["niri.service"];
+  #   Install.WantedBy = ["graphical-session.target"];
+  #   Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+  # };
 
   services.udiskie = {
     enable = true;

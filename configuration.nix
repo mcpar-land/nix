@@ -5,24 +5,20 @@
   pkgs,
   self,
   ...
-}:
-#let
-# i3lockScript = import ./derivations/i3lockscript.nix {inherit pkgs;};
-# in
-{
+}: {
   imports = [
     ./apps/gamemode.nix
+    # ./apps/greetd.nix
+    # ./apps/niri.nix
+    ./apps/plasma.nix
   ];
 
   environment.systemPackages = with pkgs; [
     (vesktop.override {
       withSystemVencord = false;
     })
-    # i3lockScript
     ntfs3g
     udiskie
-    xdotool
-    xsel
     j-ctl
     via # for keyboard
     qmk
@@ -80,6 +76,12 @@
       set = "Custom";
     })
   ];
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-u14n.psf.gz";
+    packages = with pkgs; [terminus_font];
+    keyMap = "us";
+  };
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
@@ -171,7 +173,7 @@
   users.users.sc = {
     isNormalUser = true;
     description = "sc";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode" "input"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
@@ -179,7 +181,7 @@
   users.users.mcp = {
     isNormalUser = true;
     description = "mcp";
-    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "wireshark" "dialout" "gamemode" "input"];
     openssh.authorizedKeys.keyFiles = [
       ./configs/ssh/id_rsa.pub
     ];
@@ -214,23 +216,6 @@
   services.logind = {
     extraConfig = "HandlePowerKey=suspend";
     lidSwitch = "suspend";
-  };
-
-  services.displayManager = {
-    defaultSession = "none+i3";
-    autoLogin.enable = false;
-  };
-
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
-    windowManager.i3.enable = true;
-    displayManager.lightdm = {
-      enable = true;
-      greeter.enable = true;
-      background = "${./wallpapers/disco_thoughts.png}";
-    };
   };
 
   # this appears to intermittently work?
