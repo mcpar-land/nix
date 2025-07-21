@@ -89,6 +89,7 @@
     unstable.git-who
     dust
     ipinfo
+    parallel
 
     # languages
     rustup
