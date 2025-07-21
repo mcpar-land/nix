@@ -4,15 +4,11 @@ HOST=$(shell hostname)
 build: clear-generations
 	@echo slammin it now!!! $(HOST)
 	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto
-	i3-msg restart
-	systemctl --user restart picom.service
 	nix flake archive --to ssh://nix-ssh@jamrock .
 build-local: clear-generations
 	@echo slammin it now \(no remote builders\)!!! $(HOST)
 	sudo nixos-rebuild --flake .#$(HOST) switch --show-trace --max-jobs auto \
 		--builders ""
-	i3-msg restart
-	systemctl --user restart picom.service
 clear-generations:
 	# delete old entries
 	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
