@@ -10,7 +10,8 @@
     ./apps/gamemode.nix
     # ./apps/greetd.nix
     # ./apps/niri.nix
-    ./apps/plasma.nix
+    # ./apps/plasma.nix
+    ./apps/cosmic.nix
   ];
 
   environment.systemPackages = with pkgs; [
