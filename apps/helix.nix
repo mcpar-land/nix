@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    ruff
+    pyright
+  ];
+
   programs.helix = {
     enable = true;
     settings = {
@@ -130,16 +135,17 @@
       {
         name = "python";
         auto-format = true;
-        language-servers = ["pylsp"];
+        language-servers = ["pyright" "ruff"];
       }
     ];
-    languages.language-server.pylsp.config.pylsp = {
-      plugins = {
-        black.enabled = true;
-        flake8.enabled = true;
-        pyls_mypy.enabled = true;
-        pyls_mypy.live_mode = false;
-        isort.enabled = true;
+    languages.language-server = {
+      ruff = {
+        command = "ruff";
+        args = ["server"];
+      };
+      pyright = {
+        command = "pyright-langserver";
+        args = ["--stdio"];
       };
     };
   };
