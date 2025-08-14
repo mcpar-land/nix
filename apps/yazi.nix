@@ -19,7 +19,7 @@
       })
     '';
     settings = {
-      manager.ratio = [1 2 5];
+      mgr.ratio = [1 2 5];
       plugin = {
         prepend_previewers = [
           {
