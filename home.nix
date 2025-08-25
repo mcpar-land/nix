@@ -17,7 +17,6 @@
     # ./apps/nnn/nnn.nix
     ./apps/yazi.nix
     ./apps/rofi.nix
-    ./apps/zellij.nix
     ./apps/zsh.nix
     ./apps/firefox/firefox.nix
     ./apps/newsboat.nix

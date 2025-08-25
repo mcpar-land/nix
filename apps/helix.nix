@@ -80,7 +80,6 @@
       };
       keys.normal.g = {
         # go back and forward in history from the goto menu
-        # (default keybinds overlap with zellij)
         "[" = "jump_backward";
         "]" = "jump_forward";
       };
