@@ -111,7 +111,7 @@
           ];
         }
       ];
-      console_title_template = "{{if .Root}}(Root) {{end}}{{.PWD}}";
+      console_title_template = "{{if .Root}}root :: {{end}}{{.Folder}}";
       version = 3;
     };
   };
