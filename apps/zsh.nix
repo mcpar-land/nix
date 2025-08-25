@@ -73,7 +73,8 @@
               type = "executiontime";
               foreground = "yellow";
               properties = {
-                style = "austin";
+                style = "round";
+                threshold = 5000;
               };
               style = "plain";
               template = "{{ .FormattedMs }}";
