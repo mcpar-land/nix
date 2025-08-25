@@ -50,6 +50,18 @@
               template = "{{ .Path }} ";
             }
             {
+              type = "nix-shell";
+              style = "plain";
+              foreground = "blue";
+              template = "  ";
+            }
+            {
+              type = "python";
+              style = "plain";
+              foreground = "gray";
+              template = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ";
+            }
+            {
               type = "git";
               foreground = "gray";
               properties = {
@@ -61,14 +73,8 @@
                 github_icon = "";
               };
               style = "plain";
-              template = "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#FFAFD7>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ";
+              template = "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#FFAFD7>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ";
             }
-          ];
-        }
-        {
-          alignment = "left";
-          type = "prompt";
-          segments = [
             {
               type = "executiontime";
               foreground = "yellow";
