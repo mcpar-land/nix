@@ -23,7 +23,6 @@
     ./apps/shpool.nix
     ./apps/spotify.nix
     ./apps/taskwarrior3.nix
-    ./apps/vscode.nix
     ./apps/wezterm.nix
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
@@ -145,6 +144,8 @@
     wireshark
     eartag
     protonmail-desktop
+    # for testing dev environments for coworkers
+    vscode
 
     dconf
 
