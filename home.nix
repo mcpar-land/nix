@@ -144,6 +144,7 @@
     mitmproxy
     wireshark
     eartag
+    protonmail-desktop
 
     dconf
 
