@@ -51,7 +51,7 @@
       }
       {
         label = "Suspend";
-        exec = "xautolock -locknow && systemctl suspend";
+        exec = "systemctl suspend";
       }
     ];
   };
