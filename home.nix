@@ -110,6 +110,8 @@
     unstable.superhtml
     openscad-lsp
     lua-language-server
+    typescript-language-server
+    unstable.prettier
 
     # python and formatters for python
     # lmao

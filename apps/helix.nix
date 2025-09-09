@@ -136,6 +136,16 @@
         auto-format = true;
         language-servers = ["pyright" "ruff"];
       }
+      {
+        name = "tsx";
+        scope = "source.tsx";
+        file-types = ["tsx"];
+        formatter = {
+          command = "prettier";
+          args = ["--stdin-filepath" "file.tsx"];
+        };
+        auto-format = true;
+      }
     ];
     languages.language-server = {
       ruff = {
