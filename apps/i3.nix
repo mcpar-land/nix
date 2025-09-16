@@ -61,6 +61,7 @@
   };
 in {
   home.packages = with pkgs; [
+    brightnessctl
   ];
 
   services.picom = let
@@ -100,6 +101,14 @@ in {
     for_window [class="zoom" title="Zoom Webinar"] floating disable
 
     for_window [class="firefox"] border pixel 1
+
+    # Brightness size
+    set $brightness_size 5
+    # Framework Laptop F7: XF86MonBrightnessDown
+    # The --min-value option is important to prevent the complete darkness.
+    bindsym XF86MonBrightnessDown exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+    # Framework Laptop F8: XF86MonBrightnessUp
+    bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
