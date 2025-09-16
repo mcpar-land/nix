@@ -117,11 +117,14 @@ in {
         background = baseColor;
         border = baseColor;
         childBorder = baseColor;
-        indicator = "#ff0000";
+        indicator = baseColor;
         text = textColor;
       };
     in {
       focused = colorSet theme.blue.hex theme.black.hex;
+      focusedInactive = colorSet theme.base1.hex theme.white.hex;
+      unfocused = colorSet theme.base0.hex theme.white.hex;
+      urgent = colorSet theme.red.hex theme.white.hex;
     };
 
     floating.criteria = [
