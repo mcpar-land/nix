@@ -63,6 +63,7 @@ in {
   home.packages = with pkgs; [
     brightnessctl
     i3-volume
+    playerctl
   ];
 
   services.picom = let
@@ -111,11 +112,14 @@ in {
     # Framework Laptop F8: XF86MonBrightnessUp
     bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
 
-
     set $volume_size 5
     bindsym XF86AudioMute exec "i3-volume -n mute"
     bindsym XF86AudioLowerVolume exec "i3-volume -n down $volume_size"
     bindsym XF86AudioRaiseVolume exec "i3-volume -n up $volume_size"
+
+    bindsym XF86AudioPrev exec "playerctl previous"
+    bindsym XF86AudioPlay exec "playerctl play-pause"
+    bindsym XF86AudioNext exec "playerctl next"
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
