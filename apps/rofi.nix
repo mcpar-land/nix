@@ -23,8 +23,10 @@
       };
       "window" = {
         location = mkLiteral "center";
-        width = mkLiteral "750";
+        width = mkLiteral "100%";
         background-color = mkLiteral (theme.base0.hex);
+        border = mkLiteral "4px 0px";
+        border-color = mkLiteral theme.blue.hex;
       };
       "mainbox" = {
         padding = mkLiteral "12px";
@@ -56,7 +58,7 @@
         background-color = mkLiteral "transparent";
         margin = mkLiteral "12px 0 0";
         lines = mkLiteral "16";
-        columns = mkLiteral "2";
+        columns = mkLiteral "4";
         fixed-height = mkLiteral "false";
       };
       "element" = {
