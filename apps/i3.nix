@@ -55,8 +55,15 @@
       }
     ];
   };
+  fontConfig = {
+    names = ["FiraCode Nerd Font Propo"];
+    size = 11.0;
+  };
 in {
   home.packages = with pkgs; [
+    brightnessctl
+    i3-volume
+    playerctl
   ];
 
   services.picom = let
@@ -73,21 +80,7 @@ in {
     ];
   in {
     enable = true;
-    shadow = true;
-    fade = false;
     vSync = true;
-    settings = {
-      blur = {
-        method = "dual_kawase";
-        size = 20;
-        deviation = 5.0;
-      };
-      round-borders = 1;
-      corner-radius = theme.gap;
-      rounded-corners-exclude = effects-exclude;
-      shadow-exclude = effects-exclude;
-      blur-background-exclude = effects-exclude;
-    };
     backend = "glx";
   };
 
@@ -108,16 +101,51 @@ in {
     for_window [class="zoom" title="Zoom - Free Account"] floating disable
     for_window [class="zoom" title="Zoom Meeting"] floating disable
     for_window [class="zoom" title="Zoom Webinar"] floating disable
+
+    for_window [class="firefox"] border pixel 1
+
+    # Brightness size
+    set $brightness_size 5
+    # Framework Laptop F7: XF86MonBrightnessDown
+    # The --min-value option is important to prevent the complete darkness.
+    bindsym XF86MonBrightnessDown exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+    # Framework Laptop F8: XF86MonBrightnessUp
+    bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
+
+    set $volume_size 5
+    bindsym XF86AudioMute exec "i3-volume -n mute"
+    bindsym XF86AudioLowerVolume exec "i3-volume -n down $volume_size"
+    bindsym XF86AudioRaiseVolume exec "i3-volume -n up $volume_size"
+
+    bindsym XF86AudioPrev exec "playerctl previous"
+    bindsym XF86AudioPlay exec "playerctl play-pause"
+    bindsym XF86AudioNext exec "playerctl next"
   '';
   xsession.windowManager.i3.config = {
     modifier = mod;
     terminal = "wezterm";
-    gaps.inner = theme.gap;
+    gaps.inner = 0;
     gaps.outer = 0;
-    window.titlebar = false;
-    window.border = 0;
+    window.titlebar = true;
+    window.border = 1;
     focus.followMouse = false;
     focus.mouseWarping = true;
+
+    fonts = fontConfig;
+    colors = let
+      colorSet = baseColor: textColor: {
+        background = baseColor;
+        border = baseColor;
+        childBorder = baseColor;
+        indicator = baseColor;
+        text = textColor;
+      };
+    in {
+      focused = colorSet theme.blue.hex theme.black.hex;
+      focusedInactive = colorSet theme.base1.hex theme.white.hex;
+      unfocused = colorSet theme.base0.hex theme.white.hex;
+      urgent = colorSet theme.red.hex theme.white.hex;
+    };
 
     floating.criteria = [
       {class = "Pavucontrol";}
@@ -195,10 +223,7 @@ in {
       {
         position = "top";
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-        fonts = {
-          names = ["FiraCode Nerd Font Propo"];
-          size = 11.0;
-        };
+        fonts = fontConfig;
         trayOutput = "primary";
         trayPadding = 0;
         colors = let

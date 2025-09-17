@@ -23,17 +23,18 @@
       };
       "window" = {
         location = mkLiteral "center";
-        width = mkLiteral "750";
-        background-color = mkLiteral (theme.base0.hexTransparent 0.5);
+        width = mkLiteral "100%";
+        background-color = mkLiteral (theme.base0.hex);
+        border = mkLiteral "4px 0px";
+        border-color = mkLiteral theme.blue.hex;
       };
       "mainbox" = {
         padding = mkLiteral "12px";
       };
       "inputbar" = {
-        background-color = mkLiteral (theme.base1.hexTransparent 0.5);
+        background-color = mkLiteral (theme.base1.hex);
         border-color = mkLiteral theme.base3.hex;
         border = mkLiteral "1px";
-        border-radius = mkLiteral "8px";
         padding = mkLiteral "8px 16px";
         spacing = mkLiteral "8px";
         children = [(mkLiteral "prompt") (mkLiteral "entry")];
@@ -47,7 +48,6 @@
       };
       "message" = {
         margin = mkLiteral "12px 0 0";
-        border-radius = mkLiteral "8px";
         border-color = mkLiteral theme.base2.hex;
         background-color = mkLiteral theme.base2.hex;
       };
@@ -58,13 +58,12 @@
         background-color = mkLiteral "transparent";
         margin = mkLiteral "12px 0 0";
         lines = mkLiteral "16";
-        columns = mkLiteral "2";
+        columns = mkLiteral "4";
         fixed-height = mkLiteral "false";
       };
       "element" = {
         padding = mkLiteral "${toString theme.gap}px ${toString (theme.gap * 2)}px";
         spacing = mkLiteral "${toString theme.gap}px";
-        border-radius = mkLiteral "${toString theme.gap}px";
       };
       "element normal.active" = {
         text-color = mkLiteral theme.base3.hex;
