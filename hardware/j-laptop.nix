@@ -25,7 +25,7 @@
       config = {
         "eDP-1" = {
           primary = true;
-          mode = "1920x1080";
+          mode = "1920x1200";
           rate = "60.0";
         };
       };
@@ -44,7 +44,7 @@
         };
         "eDP-1" = {
           primary = true;
-          mode = "1920x1080";
+          mode = "1920x1200";
           position = "1920x0";
           rate = "60.0";
         };
