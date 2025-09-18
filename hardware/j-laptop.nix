@@ -59,6 +59,8 @@
 
   networking.hostName = "j-laptop";
 
+  services.fwupd.enable = true;
+
   services.libinput.touchpad = {
     clickMethod = "clickfinger";
     tapping = false;
