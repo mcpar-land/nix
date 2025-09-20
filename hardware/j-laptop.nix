@@ -13,6 +13,8 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  hardware.enableRedistributableFirmware = true;
+
   services.autorandr = {
     enable = true;
     defaultTarget = "nothing_plugged_in";
