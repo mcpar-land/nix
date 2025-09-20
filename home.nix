@@ -56,6 +56,7 @@
     youplot # https://github.com/red-data-tools/YouPlot
     unstable.duckdb
     pandoc
+    feh
     ffmpeg
     devenv
     lazydocker
@@ -146,6 +147,7 @@
     wireshark
     eartag
     protonmail-desktop
+    (variety.override {fehSupport = true;})
     # for testing dev environments for coworkers
     vscode
 
