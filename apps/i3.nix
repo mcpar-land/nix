@@ -79,7 +79,7 @@ in {
       "name = 'Annotation - Zoom'"
     ];
   in {
-    enable = true;
+    enable = false;
     vSync = true;
     backend = "glx";
   };
