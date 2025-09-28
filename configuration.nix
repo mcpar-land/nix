@@ -117,6 +117,9 @@
   # so does wireshark
   programs.wireshark.enable = true;
 
+  # and hamachi
+  services.logmein-hamachi.enable = true;
+
   # because it needs to edit /etc/shells, we have to set default shell globally
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
