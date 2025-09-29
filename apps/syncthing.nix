@@ -13,7 +13,7 @@
       Description = "Syncthing Tray";
       Requires = ["tray.target"];
       After = ["network.target" "tray.target"];
-      PartOf = ["Graphical-session.target"];
+      PartOf = ["graphical-session.target"];
       # https://www.redhat.com/en/blog/systemd-automate-recovery
       StartLimitIntervalSec = 30;
       StartLimitBurst = 5;
