@@ -27,6 +27,7 @@
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
     ./apps/dl-music.nix
+    ./apps/variety.nix
   ];
 
   home.packages = with pkgs; [
@@ -147,7 +148,6 @@
     wireshark
     eartag
     protonmail-desktop
-    (variety.override {fehSupport = true;})
     # for testing dev environments for coworkers
     vscode
 
