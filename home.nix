@@ -159,6 +159,7 @@
     # my custom derivations
     (pkgs.callPackage ./derivations/zipinfo-csv.nix {})
     (pkgs.callPackage ./derivations/uuinfo.nix {})
+    (pkgs.callPackage ./derivations/glide.nix {})
   ];
 
   programs.gpg = {
