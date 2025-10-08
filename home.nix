@@ -59,7 +59,7 @@
     pandoc
     feh
     ffmpeg
-    devenv
+    unstable.devenv
     lazydocker
     watchexec
     systemctl-tui
