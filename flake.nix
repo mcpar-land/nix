@@ -67,8 +67,6 @@
             };
             helix = helix.packages.${final.system}.default;
             agenix = agenix.packages.${final.system}.default;
-            niri = niri.packages.${final.system}.default;
-            xwayland-satellite = xwayland-satellite.packages.${final.system}.default;
           })
         ];
       })
