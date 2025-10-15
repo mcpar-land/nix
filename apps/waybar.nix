@@ -4,11 +4,10 @@
   programs.waybar.settings = {
     mainBar = {
       modules-left = [
-        "keyboard-state"
+        "sway/workspaces"
       ];
       modules-right = [
         "mpd"
-        "idle_inhibitor"
         "pulseaudio"
         "network"
         "power-profiles-daemon"

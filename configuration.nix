@@ -104,6 +104,9 @@
     "/home/mcp/.ssh/id_rsa"
   ];
 
+  # for sway
+  security.polkit.enable = true;
+
   # for iphone
   services.usbmuxd.enable = true;
 
