@@ -103,6 +103,8 @@ in {
 
       input type:touchpad natural_scroll enabled
       input type:touchpad scroll_factor 0.75
+      input type:touchpad click_method clickfinger
+      input type:touchpad clickfinger_button_map lrm
     '';
     config = {
       modifier = mod;
