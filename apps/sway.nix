@@ -63,7 +63,6 @@ in {
     i3-volume
     playerctl
   ];
-  security.polkit.enable = true;
   systemd.user.targets.graphical-session-sway = {
     Unit = {
       Description = "sway wm session";
@@ -101,6 +100,9 @@ in {
       bindsym XF86AudioPrev exec "playerctl previous"
       bindsym XF86AudioPlay exec "playerctl play-pause"
       bindsym XF86AudioNext exec "playerctl next"
+
+      input type:touchpad natural_scroll enabled
+      input type:touchpad scroll_factor 0.75
     '';
     config = {
       modifier = mod;
@@ -168,6 +170,7 @@ in {
           # apps
           "${mod}+t" = "exec --no-startup-id wezterm";
           "${mod}+o" = "exec --no-startup-id obsidian";
+          "${mod}+b" = "exec --no-startup-id rofi-firefox";
           "${mod}+period" = "exec --no-startup-id sh ${openRofiEmoji}";
           # hmm https://github.com/flameshot-org/flameshot/issues/784
           "Print" = "exec --no-startup-id flameshot gui";
