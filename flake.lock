@@ -147,7 +147,6 @@
         "flake-utils": "flake-utils",
         "helix": "helix",
         "home-manager": "home-manager",
-        "niri": "niri",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "rust-overlay": "rust-overlay",
