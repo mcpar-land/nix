@@ -205,6 +205,7 @@ in {
       #   "201" = "exec --no-startup-id j-ctl mixer inc -- -10";
       #   "202" = "exec --no-startup-id j-ctl mixer inc -- 10";
       # };
+      bars = [];
     };
   };
 }
