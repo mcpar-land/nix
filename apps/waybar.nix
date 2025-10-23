@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   programs.waybar.enable = true;
   programs.waybar.systemd = {
     enable = true;
@@ -8,10 +12,12 @@
     mainBar = {
       modules-left = [
         "sway/workspaces"
+        # "custom/mediacontrol"
         # "custom/right-arrow-dark"
       ];
       modules-center = [
         "clock"
+        "keyboard-state"
       ];
       modules-right = [
         # "mpd"
@@ -37,6 +43,11 @@
         numlock = false;
         capslock = true;
         scrollock = false;
+        format.capslock = "{icon}";
+        format-icons = {
+          locked = "CAPS";
+          unlocked = "";
+        };
       };
       memory = {
         interval = 10;
@@ -44,9 +55,9 @@
         tooltip-format = "Memory";
       };
       network = {
-        format-wifi = "󰤢 ";
-        format-ethernet = "󰈀 ";
-        format-disconnected = "󰤠 ";
+        format-wifi = "󰤢";
+        format-ethernet = "󰈀";
+        format-disconnected = "󰤠";
         interval = 5;
         tooltip-format = "{essid} ({signalStrength}%)";
         on-click = "nm-connection-editor";
@@ -71,6 +82,15 @@
           active = "";
           default = "";
         };
+      };
+      "custom/mediacontrol" = {
+        format = " {}";
+        escape = true;
+        interval = 5;
+        tooltip = false;
+        exec = "playerctl metadata --format='{{ artist }} - {{ title }}'";
+        onclick = "playerctl play-pause";
+        max-length = 50;
       };
       tray = {
         icon-size = 21;
@@ -104,6 +124,23 @@
         border-radius: 0;
       }
 
+      #waybar {
+        background: ${theme.base0.hex};
+        color: ${theme.base8.hex};
+        margin: 0px;
+        font-weight: 500;
+      }
+
+      .module {
+        background: ${theme.base0.hex};
+        padding: 0 0.5em;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      }
+      .module:hover {
+        background: ${theme.base2.hex};
+      }
+
+
       #workspaces button {
       	padding: 0 2px;
       	color: #fdf6e3;
@@ -119,6 +156,14 @@
       	background: #1a1a1a;
       	border: #1a1a1a;
       	padding: 0 3px;
+      }
+
+      #keyboard-state {
+        padding: 0;
+        color: ${theme.orange.hex};
+      }
+      #keyboard-state label.locked {
+        padding: 0 0.5em;
       }
     '';
 }

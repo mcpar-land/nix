@@ -7,7 +7,6 @@
 }: let
   mod = "Mod4";
   sessionStart = pkgs.writeShellScript "i3-session" ''
-    systemctl --user start graphical-session-sway.target
     # needed to activate the keyring
     # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
