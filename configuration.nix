@@ -28,6 +28,8 @@
     ifuse
     # antivirus
     clamav
+    # network manager
+    networkmanagerapplet
   ];
 
   fonts.packages = with pkgs; [

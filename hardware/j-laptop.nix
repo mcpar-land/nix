@@ -109,6 +109,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # never tried this, just added as a comment for later testing
+  # https://wiki.nixos.org/wiki/NetworkManager
+  # networking.networkmanager.wifi.powersave = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

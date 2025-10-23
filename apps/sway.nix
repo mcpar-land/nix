@@ -63,15 +63,9 @@ in {
     i3-volume
     playerctl
   ];
-  systemd.user.targets.graphical-session-sway = {
-    Unit = {
-      Description = "sway wm session";
-      BindsTo = ["graphical-session.target"];
-      Requisite = ["graphical-session.target"];
-    };
-  };
   wayland.windowManager.sway = {
     enable = true;
+    systemd.enable = true;
     wrapperFeatures.gtk = true;
     extraConfig = ''
       exec --no-startup-id ${sessionStart}

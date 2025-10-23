@@ -280,14 +280,6 @@
     startServices = "sd-switch";
   };
 
-  # enable network applet in tray
-  # systemd.user.services.nmapplet = {
-  #   Unit.Description = "Custom service for enabling the network applet";
-  #   Unit.After = ["niri.service"];
-  #   Install.WantedBy = ["graphical-session.target"];
-  #   Service.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  # };
-
   services.udiskie = {
     enable = true;
     tray = "never";
