@@ -2,11 +2,12 @@
   pkgs,
   lib,
   theme,
+  monitor-list,
   config,
   ...
 }: let
   mod = "Mod4";
-  sessionStart = pkgs.writeShellScript "i3-session" ''
+  sessionStart = pkgs.writeShellScript "sway-session" ''
     # needed to activate the keyring
     # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_method
     dbus-update-activation-environment --all
@@ -29,6 +30,7 @@
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
     rofi -modi emoji -show emoji -theme-str 'listview { columns: 6; } window { width: 1280px; }'
   '';
+  swayWorkspaceSwitchCmd = offset: "exec j-ctl sway switch --displays ${builtins.concatStringsSep "," monitor-list} --offset ${toString offset}";
   powermenu = pkgs.custom-rofi-menu "powermenu" {
     options = [
       {
@@ -175,8 +177,10 @@ in {
           "${mod}+Shift+0" = "nop";
 
           #next and previous
-          # "${mod}+bracketleft" = i3SwitchCmd (-1);
-          # "${mod}+bracketright" = i3SwitchCmd 1;
+          "${mod}+bracketleft" = swayWorkspaceSwitchCmd (-1);
+          "${mod}+bracketright" = swayWorkspaceSwitchCmd 1;
+          # "${mod}+bracketleft" = "workspace prev";
+          # "${mod}+bracketright" = "workspace next";
           "${mod}+Tab" = "workspace back_and_forth";
 
           "Control+Mod1+Delete" = "exec wezterm start --class term_btop --always-new-process btop -p 1";

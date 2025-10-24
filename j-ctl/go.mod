@@ -6,7 +6,6 @@ toolchain go1.24.6
 
 require (
 	github.com/spf13/cobra v1.8.0
-	go.i3wm.org/i3 v0.0.0-20190720062127-36e6ec85cc5a
 )
 
 require (

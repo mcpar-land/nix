@@ -37,15 +37,11 @@ func fetchWeather(location string) weatherBarItemResponse {
 	shortUrl := "https://v2d.wttr.in/" + location + "?format=%25C%20%25t"
 	shortResp, err := http.Get(shortUrl)
 	if err != nil {
-		return weatherBarItemResponse{
-			Text: fmt.Sprintf("err: %v", err),
-		}
+		return weatherBarError(err)
 	}
 	shortBody, err := io.ReadAll(shortResp.Body)
 	if err != nil {
-		return weatherBarItemResponse{
-			Text: fmt.Sprintf("err: %v", err),
-		}
+		return weatherBarError(err)
 	}
 	short := string(shortBody)
 
