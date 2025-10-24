@@ -30,7 +30,7 @@
   openRofiEmoji = pkgs.writeShellScript "open-rofi-emoji" ''
     rofi -modi emoji -show emoji -theme-str 'listview { columns: 6; } window { width: 1280px; }'
   '';
-  swayWorkspaceSwitchCmd = offset: "exec j-ctl sway switch --displays ${builtins.concatStringsSep "," monitor-list} --offset ${toString offset}";
+  swayWorkspaceSwitchCmd = offset: "exec \"j-ctl sway switch --displays ${builtins.concatStringsSep "," monitor-list} --offset ${toString offset}\"";
   powermenu = pkgs.custom-rofi-menu "powermenu" {
     options = [
       {
@@ -58,11 +58,12 @@
 in {
   imports = [
     ./waybar.nix
+    ./mako.nix
   ];
   home.packages = with pkgs; [
     brightnessctl
-    i3-volume
     playerctl
+    libnotify
   ];
   wayland.windowManager.sway = {
     enable = true;
@@ -89,8 +90,8 @@ in {
 
       set $volume_size 5
       bindsym XF86AudioMute exec "i3-volume -n mute"
-      bindsym XF86AudioLowerVolume exec "i3-volume -n down $volume_size"
-      bindsym XF86AudioRaiseVolume exec "i3-volume -n up $volume_size"
+      bindsym XF86AudioLowerVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+      bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
 
       bindsym XF86AudioPrev exec "playerctl previous"
       bindsym XF86AudioPlay exec "playerctl play-pause"
@@ -145,8 +146,9 @@ in {
           "${mod}+q" = "kill";
 
           # notification control
-          "${mod}+n" = "exec --no-startup-id dunstctl context";
-          "${mod}+Shift+n" = "exec --no-startup-id dunstctl history-pop";
+          "${mod}+n" = "exec swaync-client -t -sw";
+          # "${mod}+n" = "exec --no-startup-id dunstctl context";
+          # "${mod}+Shift+n" = "exec --no-startup-id dunstctl history-pop";
 
           # focus
           "${mod}+j" = "focus down";

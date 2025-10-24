@@ -10,7 +10,6 @@
     ./apps/aerc.nix
     # ./apps/alacritty.nix
     ./apps/btop.nix
-    ./apps/mako.nix
     ./apps/git.nix
     ./apps/helix.nix
     ./apps/mangohud.nix
