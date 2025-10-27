@@ -129,8 +129,6 @@
       sys = "systemctl-tui";
       weather = "curl \"v2.wttr.in/Cambridge+MA?u\"";
       brightness = "light -S";
-      clipboard-set = "xclip -selection c";
-      clipboard-get = "xclip -selection c -o";
     };
     history.size = 10000;
     initContent = ''

@@ -57,6 +57,7 @@
   };
 in {
   imports = [
+    ./screenshot.nix
     ./waybar.nix
     ./mako.nix
   ];
@@ -172,7 +173,7 @@ in {
           "${mod}+b" = "exec --no-startup-id rofi-firefox";
           "${mod}+period" = "exec --no-startup-id sh ${openRofiEmoji}";
           # hmm https://github.com/flameshot-org/flameshot/issues/784
-          "Print" = "exec --no-startup-id flameshot gui";
+          "Print" = "exec screenshot";
 
           # turn off workspace 10
           "${mod}+0" = "nop";

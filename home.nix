@@ -90,6 +90,7 @@
     dust
     ipinfo
     parallel
+    wl-clipboard
 
     # languages
     rustup
