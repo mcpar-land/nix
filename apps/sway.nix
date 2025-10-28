@@ -75,6 +75,7 @@ in {
           $mod Mod4
 
           $win_float floating enable; border pixel 1
+          $win_game inhibit_idle focus
         }
         exec --no-startup-id ${sessionStart}
         exec ${pkgs.swayidle}/bin/swayidle -w \
@@ -102,6 +103,8 @@ in {
           [class="zoom" title=".*Webinar.*"] floating disable
 
           [class="firefox"] border pixel 1
+
+          [instance="steam_app.*"] $win_game
         }
 
 
