@@ -20,7 +20,7 @@ in {
   home.packages = [rofiLauncher];
   programs.rofi = {
     enable = true;
-    font = "Iosevka Custom 14";
+    # font = "GohuFont Regular 14";
     terminal = "wezterm";
     package = pkgs.rofi-wayland;
     plugins = [
@@ -35,6 +35,7 @@ in {
         margin = mkLiteral "0px";
         padding = mkLiteral "0px";
         spacing = mkLiteral "0px";
+        font = "GohuFont Regular ${toString 10.206}";
       };
       "window" = {
         location = mkLiteral "center";

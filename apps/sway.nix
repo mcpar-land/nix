@@ -51,10 +51,6 @@
       }
     ];
   };
-  fontConfig = {
-    names = ["FiraCode Nerd Font Propo"];
-    size = 11.0;
-  };
 in {
   imports = [
     ./screenshot.nix
@@ -65,6 +61,7 @@ in {
     brightnessctl
     playerctl
     libnotify
+    swaylock
   ];
   wayland.windowManager.sway = {
     enable = true;
@@ -72,6 +69,10 @@ in {
     wrapperFeatures.gtk = true;
     extraConfig = ''
       exec --no-startup-id ${sessionStart}
+      exec ${pkgs.swayidle}/bin/swayidle -w \
+        timeout 60 'swaylock -f' \
+        timeout 65 'swaymsg "output * power off"' \
+          resume 'swaymsg "output * power on"'
 
       for_window [class="zoom"] floating enable
       for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
@@ -113,7 +114,11 @@ in {
       focus.followMouse = false;
       focus.mouseWarping = true;
 
-      fonts = fontConfig;
+      fonts = {
+        names = ["GohuFont"];
+        style = "Regular";
+        size = 10.206;
+      };
       colors = let
         colorSet = baseColor: textColor: {
           background = baseColor;

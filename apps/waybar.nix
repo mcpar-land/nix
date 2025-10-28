@@ -137,8 +137,8 @@
     # css
     ''
       * {
-        font-family: "FiraCode Nerd Font Propo";
-        font-size: 11pt;
+        font-family: "GohuFont uni14 Nerd Font";
+        font-size: 14px;
         border: none;
         border-radius: 0;
       }

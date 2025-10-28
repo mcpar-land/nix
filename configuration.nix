@@ -35,46 +35,9 @@
   fonts.packages = with pkgs; [
     corefonts
     fira
-    nerd-fonts.fira-code
+    nerd-fonts.gohufont
+    gohufont
     font-awesome
-    (iosevka.override {
-      # https://typeof.net/Iosevka/customizer
-      privateBuildPlan = {
-        family = "Iosevka Custom";
-        spacing = "term";
-        serifs = "sans";
-        noCvSs = true;
-        exportGlyphNames = false;
-        weights.Regular = {
-          shape = 400;
-          menu = 400;
-          css = 400;
-        };
-        weights.Bold = {
-          shape = 700;
-          menu = 700;
-          css = 700;
-        };
-        widths.Normal = {
-          shape = 500;
-          menu = 5;
-          css = "normal";
-        };
-        slopes.Upright = {
-          angle = 0;
-          shape = "upright";
-          menu = "upright";
-          css = "normal";
-        };
-        slopes.Italic = {
-          angle = 9.4;
-          shape = "italic";
-          menu = "italic";
-          css = "italic";
-        };
-      };
-      set = "Custom";
-    })
   ];
   console = {
     earlySetup = true;

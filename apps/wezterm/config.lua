@@ -8,7 +8,7 @@ TAB_FG_INACTIVE = theme.base8
 TAB_BG_ACTIVE   = theme.green
 TAB_FG_ACTIVE   = theme.base0
 RIGHT_ARROW     = wezterm.nerdfonts.pl_left_hard_divider
-FONT = "Iosevka Custom"
+FONT = "GohuFont uni14 Nerd Font"
 
 wezterm.on('format-tab-title', function(tab, tabs, _, _, hover, max_width)
   local title = tab.tab_title
@@ -106,8 +106,8 @@ return {
     top = '8px',
     bottom = '8px',
   },
-  font_size = 11.0,
-  cell_width = 0.8,
+  font_size = 10.206,
+  cell_width = 1.0,
   font_rules = {
     {
       italic = false,

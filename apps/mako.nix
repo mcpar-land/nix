@@ -8,18 +8,21 @@
     sort = "+time";
     layer = "overlay";
 
-    width = 300;
-    height = 110;
+    margin = 4;
+    outer-margin = 8;
+
+    width = 400;
+    height = 250;
     text-color = theme.base8.hex;
     background-color = theme.base1.hex;
-    border-size = 4;
+    border-size = 1;
     border-color = theme.blue.hex;
     progress-color = "source ${theme.base4.hex}";
-    font = "FiraCode Nerd Font Propo 11";
+    font = "GohuFont 11";
 
     icons = 1;
     icon-location = "left";
-    max-icon-size = 64;
+    max-icon-size = 48;
 
     default-timeout = 5000;
     ignore-timeout = 0;
