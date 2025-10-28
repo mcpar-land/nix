@@ -8,8 +8,8 @@
     sort = "+time";
     layer = "overlay";
 
-    margin = 4;
-    outer-margin = 8;
+    margin = theme.gap / 2;
+    outer-margin = theme.gap;
 
     width = 400;
     height = 250;

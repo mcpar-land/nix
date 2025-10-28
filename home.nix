@@ -25,7 +25,6 @@
     ./apps/custom-cmds.nix
     ./apps/rclone.nix
     ./apps/dl-music.nix
-    ./apps/variety.nix
   ];
 
   home.packages = with pkgs; [

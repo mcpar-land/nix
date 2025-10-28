@@ -70,8 +70,7 @@ in {
     extraConfig = ''
       exec --no-startup-id ${sessionStart}
       exec ${pkgs.swayidle}/bin/swayidle -w \
-        timeout 60 'swaylock -f' \
-        timeout 65 'swaymsg "output * power off"' \
+        timeout 600 'swaymsg "output * power off"' \
           resume 'swaymsg "output * power on"'
 
       for_window [class="zoom"] floating enable
@@ -107,8 +106,8 @@ in {
     config = {
       modifier = mod;
       terminal = "wezterm";
-      gaps.inner = 0;
-      gaps.outer = 0;
+      # gaps.inner = theme.gap;
+      # gaps.outer = theme.gap;
       window.titlebar = true;
       window.border = 1;
       focus.followMouse = false;
