@@ -68,43 +68,65 @@ in {
     enable = true;
     systemd.enable = true;
     wrapperFeatures.gtk = true;
-    extraConfig = ''
-      exec --no-startup-id ${sessionStart}
-      exec ${pkgs.swayidle}/bin/swayidle -w \
-        timeout 600 'swaymsg "output * power off"' \
-          resume 'swaymsg "output * power on"'
+    extraConfig =
+      # i3config
+      ''
+        set {
+          $mod Mod4
 
-      for_window [class="zoom"] floating enable
-      for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
-      for_window [class="zoom" title="Zoom - Free Account"] floating disable
-      for_window [class="zoom" title="Zoom Workplace"] floating disable
-      for_window [class="zoom" title=".*Meeting.*"] floating disable
-      for_window [class="zoom" title=".*Webinar.*"] floating disable
+          $win_float floating enable; border pixel 1
+        }
+        exec --no-startup-id ${sessionStart}
+        exec ${pkgs.swayidle}/bin/swayidle -w \
+          timeout 600 'swaymsg "output * power off"' \
+            resume 'swaymsg "output * power on"'
 
-      for_window [class="firefox"] border pixel 1
+        for_window {
 
-      # Brightness size
-      set $brightness_size 5
-      # Framework Laptop F7: XF86MonBrightnessDown
-      # The --min-value option is important to prevent the complete darkness.
-      bindsym XF86MonBrightnessDown exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
-      # Framework Laptop F8: XF86MonBrightnessUp
-      bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
+          [window_role="pop-up,task_dialog,About"] $win_float
+          [window_type="dialog"] $win_float
+          [window_type="utility"] $win_float
+          [window_type="toolbar"] $win_float
+          [window_type="splash"] $win_float
+          [window_type="menu"] $win_float
+          [window_type="dropdown_menu"] $win_float
+          [window_type="popup_menu"] $win_float
+          [window_type="tooltip"] $win_float
+          [window_type="notification"] $win_float
 
-      set $volume_size 5
-      bindsym XF86AudioMute exec "i3-volume -n mute"
-      bindsym XF86AudioLowerVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-      bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+          [class="zoom"] floating enable
+          [class="zoom" title="Zoom - Licensed Account"] floating disable
+          [class="zoom" title="Zoom - Free Account"] floating disable
+          [class="zoom" title="Zoom Workplace"] floating disable
+          [class="zoom" title=".*Meeting.*"] floating disable
+          [class="zoom" title=".*Webinar.*"] floating disable
 
-      bindsym XF86AudioPrev exec "playerctl previous"
-      bindsym XF86AudioPlay exec "playerctl play-pause"
-      bindsym XF86AudioNext exec "playerctl next"
+          [class="firefox"] border pixel 1
+        }
 
-      input type:touchpad natural_scroll enabled
-      input type:touchpad scroll_factor 0.75
-      input type:touchpad click_method clickfinger
-      input type:touchpad clickfinger_button_map lrm
-    '';
+
+        # Brightness size
+        set $brightness_size 5
+        # Framework Laptop F7: XF86MonBrightnessDown
+        # The --min-value option is important to prevent the complete darkness.
+        bindsym XF86MonBrightnessDown exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+        # Framework Laptop F8: XF86MonBrightnessUp
+        bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
+
+        set $volume_size 5
+        bindsym XF86AudioMute exec "i3-volume -n mute"
+        bindsym XF86AudioLowerVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+        bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+
+        bindsym XF86AudioPrev exec "playerctl previous"
+        bindsym XF86AudioPlay exec "playerctl play-pause"
+        bindsym XF86AudioNext exec "playerctl next"
+
+        input type:touchpad natural_scroll enabled
+        input type:touchpad scroll_factor 0.75
+        input type:touchpad click_method clickfinger
+        input type:touchpad clickfinger_button_map lrm
+      '';
     config = {
       modifier = mod;
       terminal = "wezterm";
