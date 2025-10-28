@@ -8,7 +8,6 @@
   imports = [
     ./apps/sway.nix
     ./apps/aerc.nix
-    # ./apps/alacritty.nix
     ./apps/btop.nix
     ./apps/git.nix
     ./apps/helix.nix
