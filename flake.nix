@@ -107,6 +107,9 @@
           })
           (monitor-list ["HDMI-A-1" "DP-2" "DP-3"])
           (systemNameOverlay "j-desktop")
+          {
+            home-manager.extraSpecialArgs.is-zfs = true;
+          }
         ]
         ++ sharedSystemConfig;
     };
@@ -121,6 +124,9 @@
           })
           (monitor-list ["DP-1-1" "eDP-1" "DP-1-2"])
           (systemNameOverlay "j-laptop")
+          {
+            home-manager.extraSpecialArgs.is-zfs = false;
+          }
         ]
         ++ sharedSystemConfig;
     };

@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  is-zfs,
   ...
 }: {
   programs.waybar.enable = true;
@@ -26,6 +27,11 @@
       modules-right = [
         "custom/bracket-left"
         "network"
+        (
+          if is-zfs
+          then "custom/zfs-disk"
+          else "disk"
+        )
         "cpu"
         "memory"
         "temperature"
@@ -54,6 +60,17 @@
         format = " {usage}%";
         on-click = "wezterm -e btop";
       };
+      disk = {
+        format = "󰋊 {used}/{total}";
+      };
+      "custom/zfs-disk" = {
+        exec = pkgs.writeShellScript "zfs-disk" ''
+          TOTAL="$(zpool get -Hp -o value size zpool | numfmt --to=iec)"
+          USED="$(zpool get -Hp -o value allocated zpool | numfmt --to=iec)"
+          echo $USED/$TOTAL
+        '';
+        format = "󰋊 {text}";
+      };
       keyboard-state = {
         numlock = false;
         capslock = true;
@@ -70,9 +87,9 @@
         tooltip-format = "Memory";
       };
       network = {
-        format-wifi = "󰤢";
-        format-ethernet = "󰈀";
-        format-disconnected = "󰤠";
+        format-wifi = "󰤢 ";
+        format-ethernet = "󰈀 ";
+        format-disconnected = "󰤠 ";
         interval = 5;
         tooltip-format = "{essid} ({signalStrength}%)";
         on-click = "nm-connection-editor";
@@ -96,10 +113,6 @@
       "sway/workspaces" = {
         disable-scroll = true;
         format = "{name}";
-        format-icons = {
-          active = "";
-          default = "";
-        };
       };
       "custom/mediacontrol" = {
         format = " {}";
