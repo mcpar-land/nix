@@ -2,7 +2,6 @@
   sattyConfig = (pkgs.formats.toml {}).generate "satty" {
     general = {
       fullscreen = true;
-      no-window-decoration = true;
       early-exit = true;
       initial-tool = "crop";
       save-after-copy = false;
