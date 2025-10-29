@@ -26,6 +26,7 @@ in {
     gdtoolkit_4
     r2modman
     rpcs3
+    luanti-client
 
     jre_headless # for minecraft
     prismlauncher
