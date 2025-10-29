@@ -14,6 +14,7 @@
       modules-left = [
         "custom/bracket-left"
         "sway/workspaces"
+        "sway/mode"
         "custom/bracket-right"
         "custom/mediacontrol"
       ];
@@ -218,12 +219,18 @@
         background: ${theme.red.hex};
       }
 
+      #mode {
+        background: ${theme.orange.hex};
+        color: ${theme.base0.hex};
+      }
+
       #keyboard-state {
         padding: 0;
-        color: ${theme.orange.hex};
       }
       #keyboard-state label.locked {
         padding: 0 0.5em;
+        background: ${theme.orange.hex};
+        color: ${theme.base0.hex};
       }
 
       #custom-bracket-left, #custom-bracket-right {
