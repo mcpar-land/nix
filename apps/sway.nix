@@ -95,10 +95,6 @@ in {
           [window_type="tooltip"] $win_float
           [window_type="notification"] $win_float
 
-          [class="zoom"] floating enable
-          [class="zoom" title="Zoom - Licensed Account"] floating disable
-          [class="zoom" title="Zoom - Free Account"] floating disable
-          [class="zoom" title="Zoom Workplace"] floating disable
           [class="zoom" title=".*Meeting.*"] floating disable
           [class="zoom" title=".*Webinar.*"] floating disable
 
