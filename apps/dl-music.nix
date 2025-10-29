@@ -28,7 +28,7 @@
 in {
   home.packages = [
     dl-music
-    pkgs.unstable.curl-impersonate
-    pkgs.unstable.python313Packages.curl-cffi
+    pkgs.curl-impersonate
+    pkgs.python313Packages.curl-cffi
   ];
 }
