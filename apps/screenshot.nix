@@ -1,9 +1,10 @@
 {pkgs, ...}: let
   sattyConfig = (pkgs.formats.toml {}).generate "satty" {
     general = {
-      fullscreen = false;
+      fullscreen = true;
+      no-window-decoration = true;
       early-exit = true;
-      initial-tool = "arrow";
+      initial-tool = "crop";
       save-after-copy = false;
       disable-notifications = false;
       action-on-enter = "save-to-clipboard";
@@ -11,8 +12,8 @@
     };
   };
   screenshot = pkgs.writeShellScriptBin "screenshot" ''
-    ${pkgs.grim}/bin/grim -t ppm -g "$(${pkgs.slurp}/bin/slurp -d)" - | \
-      ${pkgs.satty}/bin/satty -c ${sattyConfig} -f -
+    CURRENT_MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true).name')
+    ${pkgs.grim}/bin/grim -o $CURRENT_MONITOR -t ppm - | ${pkgs.satty}/bin/satty -c ${sattyConfig} -f -
   '';
 in {
   home.packages = [
