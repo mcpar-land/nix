@@ -194,6 +194,9 @@ in {
           "${mod}+Shift+bracketleft" = "move workspace to output left";
           "${mod}+Shift+bracketright" = "move workspace to output right";
 
+          # toggle floating
+          "${mod}+grave" = "floating toggle";
+
           # apps
           "${mod}+t" = "exec --no-startup-id wezterm";
           "${mod}+o" = "exec --no-startup-id obsidian";
