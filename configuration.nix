@@ -15,6 +15,7 @@
     (vesktop.override {
       withSystemVencord = false;
     })
+    # discord
     ntfs3g
     udiskie
     j-ctl
@@ -31,6 +32,20 @@
     # network manager
     networkmanagerapplet
   ];
+
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = ["gtk"];
+        "org.freedesktop.impl.portal.Screenshot" = "wlr";
+        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+      };
+    };
+    wlr = {
+      enable = true;
+    };
+  };
 
   fonts.packages = with pkgs; [
     corefonts

@@ -77,6 +77,7 @@ in {
           $win_float floating enable; border pixel 1
           $win_game inhibit_idle focus
         }
+        exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
         exec --no-startup-id ${sessionStart}
         exec ${pkgs.swayidle}/bin/swayidle -w \
           timeout 600 'swaymsg "output * power off"' \
