@@ -10,7 +10,7 @@
   };
 in {
   imports = [
-    ../apps/jira.nix
+    ../apps/jiratui.nix
   ];
 
   home.username = "mcp";
