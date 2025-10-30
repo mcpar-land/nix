@@ -1,5 +1,10 @@
-{pkgs, ...}: let
-  bg = "${../wallpapers/disco_thoughts.png} stretch";
+{
+  pkgs,
+  name,
+  user-wallpapers,
+  ...
+}: let
+  bg = "${user-wallpapers.${name}} stretch";
 in {
   wayland.windowManager.sway.config.output = {
     "HDMI-A-1" = {

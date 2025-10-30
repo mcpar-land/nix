@@ -49,6 +49,10 @@
     monitor-list = monitors: {
       home-manager.extraSpecialArgs.monitor-list = monitors;
     };
+    user-wallpapers = {
+      sc = ./wallpapers/martinaise.png;
+      mcp = ./wallpapers/disco_church.png;
+    };
     # shared system config across all devices
     sharedSystemConfig = [
       ({pkgs, ...}: {
@@ -76,10 +80,18 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.sc.imports = [agenix.homeManagerModules.default ./home.nix ./users/sc.nix];
-        home-manager.users.mcp.imports = [agenix.homeManagerModules.default ./home.nix ./users/mcp.nix];
+        home-manager.users.sc.imports = [
+          agenix.homeManagerModules.default
+          ./home.nix
+          ./users/sc.nix
+        ];
+        home-manager.users.mcp.imports = [
+          agenix.homeManagerModules.default
+          ./home.nix
+          ./users/mcp.nix
+        ];
         home-manager.extraSpecialArgs = {
-          inherit theme;
+          inherit theme user-wallpapers;
         };
       }
     ];
