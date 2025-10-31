@@ -51,6 +51,25 @@
       }
     ];
   };
+  adjustVolume = pkgs.writeShellScript "adjust-volume" ''
+    wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ $1
+    VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | rg "Volume: (.+)" -r '($1*100/1)' | ${pkgs.bc}/bin/bc)
+    notify-send -e -t 1000 \
+      -h int:value:$VOLUME \
+      -h string:x-canonical-private-synchronous:notify-volume \
+      -a notify-volume \
+      Volume ''${VOLUME}%
+  '';
+  adjustBrightness = pkgs.writeShellScript "adjust-brightness" ''
+    brightnessctl --device intel_backlight --min-value=1 set $1
+    BRIGHTNESS=$(echo "scale=2;f=($(brightnessctl g)/$(brightnessctl m)*100);scale=0;f/1" | ${pkgs.bc}/bin/bc)
+
+    notify-send -e -t 1000 \
+      -h int:value:$BRIGHTNESS \
+      -h string:x-canonical-private-synchronous:notify-brightness \
+      -a notify-brightness \
+      Brightness ''${BRIGHTNESS}%
+  '';
 in {
   imports = [
     ./screenshot.nix
@@ -109,14 +128,14 @@ in {
         set $brightness_size 5
         # Framework Laptop F7: XF86MonBrightnessDown
         # The --min-value option is important to prevent the complete darkness.
-        bindsym XF86MonBrightnessDown exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+        bindsym XF86MonBrightnessDown exec ${adjustBrightness} 5%-
         # Framework Laptop F8: XF86MonBrightnessUp
-        bindsym XF86MonBrightnessUp exec "brightnessctl --device intel_backlight set $brightness_size%+"
+        bindsym XF86MonBrightnessUp exec ${adjustBrightness} 5%+
 
         set $volume_size 5
         bindsym XF86AudioMute exec "i3-volume -n mute"
-        bindsym XF86AudioLowerVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-        bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+        bindsym XF86AudioLowerVolume exec ${adjustVolume} 5%-
+        bindsym XF86AudioRaiseVolume exec ${adjustVolume} 5%+
 
         bindsym XF86AudioPrev exec "playerctl previous"
         bindsym XF86AudioPlay exec "playerctl play-pause"
@@ -213,8 +232,6 @@ in {
           #next and previous
           "${mod}+bracketleft" = swayWorkspaceSwitchCmd (-1);
           "${mod}+bracketright" = swayWorkspaceSwitchCmd 1;
-          # "${mod}+bracketleft" = "workspace prev";
-          # "${mod}+bracketright" = "workspace next";
           "${mod}+Tab" = "workspace back_and_forth";
 
           "Control+Mod1+Delete" = "exec wezterm start --class term_btop --always-new-process btop -p 1";
