@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   sattyConfig = (pkgs.formats.toml {}).generate "satty" {
     general = {
-      fullscreen = true;
+      fullscreen = false;
       early-exit = true;
       initial-tool = "crop";
       save-after-copy = false;
