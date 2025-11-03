@@ -21,6 +21,7 @@ in {
     sops
     awscli2
     aws-vault
+    ssm-session-manager-plugin
     mysql80
     kubectl
 
