@@ -56,8 +56,8 @@
   ];
   console = {
     earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-u14n.psf.gz";
-    packages = with pkgs; [terminus_font];
+    font = "${pkgs.gohufont}/share/consolefonts/gohufont-uni-14.psf";
+    packages = with pkgs; [gohufont];
     keyMap = "us";
   };
 
