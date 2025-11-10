@@ -7,6 +7,9 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware/master";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs = {
@@ -39,6 +42,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixos-hardware,
     home-manager,
     rust-overlay,
     helix,
@@ -129,6 +133,7 @@
       system = "x86_64-linux";
       modules =
         [
+          nixos-hardware.nixosModules.framework-12-13th-gen-intel
           ./hardware/j-laptop.nix
           ((import ./apps/pipewire.nix) {
             outputDeviceId = "alsa_output.pci-0000_00_1f.3.analog-stereo";
