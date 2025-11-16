@@ -20,6 +20,8 @@
     radeontop # view amd gpu usage
   ];
 
+  services.udev.packages = [pkgs.headsetcontrol];
+
   # for tekken?
   environment.etc.hosts = lib.mkForce {
     enable = true;

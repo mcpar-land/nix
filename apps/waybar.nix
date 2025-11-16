@@ -36,6 +36,11 @@
         "cpu"
         "memory"
         "temperature"
+        (
+          if is-zfs
+          then "custom/headset"
+          else null
+        )
         "battery"
         "custom/bracket-right"
         "tray"
@@ -136,6 +141,14 @@
         tooltip = true;
         exec = "j-ctl weather ${location}";
         return-type = "json";
+      };
+      "custom/headset" = {
+        format = "󰋎 {}%";
+        exec-if = "headsetcontrol --connected";
+        exec = "headsetcontrol --output json | jq \".devices[0].battery.level\"";
+        escape = true;
+        tooltip = false;
+        interval = 10;
       };
       "custom/bracket-left" = {
         format = "[";
