@@ -70,6 +70,8 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
+  boot.zfs.passwordTimeout = 0;
+
   # recommended?
   services.zfs.autoScrub.enable = true;
 
@@ -77,29 +79,38 @@
     device = "zpool/root";
     fsType = "zfs";
     options = ["zfsutil"];
+    neededForBoot = true;
   };
 
   fileSystems."/nix" = {
     device = "zpool/nix";
     fsType = "zfs";
     options = ["zfsutil"];
+    depends = ["/"];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
     device = "/dev/nvme0n1p1";
     fsType = "vfat";
+    depends = ["/"];
+    neededForBoot = true;
   };
 
   fileSystems."/var" = {
     device = "zpool/enc/var";
     fsType = "zfs";
     options = ["zfsutil"];
+    depends = ["/"];
+    neededForBoot = true;
   };
 
   fileSystems."/home" = {
     device = "zpool/enc/home";
     fsType = "zfs";
     options = ["zfsutil"];
+    depends = ["/"];
+    neededForBoot = true;
   };
 
   swapDevices = [
