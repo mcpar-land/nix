@@ -1,8 +1,13 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: let
+  startScript = pkgs.writeShellScript "start-gamemode" ''
+    ${pkgs.libnotify}/bin/notify-send 'GameMode started'
+    makoctl mode -a gamemode-shush
+  '';
+  endScript = pkgs.writeShellScript "end-gamemode" ''
+    makoctl mode -r gamemode-shush
+    ${pkgs.libnotify}/bin/notify-send 'GameMode ended'
+  '';
+in {
   environment.systemPackages = with pkgs; [
     mangohud
   ];
@@ -11,8 +16,8 @@
     enableRenice = true;
     settings = {
       custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        start = "${startScript}";
+        end = "${endScript}";
       };
       cpu = {
         park_cores = true;

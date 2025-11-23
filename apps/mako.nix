@@ -47,7 +47,10 @@ in {
       anchor = "top-right";
       markup = true;
       actions = true;
-      history = 0;
+      history = 1;
+      "mode=gamemode-shush" = {
+        invisible = 1;
+      };
     }
     // (center-controller "notify-volume") // (center-controller "notify-brightness");
 }
