@@ -1,10 +1,10 @@
 {pkgs, ...}: let
   startScript = pkgs.writeShellScript "start-gamemode" ''
     ${pkgs.libnotify}/bin/notify-send 'GameMode started'
-    makoctl mode -a gamemode-shush
+    makoctl mode -s gamemode-shush
   '';
   endScript = pkgs.writeShellScript "end-gamemode" ''
-    makoctl mode -r gamemode-shush
+    makoctl mode -s default
     ${pkgs.libnotify}/bin/notify-send 'GameMode ended'
   '';
 in {
