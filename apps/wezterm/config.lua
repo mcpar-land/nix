@@ -68,6 +68,7 @@ return {
       theme.base0,
     },
   },
+  alternate_buffer_wheel_scroll_speed = 1,
   colors = {
     foreground = theme.base8,
     background = theme.base0,
