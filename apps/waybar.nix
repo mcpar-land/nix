@@ -3,7 +3,9 @@
   theme,
   is-zfs,
   ...
-}: {
+}: let
+  filterNull = builtins.filter (f: f != null);
+in {
   programs.waybar.enable = true;
   programs.waybar.systemd = {
     enable = true;
@@ -11,21 +13,21 @@
   };
   programs.waybar.settings = {
     mainBar = {
-      modules-left = [
+      modules-left = filterNull [
         "custom/bracket-left"
         "sway/workspaces"
         "sway/mode"
         "custom/bracket-right"
         "custom/mediacontrol"
       ];
-      modules-center = [
+      modules-center = filterNull [
         "custom/bracket-left"
         "clock"
         "custom/weather"
         "keyboard-state"
         "custom/bracket-right"
       ];
-      modules-right = [
+      modules-right = filterNull [
         "custom/bracket-left"
         "network"
         (
